@@ -7,5 +7,21 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "aj@ajmarino.com",
-  "license": "MIT"
+  "license": "MIT",
+  "private": true,
+  "repository": {
+    "type": "git",
+    "url": "https://ajmarino@github.com/ajmarino/groundwork.git"
+  },
+  "bugs": {
+    "url": "https://github.com/ajmarino/groundwork/issues"
+  },
+  "homepage": "https://github.com/ajmarino/groundwork",
+  "dependencies": {
+    "include-media": "^1.4.9",
+    "laravel-mix": "^1.4.2",
+    "normalize-opentype.css": "^0.2.4",
+    "normalize.css": "^7.0.0",
+    "sassdoc": "^2.3.0"
+  }
 }

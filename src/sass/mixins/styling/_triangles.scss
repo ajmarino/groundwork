@@ -1,0 +1,88 @@
+/// 
+/// Mixin for adding a triangle to a `:before` or `:after` psuedo element.
+/// 
+/// @param {String} $element         - psuedo element to use, only allows "before" or "after"
+/// @param {String} $direction       - direction for the arrow to face
+/// @param {List}   $position        - List of offsets and values
+/// @param {String} $color [inherit] - color for arrow
+/// @param {Int}    $size [1em]      - size of arrow
+/// 
+/// 
+/// @group Styling
+/// 
+/// 
+/// 
+/// @example scss
+/// // Usage
+/// .el {
+///     @include triangle(after, left, top 50% right -10px, #333, 12px);
+/// }
+/// 
+/// // Output
+/// .el {
+///     &:after {
+///       position: absolute;
+///       top: 50%;
+///       right: -10px;
+///       width: 0;
+///       height: 0;
+///       content: '';
+///       z-index: 2;
+///       border-right: 12px solid #333;
+///       border-top: 12px solid transparent;
+///       border-bottom: 12px solid transparent;
+///     }
+/// }
+/// 
+/// 
+/// @throws Warning if $element is not 'before' or 'after'
+/// @throws Watning if $direction is not 'top right bottom left'
+/// 
+@mixin triangle($element, $direction, $position, $color: currentColor, $size: 1em) {
+  // Make sure the element is valid
+  @if not index(before after, $element) {
+    @warn "Element can only be before or after";
+  }
+
+  @else {
+    // Make sure the direction is valid
+    @if not index(top right bottom left, $direction) {
+      @warn "Direction must be one of top, right, bottom or left.";
+    }
+
+    @else {
+      &:#{$element} {
+        @include absolute($position); // Position
+        @include size(0); // Size
+        content: '';
+        z-index: 2;
+        
+        $perpendicular-borders: $size solid transparent;
+        
+        @if $direction == top {
+          border-bottom: $size * 1.5 solid $color;
+        }
+        @else if $direction == bottom {
+          border-top: $size * 1.5 solid $color;
+        }
+        @else if $direction == left {
+          border-right: $size * 1.5 solid $color;
+        }
+        @else if $direction == right {
+          border-left: $size * 1.5 solid $color;
+        }
+        
+       
+        @if $direction == top or $direction == bottom {
+          border-left:   $perpendicular-borders;
+          border-right:  $perpendicular-borders;
+        }
+
+        @else if $direction == right or $direction == left {
+          border-bottom: $perpendicular-borders;
+          border-top:    $perpendicular-borders;
+        }
+      }
+    }
+  }
+}

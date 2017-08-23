@@ -1,0 +1,31 @@
+/// Tests whether `$var` is empty.
+/// 
+/// @group Checks
+/// 
+/// @link http://vulcan-framework.github.io/core/
+/// 
+/// @param {Literal} $var  - check for emptiness
+/// 
+/// @return {Bool}
+/// 
+/// @example
+///  is-empty('')     //returns true
+///  is-empty(())     //returns true
+///  is-empty('test') //returns false
+@function is-empty($var) {
+    @if type-of($var) == string {
+        @return str-length($var) == 0;
+    }
+    @if type-of($var) == number {
+        @return $var == 0;
+    }
+    @if type-of($var) == list {
+        @return length($var) == 0;
+    }
+    @if $var == false {
+        @return true;
+    }
+    @if $var == null {
+        @return true;
+    }
+}

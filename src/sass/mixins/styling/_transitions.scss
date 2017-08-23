@@ -1,0 +1,24 @@
+/// 
+/// Outputs a specific type of transition with duration and easing type.
+/// <br>See `$transitions` variable
+/// 
+/// @param {String} $transition-name [all] - Name for transition type
+/// 
+/// 
+/// @group Styling
+/// 
+/// 
+/// @example scss
+/// // Usage
+/// .el {
+///     @include transition("border");
+/// }
+/// 
+/// // Output
+/// .el {
+/// 		transition: border 0.3s linear;
+/// }
+/// 
+@mixin trans($transition-name: all) {
+	transition: map-get($transitions, $transition-name);
+}

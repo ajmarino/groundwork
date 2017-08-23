@@ -1,0 +1,229 @@
+//// 
+//// @group Color Palette
+//// @requires {function} create-named-palette
+//// 
+
+
+
+/// 
+/// Retrieves the lighest color from a map generated with `create-named-palette`.
+/// 
+/// @param {Map} $palette - Map of colors with associated names
+/// 
+/// 
+/// @example scss
+/// // Usage
+/// .el {
+///     color: get-lightest($green-palette);
+/// }
+/// 
+/// // Output
+/// .el {
+///     color: #f4f1f3;
+/// }
+/// 
+/// 
+/// @return {String} - single color matching the given keyword
+/// 
+@function get_lightest($palette) {
+  @if not map-has-key($palette, 'lightest') {
+    @warn "`#{inspect($palette)}` doesn't seem to have a key named `lightest`.";
+  }
+ 
+  @return map-get($palette, 'lightest');
+}
+
+
+
+
+
+/// 
+/// Retrieves the lighter color from a map generated with `create-named-palette`.
+/// 
+/// @param {Map} $palette - Map of colors with associated names
+/// 
+/// 
+/// @example scss
+/// // Usage
+/// .el {
+///     color: get-lighter($green-palette);
+/// }
+/// 
+/// // Output
+/// .el {
+///     color: #d5d5d5;
+/// }
+/// 
+/// 
+/// @return {String} - single color matching the given keyword
+/// 
+@function get_lighter($palette) {
+  @if not map-has-key($palette, 'lighter') {
+    @warn "`#{inspect($palette)}` doesn't seem to have a key named `lighter`.";
+  }
+ 
+  @return map-get($palette, 'lighter');
+}
+ 
+
+
+
+
+
+/// 
+/// Retrieves the light color from a map generated with `create-named-palette`.
+/// 
+/// @param {Map} $palette - Map of colors with associated names
+/// 
+/// 
+/// @example scss
+/// // Usage
+/// .el {
+///     color: get-light($green-palette);
+/// }
+/// 
+/// // Output
+/// .el {
+///     color: #c2c3c0;
+/// }
+/// 
+/// 
+/// @return {String} - single color matching the given keyword
+/// 
+@function get_light($palette) {
+  @if not map-has-key($palette, 'light') {
+    @warn "`#{inspect($palette)}` doesn't seem to have a key named `light`.";
+  }
+ 
+  @return map-get($palette, 'light');
+}
+
+
+
+
+
+
+/// 
+/// Retrieves the base color from a map generated with `create-named-palette`.
+/// 
+/// @param {Map} $palette - Map of colors with associated names
+/// 
+/// 
+/// @example scss
+/// // Usage
+/// .el {
+///     color: get-base($green-palette);
+/// }
+/// 
+/// // Output
+/// .el {
+///     color: lightgreen;
+/// }
+/// 
+/// 
+/// @return {String} - single color matching the given keyword
+/// 
+@function get_base($palette) {
+  @if not map-has-key($palette, 'base') {
+    @warn "`#{inspect($palette)}` doesn't seem to have a key named `base`.";
+  }
+ 
+  @return map-get($palette, 'base');
+}
+
+
+
+
+
+/// 
+/// Retrieves the dark color from a map generated with `create-named-palette`.
+/// 
+/// @param {Map} $palette - Map of colors with associated names
+/// 
+/// 
+/// @example scss
+/// // Usage
+/// .el {
+///     color: get-dark($green-palette);
+/// }
+/// 
+/// // Output
+/// .el {
+///     color: #79b079
+/// }
+/// 
+/// 
+/// @return {String} - single color matching the given keyword
+/// 
+@function get_dark($palette) {
+  @if not map-has-key($palette, 'dark') {
+    @warn "`#{inspect($palette)}` doesn't seem to have a key named `dark`.";
+  }
+ 
+  @return map-get($palette, 'dark');
+}
+ 
+
+
+
+
+
+/// 
+/// Retrieves the darker color from a map generated with `create-named-palette`.
+/// 
+/// @param {Map} $palette - Map of colors with associated names
+/// 
+/// 
+/// @example scss
+/// // Usage
+/// .el {
+///     color: get-darker($green-palette);
+/// }
+/// 
+/// // Output
+/// .el {
+///     color: #4f864f;
+/// }
+/// 
+/// 
+/// @return {String} - single color matching the given keyword
+/// 
+@function get_darker($palette) {
+  @if not map-has-key($palette, 'darker') {
+    @warn "`#{inspect($palette)}` doesn't seem to have a key named `darker`.";
+  }
+ 
+  @return map-get($palette, 'darker');
+}
+
+
+
+
+
+/// 
+/// Retrieves the darkest color from a map generated with `create-named-palette`.
+/// 
+/// @param {Map} $palette - Map of colors with associated names
+/// 
+/// 
+/// @example scss
+/// // Usage
+/// .el {
+///     color: get-darkest($green-palette);
+/// }
+/// 
+/// // Output
+/// .el {
+///     color: #497c49;
+/// }
+/// 
+/// 
+/// @return {String} - single color matching the given keyword
+/// 
+@function get_darkest($palette) {
+  @if not map-has-key($palette, 'darkest') {
+    @warn "`#{inspect($palette)}` doesn't seem to have a key named `darkest`.";
+  }
+ 
+  @return map-get($palette, 'darkest');
+}

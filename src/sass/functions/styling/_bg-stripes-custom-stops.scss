@@ -1,0 +1,34 @@
+/// 
+/// Creates a linear-gradient using custom color stops.<br>
+/// See `stripes` function in `Misc`
+/// 
+/// @param {List} $colors - List of colors with specific color stops
+/// 
+/// @access private
+/// 
+/// @group Styling
+/// 
+/// @return {Linear Gradient}
+/// 
+@function _stripes-custom-stops($colors) {
+	$gradients: ();
+
+	@for $i from 1 to length($colors) {
+		@if length(nth($colors, $i)) > 1 {
+			$color: nth(nth($colors, $i), 1);
+			$stop:  nth(nth($colors, $i), 2);
+
+			$gradients: append($gradients, $color $stop, comma);
+
+			@if $i < length($colors) {
+				$gradients: append($gradients, nth(nth($colors, $i + 1), 1) $stop);
+			}
+		}
+
+		@else {
+			@warn "`#{nth($colors, $i)}` skipped because it is only one item long while it should be 2: (color, color-stop).";
+		}
+	}
+
+	@return $gradients;
+}

@@ -1,0 +1,84 @@
+////
+///  @group Styling
+////
+
+/// 
+/// Absolute position mixin using `_position` function.
+/// 
+/// @param {List} $args - List of offsets and values
+/// 
+/// @throws Warning: will not output any selector for position other than 'top right bottom left'
+/// @throws Warning: will not output value other and a number or 'auto'
+/// 
+/// @example scss
+/// // Usage
+/// .el {
+///     @include absolute(top 5px left 50%);
+/// }
+/// 
+/// // Output
+/// .el {
+///     position: absolute;
+///     top: 5px;
+///     left: 50%;
+/// }
+/// 
+@mixin absolute($args) {
+  @include _position(absolute, $args);
+}
+
+
+/// 
+/// Relative position mixin using `_position` function.
+/// 
+/// @param {List} $args - List of offsets and values
+/// 
+/// @throws Warning: will not output any selector for position other than 'top right bottom left'
+/// @throws Warning: will not output value other and a number or 'auto'
+/// 
+/// @example scss
+/// // Usage
+/// .el {
+///     @include relative(top 50% right 0 left 0);
+/// }
+/// 
+/// // Output
+/// .el {
+///     position: relative;
+///     top: 50%;
+///     right: 0;
+///     left: 0;
+/// }
+/// 
+@mixin relative($args) {
+  @include _position(relative, $args);
+}
+
+
+
+/// 
+/// Fixed position mixin using `_position` function.
+/// 
+/// @param {List} $args - List of offsets and values
+/// 
+/// @throws Warning: will not output any selector for position other than 'top right bottom left'
+/// @throws Warning: will not output value other and a number or 'auto'
+/// 
+/// @example scss
+/// // Usage
+/// .el {
+///     @include fixed(top 0 right 0 bottom 0 left 0)
+/// }
+/// 
+/// // Output
+/// .el {
+///     position: fixed;
+///     top: 0;
+///     right: 0;
+///     bottom: 0;
+///     left: 0;
+/// }
+/// 
+@mixin fixed($args) {
+  @include _position(fixed, $args);
+}

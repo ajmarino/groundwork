@@ -1,0 +1,39 @@
+///
+/// Query when the total items is at most `$count` items
+/// 
+/// @group Checks
+/// 
+/// @link http://alistapart.com/article/quantity-queries-for-css
+/// @link https://github.com/danielguillan/quantity-queries
+/// @link http://quantityqueries.com/
+/// 
+/// @param {Number} $count           - Quantity to match (equal or less)
+/// @param {String} $selector [null] - Selector to filter with
+/// 
+/// @example scss - Make the items color red when there are 4 items or less
+/// ul li {
+///     @include at-most(4) { color: red; }
+/// }
+/// 
+/// @example scss - Make the items color blue when there are 6 items or less and use '*' (element agnostic) as the item selector
+/// ul li {
+///     @include at-most(6, '*') { color: blue; }
+/// }
+///
+@mixin at-most($count, $selector: null) {
+    $selector-append: ':nth-last-child(-n+#{$count}):first-child';
+
+    @if type-of($count) != 'number' or not unitless($count) or $count < 1 {
+        @error "`$count` is not a valid number for `at-most`.";
+    }
+
+    @if $selector != null and (type-of($selector) != 'string' or length($selector) > 1) {
+        @error "`$selector` is not a valid selector for `at-most`";
+    }
+
+    $at-most-selector: _build-quantity-selector($selector-append, $selector);
+
+    @at-root #{$at-most-selector} {
+        @content;
+    }
+}

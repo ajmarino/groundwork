@@ -1,0 +1,27 @@
+/// 
+/// Creates an state based class using human-readable code - `.is-`
+/// 
+/// @group BEM
+/// 
+/// @link http://codepen.io/andersschmidt/thoughts/expressive-bem-with-sass-part-ii-a-first-draft-of-mixins/
+/// 
+/// @param {String | List} $state - state to use
+/// 
+/// @example scss
+/// // SCSS
+/// .menu {
+///   @include if-its('open')
+/// } 
+/// 
+/// // CSS
+/// .menu {
+/// }
+/// 
+/// .menu.is-open {
+/// }
+/// 
+@mixin if-its($state) {
+	&.is-#{$state} {
+		@content;
+	}
+}

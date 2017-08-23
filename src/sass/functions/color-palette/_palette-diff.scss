@@ -1,0 +1,39 @@
+/// 
+/// Compute the diff for each color from the initial palette.
+/// 
+/// @access private
+/// 
+/// @group Color Palette
+/// 
+/// @param {Map} $palette - palette
+/// 
+/// @requires {Function} color-diff
+/// 
+/// @return {List} List of diffs to apply to turn 1 color into another
+/// 
+@function palette-diff($palette) {
+  $base: map-get($palette, "base");
+  $colors: map-get($palette, "colors");
+  
+  $diffs: ();
+  
+  @each $color in $colors {
+    $diffs: append($diffs, color-diff($base, $color));
+  }
+  
+  @return $diffs;
+}
+
+
+
+
+/// 
+/// Palette of diffs based on colors in `$base-palette:colors`.
+/// 
+/// @access private
+/// 
+/// @group Color Palette
+/// 
+/// @type List
+/// 
+$palette-diffs: palette-diff($base-palette);

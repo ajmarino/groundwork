@@ -1,0 +1,23 @@
+/// 
+/// Simple function to remove the units from a value
+/// 
+/// @param $number {Int} - Number to remove units from
+/// 
+/// @group Utility
+/// 
+/// @example scss
+/// // Usage
+///  $base-lh : 1.5em;
+/// 
+/// .el {
+///     line-height: strip-units($base-lh);
+/// }
+/// 
+/// // Output
+/// .el {
+///     line-height: 1.5;
+/// }
+/// 
+@function strip-units($number) {
+	@return $number / ($number * 0 + 1);
+}

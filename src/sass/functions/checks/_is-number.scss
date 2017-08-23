@@ -1,0 +1,21 @@
+/// Tests whether `$var` is number.
+/// 
+/// @group checks
+/// 
+/// @link http://vulcan-framework.github.io/core/
+/// 
+/// @param {Literal} $var  - check for numeric type
+/// 
+/// @return {Bool}
+/// 
+/// @example
+///  is-number(1)   //returns true
+///  is-number('1') //returns false
+///  is-number(1em) //returns false
+///  
+@function is-number($var) {
+    @if type-of($var) == number {
+        @return unitless($var);
+    }
+    @return false;
+}

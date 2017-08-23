@@ -1,0 +1,29 @@
+/// Function for getting a z-index value.
+/// <br>See `$z-layers` var under `Global Styling`
+/// 
+/// @param  {Sting} $layer           - Named item to get z index of
+/// @param  {Map}   $map [$z-layers] - Name of z-layers map
+/// 
+/// @group Getters
+/// 
+/// 
+/// @return {Int}  - Z-index
+/// 
+/// 
+/// @example scss
+/// // Usage
+/// .el {
+///     z-index: z('modal');
+/// }
+/// 
+/// // Output
+/// .el {
+///     z-index: 10;
+/// }
+@function z($layer, $map: $z-layers) {
+    @if not map-has-key($map, $layer) {
+        @warn "No layer found for `#{$layer}` in $z-layers map. Property omitted.";
+    }
+
+    @return map-get($map, $layer);
+}

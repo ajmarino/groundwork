@@ -1,0 +1,445 @@
+/// 
+/// A set of mixins for single element loaders and spinners
+/// 
+/// @group Styling
+/// 
+/// @link https://github.com/MatejKustec/SpinThatShit
+/// 
+/// @param {String}  $name              - name of loader style
+/// @param {String}  $color [#0052ec]   - color of loader
+/// @param {Integer} $size [56px]       - size of the loader
+/// @param {Integer} $height [20px]     - height of loader elements
+/// @param {Integer} $border-size [8px] - size for circle versionse
+/// @param {Integer} $gap [12px]        - space between elements
+/// @param {Integer} $duration [1s]     - timing for animation
+/// @param {String}  $align [middle]    - alignment for items
+/// 
+/// @example html
+/// <div class="loader01"></div>
+/// 
+/// 
+/// @example scss
+/// .loader01 {
+///     @include loader('circle-cutout')
+/// }
+/// 
+/// // CSS
+///   .loader01 { height: 56px; width: 56px; -webkit-animation: loader-rotate 1s linear infinite; animation: loader-rotate 1s linear infinite; border-radius: 50%; border-right-color: transparent; border: 8px solid #0052ec; position: relative; top: 50%; margin: -28px auto 0; }
+///   @-webkit-keyframes loader-rotate { from { -webkit-transform: rotate(0); transform: rotate(0); }
+///     to { -webkit-transform: rotate(360deg); transform: rotate(360deg); } }
+///   @keyframes loader-rotate { from { -webkit-transform: rotate(0); transform: rotate(0); }
+///     to { -webkit-transform: rotate(360deg); transform: rotate(360deg); } }
+///     
+/// .loader01::after { top: -1px; left: 33px; position: absolute; height: 8px; width: 8px; content: ''; background: #0052ec; border-radius: 50%; }
+/// 
+/// 
+@mixin loader($name, $color: #0052ec, $size: 56px, $height: 20px, $border-size: 8px, $gap: 12px, $duration: 1s, $align: middle) {
+	$loaders: 'circle-cutout', 'circle-reverse', 'circle-cutout-dbl', 'circle-dot', 'circle-zoom', 'circle-pulse', 'circle-dots', 'squares', 'bars', 'dots-growing', 'dots-raising', 'dots-fading';
+
+	@if not contains($loaders, $name) {
+		@warn "`#{$name}` is not a valid Loader name. Property omitted. Valid names are [#{$loaders}]";
+	}
+	
+	@include loader-rotate;
+	
+	@if $name == 'circle-cutout' {
+		@include size($size);
+		animation: loader-rotate $duration linear infinite;
+		border-radius: 50%;
+		border-right-color: transparent;
+		border: $border-size solid $color;
+		position: relative;
+
+		@include loader-align($align, $size);
+
+		&::after {
+			@include absolute(top circle-position($size, $border-size, y) left circle-position($size, $border-size, x) );
+			@include size($border-size);
+			content: '';
+			background: $color;
+			border-radius: 50%;
+		}
+
+	} @else if $name == 'circle-reverse' {
+		@include size($size);
+		animation: loader-rotate $duration linear infinite;
+		border-radius: 50%;
+		border-top-color: $color;
+		border: $border-size solid rgba($color, 0.25);
+		position: relative;
+
+		@include loader-align($align, $size);
+
+	} @else if $name == 'circle-cutout-dbl' {
+		@include size($size);
+		animation: loader-rotate $duration linear infinite;
+		border-bottom-color: $color;
+		border-radius: 50%;
+		border-top-color: $color;
+		border: $border-size solid transparent;
+		position: relative;
+
+		@include loader-align($align, $size);
+
+	} @else if $name == 'circle-dot' {
+		$dot: round($size - (0.82 * $size));
+
+		@include size($size);
+		animation: loader-rotate $duration ease-in-out infinite;
+		border-radius: 50%;
+		border: $border-size solid rgba($color, 0.5);
+		position: relative;
+		
+		@include loader-align($align, $size);
+
+		&::after {
+			@include absolute(top (-$border-size - $dot / 2 + $border-size / 2) left 50%);
+			@include size($dot);
+			content: '';
+			border-radius: 50%;
+			background: $color;
+			margin-left: -$dot / 2;
+		}
+		
+	} @else if $name == 'circle-zoom' {
+		@include size($size);
+		animation: loader-scale $duration ease-out infinite;
+		border-radius: 50%;
+		border: $border-size solid $color;
+		position: relative;
+		
+		@include loader-align($align, $size);
+		@include loader-scale;
+		
+	} @else if $name == 'circle-pulse' {
+		@include size($size);
+		border: $border-size solid transparent;
+		border-radius: 50%;
+		position: relative;
+
+		
+		&::before,
+		&::after {
+			animation: loader-scale $duration ease-out infinite;
+			border-radius: 50%;
+			content: '';
+		}
+
+		&::before {
+			@include absolute(top (-(($size * 1.2) / 2) + ($size / 2) - $border-size) left (-(($size * 1.2) / 2) + ($size / 2) - $border-size) );
+			@include size($size * 1.2);
+			border: $border-size solid rgba($color, 0.5);
+			animation-delay: $duration;
+			opacity: 0;
+		}
+
+		&::after {
+			@include absolute(top -$border-size left -$border-size);
+			@include size($size);
+			border: $border-size solid $color;
+			animation-delay: $duration / 2;
+		}
+
+		@include loader-align($align, $size);
+		@include loader-scale;
+		
+	} @else if $name == 'circle-dots' {
+		$dot-color: rgba($color, 0.05), rgba($color, 0.1), rgba($color, 0.2), rgba($color, 0.3), rgba($color, 0.4), rgba($color, 0.6), rgba($color, 0.8), rgba($color, 1);
+
+		@include size($size);
+		animation: loader-circles $duration linear infinite;
+		border-radius: 50%;
+		position: relative;
+		
+		@include loader-align($align, $size);
+		@include loader-circles($size, $dot-color);
+
+		
+	} @else if $name == 'squares' {
+		@include size($size);
+		position: relative;
+		animation: loader-squares $duration ease infinite;
+
+		@include loader-squares($size, $color, $gap);
+		
+	} @else if $name == 'bars' {
+		@include size($size $height);
+		background: $color;
+		position: relative;
+		animation: loader-bars $duration ease-in-out infinite;
+		animation-delay: ($duration / 5) * 2;
+		
+		@include loader-align($align, $size);
+		
+		&::before,
+		&::after {
+			@include size($size $height);
+			content: '';
+			position: absolute;
+			background: $color;
+			animation: loader-bars $duration ease-in-out infinite;
+		}
+
+		&::before {
+			right: $size + $gap;
+			animation-delay: ($duration / 5) * 1;
+		}
+
+		&::after {
+			left: $size + $gap;
+			animation-delay: ($duration / 5) * 3;
+		}
+
+		@include loader-bars($color, $gap);
+		
+	} @else if $name == 'dots-growing' {
+		@include size($size);
+		border-radius: 50%;
+		position: relative;
+		animation: loader-dots-growing $duration ease alternate infinite;
+		animation-delay: ($duration / 5) * 2;
+
+		@include loader-dots-align($align, $size);
+
+		&::after,
+		&::before {
+			@include size($size);
+			content: '';
+			position: absolute;
+			border-radius: 50%;
+			animation: loader-dots-growing $duration ease alternate infinite;
+		}
+
+		&::before {
+			left: -($size + $gap);
+			animation-delay: ($duration / 5) * 1;
+		}
+
+		&::after {
+			right: -($size + $gap);
+			animation-delay: ($duration / 5) * 3;
+		}
+
+		@include loader-dots-growing($size, $color);
+		
+	} @else if $name == 'dots-raising' {
+		@include size($size);
+		border-radius: 50%;
+		box-shadow: 0 $size * 2 0 $color;
+		position: relative;
+		animation: loader-dots-raising $duration ease-in-out alternate infinite;
+		animation-delay: ($duration / 5) * 2;
+		
+		@include loader-dots-align($align, $size);
+
+		&::after,
+		&::before {
+			@include size($size);
+			content: '';
+			position: absolute;
+			border-radius: 50%;
+			box-shadow: 0 $size * 2 0 $color;
+			animation: loader-dots-raising $duration ease-in-out alternate infinite;
+		}
+
+		&::before {
+			left: -($size + $gap);
+			animation-delay: ($duration / 5) * 3;
+		}
+
+		&::after {
+			right: -($size + $gap);
+			animation-delay: ($duration / 5) * 1;
+		}
+
+		@include loader-dots-raising($size, $color);
+
+
+	} @else if $name == 'dots-fading' {
+		@include size($size);
+		border-radius: 50%;
+		position: relative;
+		animation: loader-dots-fading $duration linear alternate infinite;
+
+		@include loader-dots-align($align, $size);
+		@include loader-dots-fading($size, $color, $gap);
+	}
+}
+
+@function circle-position($size, $border-size, $coordinate) {
+	$center: ($size / 2) - $border-size - ($border-size / 2);
+	$half-size-border: ($size / 2) - $border-size + ($border-size / 2);
+
+	// root value sqrt(2)/2 = 0.70710678118
+	$root: 0.70710678118;
+
+	@if $coordinate == y {
+		@return round($center - ($half-size-border * $root));
+	} @else {
+		@return round($center + ($half-size-border * $root));
+	}
+}
+
+
+@function circle-angle($size) {
+	@return round($size * 0.70710678118) + ($size / 2);
+}
+
+@function circle-normal($size) {
+	@return round($size * 0.70710678118) + $size;
+}
+
+
+
+// Output to align loader
+@mixin loader-align($align, $size) {
+	@if ($align == center) {
+		margin: 0 auto;
+	}
+
+	@if ($align == middle) {
+		top: 50%;
+		margin: -$size / 2 auto 0;
+	}
+}
+
+
+@mixin loader-dots-align($align, $size) {
+	@if ($align == center) {
+		margin-left: auto;
+		margin-right: auto;
+	} @else if ($align == middle) {
+		top: 50%;
+		margin: -($size + $size / 2) auto 0;
+	} @else {
+		top: -$size;
+		}
+}
+
+
+// Animation for rotating loader
+@mixin loader-rotate {
+	@include keyframes(loader-rotate) {
+		from { transform: rotate(0); }
+		to   { transform: rotate(360deg); }
+	}
+}
+
+
+// Animation to scale loader
+@mixin loader-scale {
+	@include keyframes(loader-scale) {
+		from { transform: scale(0); opacity: 0; }
+		50%  { opacity: 1; }
+		to   { transform: scale(1); opacity: 0; }
+	}
+}
+
+
+// design for circle dots
+@mixin loader-circles($size, $dot-color) {
+	@include keyframes(loader-circles) {
+		from {
+			box-shadow: 0 (- circle-normal($size)) 0 0 nth($dot-color, 1), circle-angle($size) (- circle-angle($size)) 0 0 nth($dot-color, 2), circle-normal($size) 0 0 0 nth($dot-color, 3), circle-angle($size) circle-angle($size) 0 0 nth($dot-color, 4), 0 circle-normal($size) 0 0 nth($dot-color, 5), (- circle-angle($size)) circle-angle($size) 0 0 nth($dot-color, 6), (- circle-normal($size)) 0 0 0 nth($dot-color, 7), (- circle-angle($size)) (- circle-angle($size)) 0 0 nth($dot-color, 8);
+		}
+		12.5% {
+			box-shadow: 0 (- circle-normal($size)) 0 0 nth($dot-color, 8), circle-angle($size) (- circle-angle($size)) 0 0 nth($dot-color, 1), circle-normal($size) 0 0 0 nth($dot-color, 2), circle-angle($size) circle-angle($size) 0 0 nth($dot-color, 3), 0 circle-normal($size) 0 0 nth($dot-color, 4), (- circle-angle($size)) circle-angle($size) 0 0 nth($dot-color, 5), (- circle-normal($size)) 0 0 0 nth($dot-color, 6), (- circle-angle($size)) (- circle-angle($size)) 0 0 nth($dot-color, 7);
+		}
+		25% {
+			box-shadow: 0 (- circle-normal($size)) 0 0 nth($dot-color, 7), circle-angle($size) (- circle-angle($size)) 0 0 nth($dot-color, 8), circle-normal($size) 0 0 0 nth($dot-color, 1), circle-angle($size) circle-angle($size) 0 0 nth($dot-color, 2), 0 circle-normal($size) 0 0 nth($dot-color, 3), (- circle-angle($size)) circle-angle($size) 0 0 nth($dot-color, 4), (- circle-normal($size)) 0 0 0 nth($dot-color, 5), (- circle-angle($size)) (- circle-angle($size)) 0 0 nth($dot-color, 6);
+		}
+		37.5% {
+			box-shadow: 0 (- circle-normal($size)) 0 0 nth($dot-color, 6), circle-angle($size) (- circle-angle($size)) 0 0 nth($dot-color, 7), circle-normal($size) 0 0 0 nth($dot-color, 8), circle-angle($size) circle-angle($size) 0 0 nth($dot-color, 1), 0 circle-normal($size) 0 0 nth($dot-color, 2), (- circle-angle($size)) circle-angle($size) 0 0 nth($dot-color, 3), (- circle-normal($size)) 0 0 0 nth($dot-color, 4), (- circle-angle($size)) (- circle-angle($size)) 0 0 nth($dot-color, 5);
+		}
+		50% {
+			box-shadow: 0 (- circle-normal($size)) 0 0 nth($dot-color, 5), circle-angle($size) (- circle-angle($size)) 0 0 nth($dot-color, 6), circle-normal($size) 0 0 0 nth($dot-color, 7), circle-angle($size) circle-angle($size) 0 0 nth($dot-color, 8), 0 circle-normal($size) 0 0 nth($dot-color, 1), (- circle-angle($size)) circle-angle($size) 0 0 nth($dot-color, 2), (- circle-normal($size)) 0 0 0 nth($dot-color, 3), (- circle-angle($size)) (- circle-angle($size)) 0 0 nth($dot-color, 4);
+		}
+		62.5% {
+			box-shadow: 0 (- circle-normal($size)) 0 0 nth($dot-color, 4), circle-angle($size) (- circle-angle($size)) 0 0 nth($dot-color, 5), circle-normal($size) 0 0 0 nth($dot-color, 6), circle-angle($size) circle-angle($size) 0 0 nth($dot-color, 7), 0 circle-normal($size) 0 0 nth($dot-color, 8), (- circle-angle($size)) circle-angle($size) 0 0 nth($dot-color, 1), (- circle-normal($size)) 0 0 0 nth($dot-color, 2), (- circle-angle($size)) (- circle-angle($size)) 0 0 nth($dot-color, 3);
+		}
+		75% {
+			box-shadow: 0 (- circle-normal($size)) 0 0 nth($dot-color, 3), circle-angle($size) (- circle-angle($size)) 0 0 nth($dot-color, 4), circle-normal($size) 0 0 0 nth($dot-color, 5), circle-angle($size) circle-angle($size) 0 0 nth($dot-color, 6), 0 circle-normal($size) 0 0 nth($dot-color, 7), (- circle-angle($size)) circle-angle($size) 0 0 nth($dot-color, 8), (- circle-normal($size)) 0 0 0 nth($dot-color, 1), (- circle-angle($size)) (- circle-angle($size)) 0 0 nth($dot-color, 2);
+		}
+		87.5% {
+			box-shadow: 0 (- circle-normal($size)) 0 0 nth($dot-color, 2), circle-angle($size) (- circle-angle($size)) 0 0 nth($dot-color, 3), circle-normal($size) 0 0 0 nth($dot-color, 4), circle-angle($size) circle-angle($size) 0 0 nth($dot-color, 5), 0 circle-normal($size) 0 0 nth($dot-color, 6), (- circle-angle($size)) circle-angle($size) 0 0 nth($dot-color, 7), (- circle-normal($size)) 0 0 0 nth($dot-color, 8), (- circle-angle($size)) (- circle-angle($size)) 0 0 nth($dot-color, 1);
+		}
+		to {
+			box-shadow: 0 (- circle-normal($size)) 0 0 nth($dot-color, 1), circle-angle($size) (- circle-angle($size)) 0 0 nth($dot-color, 2), circle-normal($size) 0 0 0 nth($dot-color, 3), circle-angle($size) circle-angle($size) 0 0 nth($dot-color, 4), 0 circle-normal($size) 0 0 nth($dot-color, 5), (- circle-angle($size)) circle-angle($size) 0 0 nth($dot-color, 6), (- circle-normal($size)) 0 0 0 nth($dot-color, 7), (- circle-angle($size)) (- circle-angle($size)) 0 0 nth($dot-color, 8);
+		}
+	}
+}
+
+
+
+@mixin loader-squares($size, $color, $gap) {
+	@include keyframes(loader-squares) {
+		0%, 100% {
+			box-shadow: -($size / 2 + $gap / 2) $size 0 $color, ($size / 2 + $gap / 2) $size 0 rgba($color, 0.2), ($size / 2 + $gap / 2) (($size * 2) + $gap) 0 rgba($color, 0.2), -($size / 2 + $gap / 2) (($size * 2) + $gap) 0 rgba($color, 0.2);
+		}
+		25% {
+			box-shadow: -($size / 2 + $gap / 2) $size 0 rgba($color, 0.2), ($size / 2 + $gap / 2) $size 0 $color, ($size / 2 + $gap / 2) (($size * 2) + $gap) 0 rgba($color, 0.2), -($size / 2 + $gap / 2) (($size * 2) + $gap) 0 rgba($color, 0.2);
+		}
+		50% {
+			box-shadow: -($size / 2 + $gap / 2) $size 0 rgba($color, 0.2), ($size / 2 + $gap / 2) $size 0 rgba($color, 0.2), ($size / 2 + $gap / 2) (($size * 2) + $gap) 0 $color, -($size / 2 + $gap / 2) (($size * 2) + $gap) 0 rgba($color, 0.2);
+		}
+		75% {
+			box-shadow: -($size / 2 + $gap / 2) $size 0 rgba($color, 0.2), ($size / 2 + $gap / 2) $size 0 rgba($color, 0.2), ($size / 2 + $gap / 2) (($size * 2) + $gap) 0 rgba($color, 0.2), -($size / 2 + $gap / 2) (($size * 2) + $gap) 0 $color;
+		}
+	}
+}
+
+
+
+@mixin loader-bars($color, $gap) {
+	@include keyframes(loader-bars) {
+		0%, 100% {
+			box-shadow: 0 0 0 $color,
+						0 0 0 $color;
+		}
+
+		50% {
+			box-shadow: 0 (-$gap) 0 $color,
+						0 $gap 0 $color;
+		}
+	}
+}
+
+
+
+@mixin loader-dots-growing($size, $color) {
+	@include keyframes(loader-dots-growing) {
+		from { box-shadow: 0 $size 0 (-$size) $color; }
+		to   { box-shadow: 0 $size 0 $color; }
+	}
+}
+
+
+
+@mixin loader-dots-raising($size, $color) {
+	@include keyframes(loader-dots-raising) {
+		from { box-shadow: 0 $size * 2 0 $color; }
+		to   { box-shadow: 0 $size 0 $color; }
+	}
+}
+
+
+
+@mixin loader-dots-fading($size, $color, $gap) {
+	@include keyframes(loader-dots-fading) {
+		from {
+			box-shadow: ((- $gap) * 2) $size * 2 0 2px $color, (- $gap) $size * 2 0 0 rgba($color, 0.2), 0 ($size * 2) 0 0 rgba($color, 0.2), ($gap) ($size * 2) 0 0 rgba($color, 0.2), ($gap * 2) ($size * 2) 0 0 rgba($color, 0.2);
+		}
+		25% {
+			box-shadow: ((- $gap) * 2) ($size * 2) 0 0 rgba($color, 0.2), (- $gap) ($size * 2) 0 2px $color, 0 ($size * 2) 0 0 rgba($color, 0.2), ($gap) ($size * 2) 0 0 rgba($color, 0.2), ($gap * 2) ($size * 2) 0 0 rgba($color, 0.2);
+		}
+		50% {
+			box-shadow: ((- $gap) * 2) ($size * 2) 0 0 rgba($color, 0.2), (- $gap) ($size * 2) 0 0 rgba($color, 0.2), 0 ($size * 2) 0 2px $color, ($gap) ($size * 2) 0 0 rgba($color, 0.2), ($gap * 2) ($size * 2) 0 0 rgba($color, 0.2);
+		}
+		75% {
+			box-shadow: ((- $gap) * 2) ($size * 2) 0 0 rgba($color, 0.2), (- $gap) ($size * 2) 0 0 rgba($color, 0.2), 0 ($size * 2) 0 0 rgba($color, 0.2), ($gap) ($size * 2) 0 2px $color, ($gap * 2) ($size * 2) 0 0 rgba($color, 0.2);
+		}
+		to {
+			box-shadow: ((- $gap) * 2) ($size * 2) 0 0 rgba($color, 0.2), (- $gap) ($size * 2) 0 0 rgba($color, 0.2), 0 ($size * 2) 0 0 rgba($color, 0.2), ($gap) ($size * 2) 0 0 rgba($color, 0.2), ($gap * 2) ($size * 2) 0 2px $color;
+		}
+	}
+}

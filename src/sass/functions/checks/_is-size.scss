@@ -1,0 +1,16 @@
+/// 
+/// Checks if the `$value` is a valid size.<br>
+/// Includes checks for new CSS intrinsic sizing
+/// 
+/// @param {*} $value - Value to validate
+/// 
+/// @group Checks
+/// 
+/// @link http://www.sitepoint.com/bulletproof-function-validate-length-values-sass/
+/// 
+/// @return {Bool}
+/// 
+@function is-size($value) {
+	@return is-length($value)
+			or contains("fill" "fit-content" "min-content" "max-content", $value);
+}

@@ -1,0 +1,608 @@
+// 
+// Crayola.scss - Crayola crayon colors in css
+//
+
+/// 
+/// Returns a Crayola crayon color
+/// 
+/// @group Styling
+/// 
+/// @link https://en.wikipedia.org/wiki/List_of_Crayola_crayon_colors
+/// @link https://github.com/riccardoscalco/crayon
+/// 
+/// @param  {string} $color - Named color to get
+/// 
+/// @return {color} Hex color value for Crayola crayon code
+/// 
+/// @example scss
+/// // Usage
+/// .el {
+///     color: crayola('blackcoralpearl');
+/// }
+/// 
+/// // Output
+/// .el {
+///     color: #54626f;
+/// }
+@function crayola($color) {
+	@if not map-has-key($crayola, $color) {
+		@warn "`#{$color}` is not a valid Crayola color name. Property omitted.";
+	}
+
+	@return map-get($crayola, $color);
+}
+
+
+
+$c-absolutezero             : #0048ba;
+$c-alienarmpit              : #84de02;
+$c-alloyorange              : #c46210;
+$c-almond                   : #efdecd;
+$c-amethyst                 : #64609a;
+$c-antiquebrass             : #cd9575;
+$c-apricot                  : #fdd9b5;
+$c-aquapearl                : #5fbed7;
+$c-aquamarine               : #78dbe2;
+$c-asparagus                : #87a96b;
+$c-atomictangerine          : #ffa474;
+$c-aztecgold                : #c39953;
+$c-babypowder               : #fefefa;
+$c-banana                   : #ffd12a;
+$c-bananamania              : #fae7b5;
+$c-bdazzledblue             : #2e5894;
+$c-beaver                   : #9f8170;
+$c-bigdiporuby              : #9c2542;
+$c-bigfootfeet              : #e88e5a;
+$c-bittersweet              : #fd7c6e;
+$c-bittersweetshimmer       : #bf4f51;
+$c-black                    : #000000;
+$c-blackcoralpearl          : #54626f;
+$c-blackshadows             : #bfafb2;
+$c-blastoffbronze           : #a57164;
+$c-blizzardblue             : #ace5ee;
+$c-blue                     : #1f75fe;
+$c-bluebell                 : #a2a2d0;
+$c-bluegray                 : #6699cc;
+$c-bluegreen                : #0d98ba;
+$c-bluejeans                : #5dadec;
+$c-blueviolet               : #7366bd;
+$c-blueberry                : #4f86f7;
+$c-blush                    : #de5d83;
+$c-boogerbuster             : #dde26a;
+$c-bouquet                  : #b37399;
+$c-brickred                 : #cb4154;
+$c-brightyellow             : #ffaa1d;
+$c-brown                    : #b4674d;
+$c-brownsugar               : #af6e4d;
+$c-bubblegum                : #ffd3f8;
+$c-burnishedbrown           : #a17a74;
+$c-burntorange              : #ff7f49;
+$c-burntsienna              : #ea7e5d;
+$c-cadetblue                : #b0b7c6;
+$c-canary                   : #ffff99;
+$c-caribbeangreen           : #1cd3a2;
+$c-caribbeangreenpearl      : #6ada8e;
+$c-carnationpink            : #ffaacc;
+$c-cedarchest               : #c95a49;
+$c-cerise                   : #dd4492;
+$c-cerulean                 : #1dacd6;
+$c-ceruleanfrost            : #6d9bc3;
+$c-cherry                   : #da2647;
+$c-chestnut                 : #bc5d58;
+$c-chocolate                : #bd8260;
+$c-cinnamonsatin            : #cd607e;
+$c-citrine                  : #933709;
+$c-coconut                  : #fefefe;
+$c-copper                   : #dd9475;
+$c-copperpenny              : #ad6f69;
+$c-cornflower               : #9aceeb;
+$c-cosmiccobalt             : #2e2d88;
+$c-cottoncandy              : #ffbcd9;
+$c-culturedpearl            : #f5f5f5;
+$c-cybergrape               : #58427c;
+$c-daffodil                 : #ffff31;
+$c-dandelion                : #fddb6d;
+$c-dawn-pink                : #f2ece4;
+$c-deepspacesparkle         : #4a646c;
+$c-denim                    : #2b6cc4;
+$c-denimblue                : #2243b6;
+$c-desertsand               : #efcdb8;
+$c-dingydungeon             : #c53151;
+$c-dirt                     : #9b7653;
+$c-eerieblack               : #1b1b1b;
+$c-eggplant                 : #6e5160;
+$c-electriclime             : #ceff1d;
+$c-emerald                  : #14a989;
+$c-eucalyptus               : #44d7a8;
+$c-fern                     : #71bc78;
+$c-fieryrose                : #ff5470;
+$c-forestgreen              : #6dae81;
+$c-freshair                 : #a6e7ff;
+$c-frostbite                : #e936a7;
+$c-fuchsia                  : #c364c5;
+$c-fuzzywuzzy               : #cc6666;
+$c-gargoylegas              : #ffdf46;
+$c-giantsclub               : #b05c52;
+$c-glossygrape              : #ab92b3;
+$c-gold                     : #e7c697;
+$c-goldfusion               : #85754e;
+$c-goldenrod                : #fcd975;
+$c-granitegray              : #676767;
+$c-grannysmithapple         : #a8e4a0;
+$c-grape                    : #6f2da8;
+$c-gray                     : #95918c;
+$c-green                    : #1cac78;
+$c-greenblue                : #1164b4;
+$c-greenlizard              : #a7f432;
+$c-greensheen               : #6eaea1;
+$c-greenyellow              : #f0e891;
+$c-heatwave                 : #ff7a00;
+$c-hopbush                  : #cc6699;
+$c-hotmagenta               : #ff1dce;
+$c-illuminatingemerald      : #319177;
+$c-inchworm                 : #b2ec5d;
+$c-indigo                   : #5d76cb;
+$c-iron                     : #dadbdf;
+$c-jade                     : #469a84;
+$c-jasper                   : #d05340;
+$c-jazzberryjam             : #ca3767;
+$c-jellybean                : #da614e;
+$c-junglegreen              : #3bb08f;
+$c-keylimepearl             : #e8f48c;
+$c-lapislazuli              : #436cb9;
+$c-laserlemon               : #fefe22;
+$c-lavender                 : #fcb4d5;
+$c-leatherjacket            : #253529;
+$c-lemon                    : #ffff38;
+$c-lemonglacier             : #fdff00;
+$c-lemonyellow              : #fff44f;
+$c-licorice                 : #1a1110;
+$c-lilac                    : #db91ef;
+$c-lilacluster              : #ae98aa;
+$c-lime                     : #b2f302;
+$c-lumber                   : #ffe4cd;
+$c-macaronicheese           : #ffbd88;
+$c-magenta                  : #f664af;
+$c-magicmint                : #aaf0d1;
+$c-magicpotion              : #ff4466;
+$c-mahogany                 : #cd4a4c;
+$c-maize                    : #edd19c;
+$c-malachite                : #469496;
+$c-manatee                  : #979aaa;
+$c-mandarinpearl            : #f37a48;
+$c-mangotango               : #ff8243;
+$c-maroon                   : #c8385a;
+$c-mauvelous                : #ef98aa;
+$c-melon                    : #fdbcb4;
+$c-metallicseaweed          : #0a7e8c;
+$c-metallicsunburst         : #9c7c38;
+$c-midnightblue             : #1a4876;
+$c-midnight-blue            : #003366;
+$c-midnightpearl            : #702670;
+$c-mistymoss                : #bbb477;
+$c-moonstone                : #3aa8c1;
+$c-mountainmeadow           : #30ba8f;
+$c-mulberry                 : #c54b8c;
+$c-mummystomb               : #828e84;
+$c-mysticmaroon             : #ad4379;
+$c-mysticpearl              : #d65282;
+$c-navyblue                 : #1974d2;
+$c-nebula                   : #d2e1dd;
+$c-neoncarrot               : #ffa343;
+$c-newcar                   : #214fc6;
+$c-oceanbluepearl           : #4f42b5;
+$c-oceangreenpearl          : #48bf91;
+$c-ogreodor                 : #fd5240;
+$c-olivegreen               : #bab86c;
+$c-onyx                     : #353839;
+$c-orange                   : #ff7538;
+$c-orangered                : #ff2b2b;
+$c-orangesoda               : #fa5b3d;
+$c-orangeyellow             : #f8d568;
+$c-orchid                   : #e6a8d7;
+$c-orchidpearl              : #7b4259;
+$c-outerspace               : #414a4c;
+$c-outrageousorange         : #ff6e4a;
+$c-pacificblue              : #1ca9c9;
+$c-pale-sky                 : #6b717f;
+$c-patina                   : #669999;
+$c-peach                    : #ffcfab;
+$c-pearlypurple             : #b768a2;
+$c-peridot                  : #abad48;
+$c-periwinkle               : #c5d0e6;
+$c-pewterblue               : #8ba8b7;
+$c-piggypink                : #fddde6;
+$c-pine                     : #45a27d;
+$c-pinegreen                : #158078;
+$c-pinkflamingo             : #fc74fd;
+$c-pinkpearl                : #b07080;
+$c-pinksherbert             : #f78fa7;
+$c-pixiepowder              : #391285;
+$c-plum                     : #8e4585;
+$c-plumppurple              : #5946b2;
+$c-polishedpine             : #5da493;
+$c-princessperfume          : #ff85cf;
+$c-purpleheart              : #7442c8;
+$c-purplemountainsmajesty   : #9d81ba;
+$c-purplepizzazz            : #fe4eda;
+$c-purpleplum               : #9c51b6;
+$c-quicksilver              : #a6a6a6;
+$c-radicalred               : #ff496c;
+$c-rawsienna                : #d68a59;
+$c-rawumber                 : #714b23;
+$c-razzledazzlerose         : #ff48d0;
+$c-razzmatazz               : #e3256b;
+$c-razzmicberry             : #8d4e85;
+$c-red                      : #ee204d;
+$c-redorange                : #ff5349;
+$c-redsalsa                 : #fd3a4a;
+$c-redviolet                : #c0448f;
+$c-regent-gray              : #808c99;
+$c-robinseggblue            : #1fcecb;
+$c-rose                     : #ff5050;
+$c-rosedust                 : #9e5e6f;
+$c-rosepearl                : #f03865;
+$c-rosequartz               : #bd559c;
+$c-royalpurple              : #7851a9;
+$c-ruby                     : #aa4069;
+$c-rustyred                 : #da2c43;
+$c-salmon                   : #ff9baa;
+$c-salmonpearl              : #f1444a;
+$c-sapphire                 : #2d5da1;
+$c-sasquatchsocks           : #ff4681;
+$c-scarlet                  : #fc2847;
+$c-screamingreen            : #76ff7a;
+$c-seagreen                 : #9fe2bf;
+$c-seaserpent               : #4bc7cf;
+$c-sepia                    : #a5694f;
+$c-shadow                   : #8a795d;
+$c-shadowblue               : #778ba5;
+$c-shampoo                  : #ffcff1;
+$c-shamrock                 : #45cea2;
+$c-sheengreen               : #8fd400;
+$c-shimmeringblush          : #d98695;
+$c-shinyshamrock            : #5fa778;
+$c-shockingpink             : #fb7efd;
+$c-silver                   : #cdc5c2;
+$c-sizzlingred              : #ff3855;
+$c-sizzlingsunrise          : #ffdb00;
+$c-skyblue                  : #80daeb;
+$c-slimygreen               : #299617;
+$c-smashedpumpkin           : #ff6d3a;
+$c-smoke                    : #738276;
+$c-smokeytopaz              : #832a0d;
+$c-soap                     : #cec8ef;
+$c-sonicsilver              : #757575;
+$c-springfrost              : #87ff2a;
+$c-springgreen              : #eceabe;
+$c-steelblue                : #0081ab;
+$c-steelteal                : #5f8a8b;
+$c-strawberry               : #fc5a8d;
+$c-sugarplum                : #914e75;
+$c-sunburntcyclops          : #ff404c;
+$c-sunglow                  : #ffcf48;
+$c-sunnypearl               : #f2f27a;
+$c-sunsetorange             : #fd5e53;
+$c-sunsetpearl              : #f1cc79;
+$c-sweetbrown               : #a83731;
+$c-tan                      : #faa76c;
+$c-tartorange               : #fb4d46;
+$c-tealblue                 : #18a7b5;
+$c-thistle                  : #ebc7df;
+$c-ticklemepink             : #fc89ac;
+$c-tigerseye                : #b56917;
+$c-timberwolf               : #dbd7d2;
+$c-tropicalrainforest       : #17806d;
+$c-tulip                    : #ff878d;
+$c-tumbleweed               : #deaa88;
+$c-turquoiseblue            : #77dde7;
+$c-turquoisepearl           : #3bbcd0;
+$c-twilightlavender         : #8a496b;
+$c-unmellowyellow           : #ffff66;
+$c-venus                    : #998099;
+$c-violetblue               : #324ab2;
+$c-violetpurple             : #926eae;
+$c-violetred                : #f75394;
+$c-vividtangerine           : #ffa089;
+$c-vividviolet              : #8f509d;
+$c-wafer                    : #e1d7d2;
+$c-white                    : #ffffff;
+$c-wildblueyonder           : #a2add0;
+$c-wildstrawberry           : #ff43a4;
+$c-wildwatermelon           : #fc6c85;
+$c-wintersky                : #ff007c;
+$c-winterwizard             : #a0e6ff;
+$c-wintergreendream         : #56887d;
+$c-wisteria                 : #cda4de;
+$c-yellow                   : #fce883;
+$c-yellowgreen              : #c5e384;
+$c-yelloworange             : #ffb653;
+$c-yellowsunshine           : #fff700;
+
+
+$crayola: (
+	"Absolutezero"             : #0048ba,
+	"Alienarmpit"              : #84de02,
+	"Alloyorange"              : #c46210,
+	"Almond"                   : #efdecd,
+	"Amethyst"                 : #64609a,
+	"Antiquebrass"             : #cd9575,
+	"Apricot"                  : #fdd9b5,
+	"Aquapearl"                : #5fbed7,
+	"Aquamarine"               : #78dbe2,
+	"Asparagus"                : #87a96b,
+	"Atomictangerine"          : #ffa474,
+	"Aztecgold"                : #c39953,
+	"Babypowder"               : #fefefa,
+	"Banana"                   : #ffd12a,
+	"Bananamania"              : #fae7b5,
+	"Bdazzledblue"             : #2e5894,
+	"Beaver"                   : #9f8170,
+	"Bigdiporuby"              : #9c2542,
+	"Bigfootfeet"              : #e88e5a,
+	"Bittersweet"              : #fd7c6e,
+	"Bittersweetshimmer"       : #bf4f51,
+	"Black"                    : #000000,
+	"Blackcoralpearl"          : #54626f,
+	"Blackshadows"             : #bfafb2,
+	"Blastoffbronze"           : #a57164,
+	"Blizzardblue"             : #ace5ee,
+	"Blue"                     : #1f75fe,
+	"Bluebell"                 : #a2a2d0,
+	"Bluegray"                 : #6699cc,
+	"Bluegreen"                : #0d98ba,
+	"Bluejeans"                : #5dadec,
+	"Blueviolet"               : #7366bd,
+	"Blueberry"                : #4f86f7,
+	"Blush"                    : #de5d83,
+	"Boogerbuster"             : #dde26a,
+	"Bouquet"                  : #b37399,
+	"Brickred"                 : #cb4154,
+	"Brightyellow"             : #ffaa1d,
+	"Brown"                    : #b4674d,
+	"Brownsugar"               : #af6e4d,
+	"Bubblegum"                : #ffd3f8,
+	"Burnishedbrown"           : #a17a74,
+	"Burntorange"              : #ff7f49,
+	"Burntsienna"              : #ea7e5d,
+	"Cadetblue"                : #b0b7c6,
+	"Canary"                   : #ffff99,
+	"Caribbeangreen"           : #1cd3a2,
+	"Caribbeangreenpearl"      : #6ada8e,
+	"Carnationpink"            : #ffaacc,
+	"Cedarchest"               : #c95a49,
+	"Cerise"                   : #dd4492,
+	"Cerulean"                 : #1dacd6,
+	"Ceruleanfrost"            : #6d9bc3,
+	"Cherry"                   : #da2647,
+	"Chestnut"                 : #bc5d58,
+	"Chocolate"                : #bd8260,
+	"Cinnamonsatin"            : #cd607e,
+	"Citrine"                  : #933709,
+	"Coconut"                  : #fefefe,
+	"Copper"                   : #dd9475,
+	"Copperpenny"              : #ad6f69,
+	"Cornflower"               : #9aceeb,
+	"Cosmiccobalt"             : #2e2d88,
+	"Cottoncandy"              : #ffbcd9,
+	"Culturedpearl"            : #f5f5f5,
+	"Cybergrape"               : #58427c,
+	"Daffodil"                 : #ffff31,
+	"Dandelion"                : #fddb6d,
+	"Dawn-pink"                : #f2ece4,
+	"Deepspacesparkle"         : #4a646c,
+	"Denim"                    : #2b6cc4,
+	"Denimblue"                : #2243b6,
+	"Desertsand"               : #efcdb8,
+	"Dingydungeon"             : #c53151,
+	"Dirt"                     : #9b7653,
+	"Eerieblack"               : #1b1b1b,
+	"Eggplant"                 : #6e5160,
+	"Electriclime"             : #ceff1d,
+	"Emerald"                  : #14a989,
+	"Eucalyptus"               : #44d7a8,
+	"Fern"                     : #71bc78,
+	"Fieryrose"                : #ff5470,
+	"Forestgreen"              : #6dae81,
+	"Freshair"                 : #a6e7ff,
+	"Frostbite"                : #e936a7,
+	"Fuchsia"                  : #c364c5,
+	"Fuzzywuzzy"               : #cc6666,
+	"Gargoylegas"              : #ffdf46,
+	"Giantsclub"               : #b05c52,
+	"Glossygrape"              : #ab92b3,
+	"Gold"                     : #e7c697,
+	"Goldfusion"               : #85754e,
+	"Goldenrod"                : #fcd975,
+	"Granitegray"              : #676767,
+	"Grannysmithapple"         : #a8e4a0,
+	"Grape"                    : #6f2da8,
+	"Gray"                     : #95918c,
+	"Green"                    : #1cac78,
+	"Greenblue"                : #1164b4,
+	"Greenlizard"              : #a7f432,
+	"Greensheen"               : #6eaea1,
+	"Greenyellow"              : #f0e891,
+	"Heatwave"                 : #ff7a00,
+	"Hopbush"                  : #cc6699,
+	"Hotmagenta"               : #ff1dce,
+	"Illuminatingemerald"      : #319177,
+	"Inchworm"                 : #b2ec5d,
+	"Indigo"                   : #5d76cb,
+	"Iron"                     : #dadbdf,
+	"Jade"                     : #469a84,
+	"Jasper"                   : #d05340,
+	"Jazzberryjam"             : #ca3767,
+	"Jellybean"                : #da614e,
+	"Junglegreen"              : #3bb08f,
+	"Keylimepearl"             : #e8f48c,
+	"Lapislazuli"              : #436cb9,
+	"Laserlemon"               : #fefe22,
+	"Lavender"                 : #fcb4d5,
+	"Leatherjacket"            : #253529,
+	"Lemon"                    : #ffff38,
+	"Lemonglacier"             : #fdff00,
+	"Lemonyellow"              : #fff44f,
+	"Licorice"                 : #1a1110,
+	"Lilac"                    : #db91ef,
+	"Lilacluster"              : #ae98aa,
+	"Lime"                     : #b2f302,
+	"Lumber"                   : #ffe4cd,
+	"Macaronicheese"           : #ffbd88,
+	"Magenta"                  : #f664af,
+	"Magicmint"                : #aaf0d1,
+	"Magicpotion"              : #ff4466,
+	"Mahogany"                 : #cd4a4c,
+	"Maize"                    : #edd19c,
+	"Malachite"                : #469496,
+	"Manatee"                  : #979aaa,
+	"Mandarinpearl"            : #f37a48,
+	"Mangotango"               : #ff8243,
+	"Maroon"                   : #c8385a,
+	"Mauvelous"                : #ef98aa,
+	"Melon"                    : #fdbcb4,
+	"Metallicseaweed"          : #0a7e8c,
+	"Metallicsunburst"         : #9c7c38,
+	"Midnightblue"             : #1a4876,
+	"Midnight-blue"            : #003366,
+	"Midnightpearl"            : #702670,
+	"Mistymoss"                : #bbb477,
+	"Moonstone"                : #3aa8c1,
+	"Mountainmeadow"           : #30ba8f,
+	"Mulberry"                 : #c54b8c,
+	"Mummystomb"               : #828e84,
+	"Mysticmaroon"             : #ad4379,
+	"Mysticpearl"              : #d65282,
+	"Navyblue"                 : #1974d2,
+	"Nebula"                   : #d2e1dd,
+	"Neoncarrot"               : #ffa343,
+	"Newcar"                   : #214fc6,
+	"Oceanbluepearl"           : #4f42b5,
+	"Oceangreenpearl"          : #48bf91,
+	"Ogreodor"                 : #fd5240,
+	"Olivegreen"               : #bab86c,
+	"Onyx"                     : #353839,
+	"Orange"                   : #ff7538,
+	"Orangered"                : #ff2b2b,
+	"Orangesoda"               : #fa5b3d,
+	"Orangeyellow"             : #f8d568,
+	"Orchid"                   : #e6a8d7,
+	"Orchidpearl"              : #7b4259,
+	"Outerspace"               : #414a4c,
+	"Outrageousorange"         : #ff6e4a,
+	"Pacificblue"              : #1ca9c9,
+	"Pale-sky"                 : #6b717f,
+	"Patina"                   : #669999,
+	"Peach"                    : #ffcfab,
+	"Pearlypurple"             : #b768a2,
+	"Peridot"                  : #abad48,
+	"Periwinkle"               : #c5d0e6,
+	"Pewterblue"               : #8ba8b7,
+	"Piggypink"                : #fddde6,
+	"Pine"                     : #45a27d,
+	"Pinegreen"                : #158078,
+	"Pinkflamingo"             : #fc74fd,
+	"Pinkpearl"                : #b07080,
+	"Pinksherbert"             : #f78fa7,
+	"Pixiepowder"              : #391285,
+	"Plum"                     : #8e4585,
+	"Plumppurple"              : #5946b2,
+	"Polishedpine"             : #5da493,
+	"Princessperfume"          : #ff85cf,
+	"Purpleheart"              : #7442c8,
+	"Purplemountainsmajesty"   : #9d81ba,
+	"Purplepizzazz"            : #fe4eda,
+	"Purpleplum"               : #9c51b6,
+	"Quicksilver"              : #a6a6a6,
+	"Radicalred"               : #ff496c,
+	"Rawsienna"                : #d68a59,
+	"Rawumber"                 : #714b23,
+	"Razzledazzlerose"         : #ff48d0,
+	"Razzmatazz"               : #e3256b,
+	"Razzmicberry"             : #8d4e85,
+	"Red"                      : #ee204d,
+	"Redorange"                : #ff5349,
+	"Redsalsa"                 : #fd3a4a,
+	"Redviolet"                : #c0448f,
+	"Regent-gray"              : #808c99,
+	"Robinseggblue"            : #1fcecb,
+	"Rose"                     : #ff5050,
+	"Rosedust"                 : #9e5e6f,
+	"Rosepearl"                : #f03865,
+	"Rosequartz"               : #bd559c,
+	"Royalpurple"              : #7851a9,
+	"Ruby"                     : #aa4069,
+	"Rustyred"                 : #da2c43,
+	"Salmon"                   : #ff9baa,
+	"Salmonpearl"              : #f1444a,
+	"Sapphire"                 : #2d5da1,
+	"Sasquatchsocks"           : #ff4681,
+	"Scarlet"                  : #fc2847,
+	"Screamingreen"            : #76ff7a,
+	"Seagreen"                 : #9fe2bf,
+	"Seaserpent"               : #4bc7cf,
+	"Sepia"                    : #a5694f,
+	"Shadow"                   : #8a795d,
+	"Shadowblue"               : #778ba5,
+	"Shampoo"                  : #ffcff1,
+	"Shamrock"                 : #45cea2,
+	"Sheengreen"               : #8fd400,
+	"Shimmeringblush"          : #d98695,
+	"Shinyshamrock"            : #5fa778,
+	"Shockingpink"             : #fb7efd,
+	"Silver"                   : #cdc5c2,
+	"Sizzlingred"              : #ff3855,
+	"Sizzlingsunrise"          : #ffdb00,
+	"Skyblue"                  : #80daeb,
+	"Slimygreen"               : #299617,
+	"Smashedpumpkin"           : #ff6d3a,
+	"Smoke"                    : #738276,
+	"Smokeytopaz"              : #832a0d,
+	"Soap"                     : #cec8ef,
+	"Sonicsilver"              : #757575,
+	"Springfrost"              : #87ff2a,
+	"Springgreen"              : #eceabe,
+	"Steelblue"                : #0081ab,
+	"Steelteal"                : #5f8a8b,
+	"Strawberry"               : #fc5a8d,
+	"Sugarplum"                : #914e75,
+	"Sunburntcyclops"          : #ff404c,
+	"Sunglow"                  : #ffcf48,
+	"Sunnypearl"               : #f2f27a,
+	"Sunsetorange"             : #fd5e53,
+	"Sunsetpearl"              : #f1cc79,
+	"Sweetbrown"               : #a83731,
+	"Tan"                      : #faa76c,
+	"Tartorange"               : #fb4d46,
+	"Tealblue"                 : #18a7b5,
+	"Thistle"                  : #ebc7df,
+	"Ticklemepink"             : #fc89ac,
+	"Tigerseye"                : #b56917,
+	"Timberwolf"               : #dbd7d2,
+	"Tropicalrainforest"       : #17806d,
+	"Tulip"                    : #ff878d,
+	"Tumbleweed"               : #deaa88,
+	"Turquoiseblue"            : #77dde7,
+	"Turquoisepearl"           : #3bbcd0,
+	"Twilightlavender"         : #8a496b,
+	"Unmellowyellow"           : #ffff66,
+	"Venus"                    : #998099,
+	"Violetblue"               : #324ab2,
+	"Violetpurple"             : #926eae,
+	"Violetred"                : #f75394,
+	"Vividtangerine"           : #ffa089,
+	"Vividviolet"              : #8f509d,
+	"Wafer"                    : #e1d7d2,
+	"White"                    : #ffffff,
+	"Wildblueyonder"           : #a2add0,
+	"Wildstrawberry"           : #ff43a4,
+	"Wildwatermelon"           : #fc6c85,
+	"Wintersky"                : #ff007c,
+	"Winterwizard"             : #a0e6ff,
+	"Wintergreendream"         : #56887d,
+	"Wisteria"                 : #cda4de,
+	"Yellow"                   : #fce883,
+	"Yellowgreen"              : #c5e384,
+	"Yelloworange"             : #ffb653,
+	"Yellowsunshine"           : #fff700,
+);

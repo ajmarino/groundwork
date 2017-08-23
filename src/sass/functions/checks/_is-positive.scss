@@ -1,0 +1,27 @@
+/// Tests whether `$var` is positive.
+/// 
+/// @group Checks
+/// 
+/// @link http://vulcan-framework.github.io/core/
+/// 
+/// @requires is-number
+/// 
+/// @param {Literal} $var  - check whether $var is positive
+/// 
+/// @return {Bool}
+/// 
+/// @example
+///  is-positive(1)   //returns true
+///  is-positive(0)   //returns true
+///  is-positive(-1)   //returns false
+///  
+@function is-positive($var) {
+    @if is-number($var) {
+        @if type-of($var) == string {
+            $var: to-number($var);
+        }
+        @return $var >= 0;
+    } @else {
+        @return false;
+    }
+}

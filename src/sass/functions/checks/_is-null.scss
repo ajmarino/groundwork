@@ -1,0 +1,22 @@
+/// Tests whether `$var` is bool.
+/// 
+/// @group Checks
+/// 
+/// @link http://vulcan-framework.github.io/core/
+/// 
+/// @param {Literal} $var  - check for bool type
+/// 
+/// @return {Bool}
+/// 
+/// @example
+///  is-null(null)  //returns true
+///  is-null(false) //returns false
+///  is-null(0) //returns false
+///  
+@function is-null($var) {
+    @if $var == null {
+        @return true;
+    } @else {
+        @return false;
+    }
+}

@@ -1,0 +1,21 @@
+/// Tests whether `$var` is string.
+/// 
+/// @group checks
+/// 
+/// @link http://vulcan-framework.github.io/core/
+/// 
+/// @param {Literal} $var  - check for string type
+/// 
+/// @return {Bool}
+/// 
+/// @example
+///  is-string(test) //returns true
+///  is-string(1)    //returns false
+///  
+@function is-string($var) {
+    @if type-of($var) != string {
+        @return false;
+    } @else {
+        @return true;
+    }
+}

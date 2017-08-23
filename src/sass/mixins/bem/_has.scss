@@ -1,0 +1,35 @@
+/// 
+/// Creates an element for a block using human-readable code
+/// 
+/// @group BEM
+/// 
+/// @link http://codepen.io/andersschmidt/thoughts/expressive-bem-with-sass-part-ii-a-first-draft-of-mixins/
+/// 
+/// @param {String | List} $element - element to create
+/// 
+/// @example scss
+/// // SCSS
+/// .menu {
+///   @include has('item')
+/// } 
+/// 
+/// // CSS
+/// .menu {
+/// }
+/// 
+/// .menu__item {
+/// }
+/// 
+@mixin has($name, $childOf: "") {
+	@if $childOf != "" {
+		.#{$childOf}__#{$name} {
+			@content;
+		}
+	} @else {
+		@at-root {
+			&__#{$name} {
+				@content;
+			}
+		}
+	}
+}

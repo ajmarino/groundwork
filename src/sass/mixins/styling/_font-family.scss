@@ -1,0 +1,25 @@
+/// 
+/// Outputs a font stack.
+/// <br>See `$font-stack` under `Global Styling`
+/// 
+/// @param {String} $stack-name         - Short name for font stack
+/// @param {Map}    $map [$font-stacks] - Name of map of font stacks
+/// 
+/// 
+/// @group Styling
+/// 
+/// 
+/// @example scss
+/// // Usage
+/// .el {
+///     @include ff("Helvetica");
+/// }
+/// 
+/// // Output
+/// .el {
+/// 	   font-family: Helvetica, Arial, sans-serif;
+/// }
+/// 
+@mixin ff($stack-name, $map: $font-stacks) {
+	font-family: map-get($map, $stack-name);
+}

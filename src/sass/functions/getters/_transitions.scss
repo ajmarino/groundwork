@@ -1,0 +1,29 @@
+/// Function for getting a transition setting from a sass map.
+/// 
+/// @param  {String} $transition         - Named transition settings to get
+/// @param  {Map}    $map [$transitions] - Name of map to get transitions from
+/// 
+/// 
+/// @group Getters
+/// 
+/// 
+/// @return {String} Color value from sass map
+/// 
+/// 
+/// @example scss
+/// // Usage
+/// .el {
+///     transition: t('color');
+/// }
+/// 
+/// // Output
+/// .el {
+///     transition: color 0.3s linear;
+/// }
+@function t($transition, $map: $transitions) {
+  @if not map-has-key($map, $transition) {
+    @warn "No transition found for `#{$transition}` in $transitions map. Property omitted.";
+  }
+ 
+  @return map-get($map, $transition);
+}

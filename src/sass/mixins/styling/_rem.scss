@@ -1,0 +1,55 @@
+/// 
+/// Adds rem & px fallback values for property passed in.
+/// 
+/// @param {String} $property - CSS property you want to apply a value to
+/// @param {Int}    $values   - Rem values you want to apply to $property
+/// 
+/// 
+/// @group Styling
+///  
+/// 
+/// @example scss
+/// //  Usage
+/// .el {
+///     @include rem(font-size, 1.6rem);
+///     @include rem(padding, 1rem .5rem)
+/// }
+/// 
+/// // Output
+/// .el {
+///     font-size: 16px;
+///     font-size: 1.6rem;
+///     padding: 10px 5px;
+///     padding: 1rem .5rem;
+/// }
+/// 
+@mixin rem($property, $values) {
+  $px : ();
+  $rem: ();
+  
+  @each $value in $values {
+   
+    @if $value == 0 or $value == auto {
+      $px : append($px , $value);
+      $rem: append($rem, $value);
+    }
+    
+    @else { 
+      $unit: unit($value);
+      $val: $value / ($value * 0 + 1); /* 1 */
+      
+      @if $unit == px {
+        $px : append($px,  $value);
+        $rem: append($rem, ($val / 10 * 1rem));
+      }
+      
+      @if $unit == rem {
+        $px : append($px,  ($val * 10 * 1px));
+        $rem: append($rem, $value);
+      }
+    }
+  }
+  
+  #{$property}: $px;
+  #{$property}: $rem;
+}

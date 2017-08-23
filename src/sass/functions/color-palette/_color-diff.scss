@@ -1,0 +1,27 @@
+/// 
+/// Function defining the difference between 2 colors and the color functions required to turn
+/// color $a into color $b.
+/// 
+/// @access private
+/// 
+/// 
+/// @group Color Palette
+/// 
+/// 
+/// @param {Color} $a - first color
+/// @param {Color} $b - second color
+/// 
+/// @return {Map}  The color operations to transform $a to $b, with corresponding values
+/// 
+@function color-diff($a, $b) {
+  $sat: saturation($a) - saturation($b);
+  $lig:  lightness($a) -  lightness($b);
+  $fn-sat: if($sat > 0, 'desaturate', 'saturate');
+  $fn-lig: if($lig > 0, 'darken', 'lighten');
+  
+  @return (
+    adjust-hue: -(hue($a) - hue($b)),
+    #{$fn-sat}: abs($sat),
+    #{$fn-lig}: abs($lig)
+  );
+}

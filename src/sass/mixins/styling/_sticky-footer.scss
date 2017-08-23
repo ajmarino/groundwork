@@ -1,0 +1,34 @@
+/// 
+/// Creates a sticky footer
+/// 
+/// @group Styling
+/// 
+/// @param {String} $footer_height                  - height of footer including padding or borders
+/// @param {String} $root_selector        [.main]   - main wrapper element
+/// @param {String} $root_footer_selector [.push]   - hidden element that "pushes" down the footer
+/// @param {String} $footer_selector      [.footer] - footer element
+/// 
+/// @example scss
+///   @include sticky-footer(4em) { ... }
+/// 
+@mixin sticky-footer($footer_height, $root_selector:".main", $root_footer_selector:".push", $footer_selector:".footer") {
+    @at-root html, body { height: 100%; }
+
+    @at-root #{$root_selector} {
+        width: 100%;
+        min-height: 100%;
+        height: auto !important;
+        height: 100%;
+        margin: 0 auto -#{$footer_height};
+
+        #{$root_footer_selector} {
+            height: #{$footer_height};
+        }
+    }
+
+    @at-root #{$footer_selector} {
+        clear: both;
+        position: relative;
+        height: #{$footer_height};
+    }
+}

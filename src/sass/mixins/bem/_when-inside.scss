@@ -1,0 +1,33 @@
+/// 
+/// Creates a nested selector using human-readable code
+/// 
+/// @group BEM
+/// 
+/// @link https://css-tricks.com/snippets/sass/simplifying-contexts-events/
+/// 
+/// @param {String | List} $context - parent element
+/// 
+/// @example scss
+/// // SCSS
+/// .el {
+///   color: $c-blizzardblue;
+///     
+///   @include when-inside('.sidebar') {
+///     color: $c-frostbite;
+///   }
+/// } 
+/// 
+/// // CSS
+/// .el {
+///   color: #ace5ee;
+/// }
+/// 
+/// .sidebar .el {
+///   color: #e936a7;
+/// }
+/// 
+@mixin when-inside($context) {
+    #{$context} & {
+        @content;
+    }
+}

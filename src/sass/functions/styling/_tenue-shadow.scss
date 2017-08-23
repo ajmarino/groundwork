@@ -1,0 +1,86 @@
+/// 
+/// Creates a tenue shadow effect on text
+/// 
+/// @group Styling
+/// 
+/// @link http://themes-pixeden.com/playground/text/tenue/
+/// 
+/// @param {Int}    $steps [70]      - number of shadows, max 128
+/// @param {Int}    $ratio [.005]    - space between shadow steps
+/// @param {Int}    $op    [.85]     - opacity of each step
+/// @param {Degree} $angle [-133deg] - angle of shadow
+/// @param {String} $col   [#000]    - starter color, usually same as text color
+/// @param {String} $bg    [null]    - ending color, usually same as bg color
+/// 
+/// @example scss
+/// // SCSS
+/// .tenue-shadow {
+///     color: #f0f;
+///     text-shadow: tenue-shadow(
+///                     $steps: 10,
+///                     $ratio: .03,
+///                     $op: .75,
+///                     $angle: -30deg,
+///                     $color: $color,
+///                     $bg: $bg
+///                );
+/// } 
+/// 
+/// // CSS
+/// .tenue-shadow {
+///     color: #f0f;
+///     text-shadow: -0.03em 0.02598em 0.4px rgba(229, 0, 229, 0.75), -0.045em 0.05196em 0.8px rgba(204, 0, 204, 0.75), -0.075em 0.07794em 1.2px rgba(178, 0, 178, 0.75), -0.09em 0.10392em 1.6px rgba(153, 0, 153, 0.75), -0.12em 0.1299em 2px rgba(127, 0, 127, 0.75), -0.135em 0.15588em 2.4px rgba(102, 0, 102, 0.75), -0.165em 0.18187em 3.4px rgba(76, 0, 76, 0.75), -0.18em 0.20785em 4.4px rgba(51, 0, 51, 0.75), -0.21em 0.23383em 5.4px rgba(25, 0, 25, 0.75), -0.225em 0.25981em 6.4px rgba(0, 0, 0, 0.75);
+/// }
+/// 
+/// @return {List} list of text shadows
+/// 
+@function tenue-shadow(
+    $steps: 70,
+    $ratio: .005,
+    $op: .85,
+    $angle: -133deg,
+    $color: #000,
+    $bg: null) {
+
+    $shadows: ();
+    $n: 0;
+    $b: 0;
+    $steps: if($steps > 128, 128, $steps);
+
+
+    @for $i from 1 through $steps {
+
+        $s: $i*2-1;
+
+        @if ($i > $steps - 11 and $i < $steps - 3){
+            $b: $b + .4px;
+        } @else if ($i >= $steps - 3) {
+            $b: $b + 1px;
+        } @else {
+            $b: $s * .1px;
+        }
+
+
+        // if $bg fade to this color
+        $c: if($bg, 
+                rgba(mix($color, $bg, 100-($i/$steps*100)), $op), 
+                rgba($s, $s, $s, $op)
+            );
+
+
+        // if even/odd
+        $n: if($i%2 == 0, $n + 1, $n + 2);
+
+
+        // do shadows
+        $shadows: append( 
+            $shadows, 
+
+            // $n * $radio * -1em  $i * $radio * -1em 
+            sin($angle) * ($n * $ratio * 1em) cos($angle) * ($i * $ratio * 1em) $b $c, 'comma');
+    }
+
+
+    @return $shadows;
+
+}

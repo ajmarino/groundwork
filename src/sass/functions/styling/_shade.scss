@@ -1,0 +1,28 @@
+/// 
+/// Slightly darken a color
+/// 
+/// @param  {Color} $color       - color to shade
+/// @param  {Number} $percentage - percentage of `$color` in returned color
+/// 
+/// @group Styling
+/// 
+/// @link http://codepen.io/KatieK2/pen/tejhz/
+/// 
+/// @return {Color}
+/// 
+/// @example scss
+/// // Usage
+/// .el {
+///     background-color: darken(#C6538C, 30%);
+///     background-color: shade(#C6538C, 30%);
+/// }
+/// 
+/// // Output
+/// .el {
+///    background-color: #602040;
+///    background-color: #8a3a62;
+/// }
+/// 
+@function shade($color, $percentage) {
+	@return mix($color, black, $percentage);
+}

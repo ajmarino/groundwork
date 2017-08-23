@@ -1,0 +1,68 @@
+// 
+// Applies visual styling to different namespaces
+// 
+// @link http://csswizardry.com/2015/03/more-transparent-ui-code-with-namespaces/
+// 
+$namespace-debug: true !default;
+
+@if $namespace-debug == true {
+    // BEM Elements.
+    [class*="__"] {
+        outline: 5px solid grey;
+    }
+
+
+    // BEM Modifiers.
+    [class*="--"] {
+        outline: 5px solid darkgrey;
+    }
+    
+
+    // objects
+    [class^="o-"],
+    [class*=" o-"] {
+        outline: 5px solid tomato;
+    }
+
+
+    // components    
+    [class^="c-"],
+    [class*=" c-"] {
+        outline: 5px solid darkseagreen;
+    }
+
+
+    // utilities
+    [class^="u-"],
+    [class*=" u-"] {
+        outline: 5px solid hotpink;
+    }
+
+
+    // scoped areas
+    [class^="s-"],
+    [class*=" s-"] {
+        outline: 5px solid rebeccapurple;
+    }
+
+
+    // hacks
+    [class^="_"],
+    [class*=" _"] {
+        outline: 5px solid crimson;
+    }
+
+
+    // js component
+    [class^="js-"],
+    [class*=" js-"] {
+        outline: 5px solid dodgerblue;
+    }
+
+
+    // qa selector
+    [class^="qa-"],
+    [class*=" qa-"] {
+        outline: 5px solid darkslategray;
+    }
+}

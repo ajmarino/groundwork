@@ -1,0 +1,15 @@
+/// 
+/// Checks if a `$list` contains `$value`
+/// 
+/// @param  {List} $list  - List of items
+/// @param  {*}    $value - Value to check in for in the list
+/// 
+/// @group Checks
+/// 
+/// @link http://www.sitepoint.com/bulletproof-function-validate-length-values-sass/
+/// 
+/// @return {Bool}
+/// 
+@function contains($list, $value) {
+	@return not not index($list, $value);
+}

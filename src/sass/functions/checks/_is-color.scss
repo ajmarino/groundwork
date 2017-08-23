@@ -1,0 +1,21 @@
+/// Tests whether `$var` is color.
+/// 
+/// @group Checks
+/// 
+/// @link http://vulcan-framework.github.io/core/
+/// 
+/// @param {Literal} $var  - check for color type
+/// 
+/// @return {Bool}
+/// 
+/// @example scss
+///  is-color(#333)   //returns true
+///  is-color(black)  //returns true
+///  is-color(test)   //returns false
+@function is-color($var) {
+    @if type-of($var) == color {
+        @return true;
+    } @else {
+        @return false;
+    }
+}

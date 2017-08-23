@@ -1,0 +1,25 @@
+/// 
+/// Create a 6 color palette, 3 darker 3 lighter, from a base color.
+/// 
+/// @access private
+/// 
+/// @group Color Palette
+/// 
+/// @param {Color} $base-color - base color for the palette
+/// 
+/// @requires {function} palette-diff
+/// @requires {function} apply-diff
+/// @requires {variable} $base-palette
+/// 
+/// 
+/// @return {List} List of colors
+/// 
+@function create-palette($base-color) {
+  $colors: ();
+  
+  @each $diff in $palette-diffs {
+    $colors: append($colors, apply-diff($base-color, $diff));
+  }
+  
+  @return $colors;
+}

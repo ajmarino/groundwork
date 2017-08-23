@@ -1,0 +1,22 @@
+/// 
+/// Apply differences returned from `color-diff` function to a color in order to create the second color.
+/// 
+/// @access private
+/// 
+/// @group Color Palette
+/// 
+/// @param {Color} $color - color to transform
+/// @param {Map} $diff - diff map
+/// 
+/// @return {Color} Transformed color
+/// 
+@function apply-diff($color, $diff) {
+  // We call the $key (function), 
+  // passing the $color and the $value as parameters
+  // e.g. `call(adjust-hue, #BADA55, 42)`
+  @each $key, $value in $diff {
+    $color: call($key, $color, $value);
+  }
+  
+  @return $color;
+}

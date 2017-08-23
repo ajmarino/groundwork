@@ -1,0 +1,36 @@
+/// 
+/// Creates a modifier syntax for BEM notation
+/// 
+/// 
+/// @param {String} $name - Name of modifier
+/// 
+/// 
+/// @group BEM
+/// 
+/// 
+/// @link http://www.csstyle.io/
+/// 
+/// 
+/// @example scss
+///  // Source
+///  .button {
+/// 		background: blue;
+/// 		
+///  	@include option(save) {
+///  		background: green;
+///  	}
+///  }
+/// 
+///  // Output
+///  .button {
+///  	background: blue;
+///  }
+///  .button--save {
+///   	background: green;
+///  }
+/// 
+@mixin option($name){
+  &.\--#{$name}{
+    @content;
+  }
+}

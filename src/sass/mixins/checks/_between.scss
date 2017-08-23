@@ -1,0 +1,48 @@
+///
+/// Query when the total number of items is at least `$first` and less than `$last` items
+/// 
+/// @group Checks
+/// 
+/// @link http://alistapart.com/article/quantity-queries-for-css
+/// @link https://github.com/danielguillan/quantity-queries
+/// @link http://quantityqueries.com/
+/// 
+/// @param {Number} $first           - Lower quantity of items to match
+/// @param {Number} $last            - Higher quantity of items to match
+/// @param {String} $selector [null] - Selector to filter with
+/// 
+/// @example scss - Make the items color red when there are at least 4 and at most 8 items
+/// ul li {
+///     @include between(4, 8) { color: red; }
+/// }
+/// 
+/// @example scss - Make the items color blue when there are at least 6 items and at most 10 items and use '*' (element agnostic) as the item selector
+/// ul li {
+///      @include between(6, 10, '*') { color: blue; }
+/// }
+/// 
+@mixin between($first, $last, $selector: null) {
+    $selector-append: ':nth-last-child(n+#{$first}):nth-last-child(-n+#{$last}):first-child';
+
+    @if type-of($first) != 'number' or not unitless($first) or $first < 1 {
+        @error "`$first` is not a valid number for `between`";
+    }
+
+    @if type-of($last) != 'number' or not unitless($last) or $last < 1 {
+        @error "`$last` is not a valid number for `between`";
+    }
+
+    @if $first > $last {
+        @error "`$first` cant be larger than `$last` for `between`";
+    }
+
+    @if $selector != null and (type-of($selector) != 'string' or length($selector) > 1) {
+        @error "`$selector` is not a valid selector for `between`";
+    }
+
+    $between-selector: _build-quantity-selector($selector-append, $selector);
+
+    @at-root #{$between-selector} {
+        @content;
+    }
+}

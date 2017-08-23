@@ -1,0 +1,26 @@
+/// Slightly lightens a color
+/// 
+/// @param  {Color}  $color      - color to alter
+/// @param  {Number} $percentage - percentage of `$color` in returned color
+/// 
+/// @group Styling
+/// 
+/// @link http://codepen.io/KatieK2/pen/tejhz/
+/// 
+/// @return {Color}
+/// 
+/// @example scss
+/// // Usage
+/// .el {
+///     background-color: lighten(#C6538C, 30%);
+///     background-color: shade(#C6538C, 30%);
+/// }
+/// 
+/// // Output
+/// .el {
+///    background-color: #ecc6d9;
+///    background-color: #d786ae;
+/// }
+@function tint($color, $percentage) {
+    @return mix($color, white, $percentage);
+}

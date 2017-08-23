@@ -1,0 +1,35 @@
+/// 
+/// Wraps a video embed with aspect ratio specific padding
+/// 
+/// @group Styling
+/// 
+/// @example scss
+/// .el {
+///     @extend %video-holder;
+/// }
+/// 
+/// @example html
+/// <div class="video-holder [landscape || portrait]">
+///     <video></video>
+///     <iframe></iframe>
+///     <embed></embed>
+/// </div>
+/// 
+/// 
+@mixin video-wrapper {
+    position: relative;
+    margin-bottom: 1em;
+    text-align: center;
+
+    video,
+    iframe,
+    embed {
+        @include absolute(top 0 right 0 bottom 0 left 0);
+        @include size(100%);
+        border: none;
+    }
+
+
+    &.widescreen { padding-bottom: aspect-ratio(16 9); }
+    &.standard { padding-bottom: aspect-ratio(4 3); }
+}

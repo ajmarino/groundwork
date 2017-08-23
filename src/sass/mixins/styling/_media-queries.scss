@@ -1,0 +1,62 @@
+/// 
+/// Mixin for inserting a media query. Can also be used to insert tweakpoints.
+/// <br>See `$breakpoints` under `Global Styling`
+/// <br>Tweakpoint maps are defined on a per component basis
+/// 
+/// @param  {String} $name               - Names breakpoint to get
+/// @param  {Map}    $map [$breakpoints] - Name of map of breakpoints
+/// 
+/// @group Styling
+/// 
+/// @throws Warning: if named breakpoint/tweakpoint is not found
+/// 
+/// @example scss
+/// // Usage
+/// .selector {
+///     font-size: 1rem;
+///     
+///     @include mq("tablet") {
+///         font-size: 1.4rem;
+///     }
+/// }
+/// 
+/// $tweakpoints: (
+///     "medium" : (screen and min-width: 20em)
+/// )
+/// .el {
+///     width: 50%;
+///     
+///     @include mq("medium", $tweakpoints) {
+///         width: 45%;
+///     }
+/// }
+/// 
+/// // Output
+///  .selector {
+///      font-size: 1rem;
+///  }
+///  @media only screen and (min-width: 48em) {
+///      .selector {
+///           font-size: 1.4rem;
+///      }
+///  }
+///  
+///  .el {
+///     width: 50%;
+///  }
+///  @media only screen and (min-width: 20em) {
+///      .el {
+///           width: 45%;
+///      }
+///  }
+/// 
+@mixin mq($name, $map: $breakpoints) {
+  @if map-has-key($map, $name) {
+    @media #{inspect(map-get($map, $name))} {
+      @content;
+    }
+  }
+  @else {
+    @warn "Couldn't find a breakpoint named `#{$name}` in the `#{$map}` map.";
+  }
+}

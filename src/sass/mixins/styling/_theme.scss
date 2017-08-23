@@ -1,0 +1,26 @@
+/// 
+/// SMACSS Theming
+/// 
+/// @group Styling
+/// 
+/// @link https://smacss.com/
+/// 
+/// @param {String} $name - theme name
+/// 
+/// @example scss
+/// .foobar {
+///   background: #ff3377;
+///   @include theme(beccapurple){
+///     background: #663399;
+///   }
+/// }
+/// 
+@mixin theme($name) {
+    @if not is-string($name) {
+        @error "$name is not a string";
+    }
+
+    @if $theme == $name {
+        @content;
+    }
+}

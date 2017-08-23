@@ -1,0 +1,45 @@
+/// 
+/// Creates an animated strikethrough that enters from left and exits 
+/// on the right
+/// 
+/// @group Styling
+/// 
+/// @example scss
+/// .el {
+///   @include strikethrough
+/// }
+/// 
+@mixin strikethrough() {
+    &::before,
+    &::after {
+        @include absolute(top 50%);
+        @include size(0% 1px);
+        background-color: currentColor;
+        content: '';
+    }
+
+    &::before {
+        left: 0;
+    }
+
+    &::after {
+        right: 0;
+        background-color: currentColor;
+        transition: t('width');
+    }
+
+
+    &:hover {
+        &::before {
+            background-color: currentColor;
+            width: 100%;
+            transition: t('width');
+        }
+
+        &::after {
+            background-color: transparent;
+            width: 100%;
+            transition: 0s;
+        }
+    }
+}

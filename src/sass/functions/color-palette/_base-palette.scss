@@ -1,0 +1,16 @@
+/// 
+/// Initial palette used to define the diff between the base color and each color from the palette.
+/// <br>See `color palatte` group for helpful mixins
+///  
+/// @group Color Palette
+/// 
+/// @link http://cl.ly/image/2w3z1E3c2f2h
+/// 
+/// @prop {String} $base-palette.base [#F2614E] - Base color for color palette creation
+/// 
+/// @type Map
+///  
+$base-palette: (
+  "base": #F2614E, 
+  "colors": (#D1DFEA, #BFB9C5, #CA8F91, #F2614E, #B7493A, #7A3027, #6E2B22)
+) !default;

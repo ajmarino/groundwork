@@ -1,0 +1,37 @@
+///
+/// Query when total items is exactly `N` items
+/// 
+/// @group Checks
+///
+/// @link http://alistapart.com/article/quantity-queries-for-css
+/// @link https://github.com/danielguillan/quantity-queries
+/// 
+/// @param {Number} $count - Quantity to match (equal)
+/// 
+/// @example scss - Make the items color red when there are exactly 4 items
+/// ul li {
+///     @include exactly(4) { color: red; }
+/// }
+/// 
+/// @example scss - Make the items color blue when there are exactly 6 items and use '*' (element agnostic) as the item selector
+/// ul li {
+///     @include exactly(6, '*') { color: blue; }
+/// }
+///
+@mixin exactly($count, $selector: null) {
+    $selector-append: ':nth-last-child(#{$count}):first-child';
+
+    @if type-of($count) != 'number' or not unitless($count) or $count < 1 {
+        @error "`$count` is not a valid number for `exactly`";
+    }
+
+    @if $selector != null and (type-of($selector) != 'string' or length($selector) > 1) {
+        @error "`$selector` is not a valid selector for `exactly`";
+    }
+
+    $exactly-selector: _build-quantity-selector($selector-append, $selector);
+
+    @at-root #{$exactly-selector} {
+        @content;
+    }
+}

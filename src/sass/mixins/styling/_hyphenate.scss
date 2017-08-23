@@ -1,0 +1,16 @@
+///
+/// Hyphenates extra long words using css so they stay inside their containers
+/// 
+/// @group Styling
+/// 
+/// @link https://justmarkup.com/log/2015/07/31/dealing-with-long-words-in-css/
+///
+@mixin hyphenate() {
+	overflow-wrap: break-word;
+	word-wrap: break-word;
+
+	-webkit-hyphens: auto;
+	   -moz-hyphens: auto;
+	    -ms-hyphens: auto;
+	        hyphens: auto;
+}

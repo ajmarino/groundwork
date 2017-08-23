@@ -1,0 +1,36 @@
+///
+/// Indents all lines but the first
+/// 
+/// @group Styling
+/// 
+/// @link http://davidtheclark.github.io/scut/
+/// 
+/// @param {Int} $indent [1em] - size of the indent
+/// 
+/// @example scss
+/// // SCSS
+/// .el {
+///     @include hanging-indent(1.5em);
+/// }
+/// 
+/// // CSS
+/// .el {
+///     padding-left: 1.5em;
+///     text-indent: -1.5em;
+/// }
+///
+@mixin hanging-indent ($indent: 1em) {
+    $val: strip-units($indent);
+
+    @if is-positive($val) {
+        // padding-left creates the indent,
+        // while text-indent pulls the first line
+        // back to the edge.
+
+        padding-left: $indent;
+        text-indent: -$indent;
+    }
+    @else {
+        @warn "#{$indent} is not a positive number. Properties omitted";
+    }
+}

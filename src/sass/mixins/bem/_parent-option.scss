@@ -1,0 +1,38 @@
+/// 
+/// Allows a component to respond to modifiers on its parent.
+/// 
+/// @param {String} $name - Name of parent modifier
+/// 
+/// 
+/// @group BEM
+/// 
+/// 
+/// @link http://www.csstyle.io/
+/// 
+/// 
+/// @example scss
+///  // Source
+///  .button {
+/// 	background: blue;
+/// 		
+///  	@include parent-option(create) {
+///  		background: green;
+///  	}
+///  }
+/// 
+///  // Output
+///  .button {
+///  	background: blue;
+///  }
+///  .parent--create .button {
+///   	background: green;
+///  }
+/// 
+@mixin parent-option($option){
+  $index: str-index(#{&}, "__") - 1;
+  $component: str-slice(#{&}, 0, $index);
+
+  #{$component}.\--#{$option} & {
+    @content;
+  }
+}

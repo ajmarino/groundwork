@@ -1,0 +1,29 @@
+/// 
+/// Builds the selector for the quantity query
+/// 
+/// @access private
+/// 
+/// @group Checks
+/// 
+/// @link http://alistapart.com/article/quantity-queries-for-css
+/// @link https://github.com/danielguillan/quantity-queries
+/// 
+/// @param {String} $selector-append - The selector to be appended
+/// @param {String} $last-selector   - The item's selector
+/// 
+/// @return {List} - The final quantity query selector
+/// 
+@function _build-quantity-selector($selector-append, $last-selector) {
+    $quantity-selector: ();
+
+    @each $s in & {
+        $last-simple-selector: '~' + if($last-selector, $last-selector, _last-simple-selector($s));
+        $sel: selector-append($s, $selector-append);
+        $sel2: selector-nest($sel, $last-simple-selector);
+
+        $quantity-selector: append($quantity-selector, $sel, 'comma');
+        $quantity-selector: append($quantity-selector, $sel2 , 'comma');
+    }
+
+    @return $quantity-selector;
+}

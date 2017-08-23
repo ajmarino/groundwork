@@ -1,0 +1,27 @@
+/// Tests whether `$var` is negative.
+/// 
+/// @group checks
+///
+/// @link http://vulcan-framework.github.io/core/
+/// 
+/// @requires is-number
+/// 
+/// @param {Literal} $var  - check whether $var is negative
+/// 
+/// @return {Bool}
+/// 
+/// @example
+///  is-negative(-1)   //returns true
+///  is-negative(0)   //returns true
+///  is-negative(1)   //returns false
+///  
+@function is-negative($var) {
+    @if is-number($var) {
+        @if type-of($var) == string {
+            $var: to-number($var);
+        }
+        @return $var <= 0;
+    } @else {
+        @return false;
+    }
+}

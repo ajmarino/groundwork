@@ -1,0 +1,74 @@
+/// 
+/// Allows a property to be fluid between min and max values
+/// 
+/// 
+/// @group Styling
+/// 
+/// @link http://www.sassmeister.com/gist/7f22e44ace49b5124eec
+/// @link https://madebymike.com.au/writing/precise-control-responsive-typography/
+/// @link https://css-tricks.com/snippets/sass/viewport-sized-typography-minimum-maximum-sizes/
+/// 
+/// @param  {Array} $properties             - properties to make fluid
+/// @param  {Value} $min-value              - minimium size
+/// @param  {Value} $max-value              - maximium size
+/// @param  {String} $min-width ['tablet']  - minimium breakpoint
+/// @param  {String} $max-width ['desktop'] - max breakpoint
+/// 
+/// @example scss
+///   .el {
+///       @include fluid-prop(font-size, 16px, 20px);
+///   }
+///   
+/// @example css
+///   .el {
+///       font-size: 16px;
+///       font-size: 1rem;
+///   }
+///   
+///   @media (min-width: 48em) {
+///       .el {
+///           font-size: calc(16px + 4 * (100vw - 48em) / 27);
+///           font-size: calc(1rem + 4 * (100vw - 48em) / 27);
+///       }
+///   }
+///   
+///   @media (min-width: 75em) {
+///       .el {
+///           font-size: 20px;
+///           font-size: 1.25rem;
+///       }
+///   }
+///   
+///
+@mixin fluid-prop($properties, $min-value, $max-value, $min-width: 'tablet', $max-width: 'desktop') {
+	@each $property in $properties {
+		@if $property == font-size {
+			@include fs($min-value);
+		} @else {
+			#{$property}: $min-value;
+		}
+	}
+
+	
+	@include media('>=#{$min-width}') {
+    	@each $property in $properties {
+    		@if $property == font-size {
+				#{$property}: calc(#{$min-value} + #{strip-units($max-value - $min-value)} * (100vw - #{map-get($breakpoints, #{$min-width})}) / #{strip-units( map-get($breakpoints, $max-width) - map-get($breakpoints, $min-width))});
+				#{$property}: calc( ((#{$min-value} / #{$typecsset-base-font-size}) * 1rem) + #{strip-units($max-value - $min-value)} * (100vw - #{map-get($breakpoints, #{$min-width})}) / #{strip-units( map-get($breakpoints, $max-width) - map-get($breakpoints, $min-width))});
+			} @else {
+    			#{$property}: calc(#{$min-value} + #{strip-units($max-value - $min-value)} * (100vw - #{map-get($breakpoints, #{$min-width})}) / #{strip-units( map-get($breakpoints, $max-width) - map-get($breakpoints, $min-width))});
+    		}
+    	}
+    }
+
+
+    @include media('>=#{$max-width}') {
+    	@each $property in $properties {
+    		@if $property == font-size {
+    			@include fs($max-value);
+    		} @else {
+    			#{$property}: $max-value;
+    		}
+    	}
+    }
+}

@@ -1,0 +1,31 @@
+/// Creates a linear-gradient using random color stops.<br>
+/// See `stripes` function in `Misc`
+/// 
+/// @param {List} $colors - List of colors
+/// 
+/// @access private
+/// 
+/// @group Styling
+/// 
+/// @return {Linear Gradient}
+@function _stripes-random-stops($colors) {
+	@if length(nth($colors, 1)) > 1 {
+		@return _stripes-custom-stops($colors);
+	}
+ 
+	$nb: length($colors);
+	$gradients: ();
+	$variation: 10;
+	$median: 100 / $n;
+ 
+	@for $i from 1 to $nb {
+		$stop: $median * $i; 
+		$random: rand($stop - $variation, $stop + $variation) * 1%;
+		$gradients: append($gradients, nth($colors, $i) $random, comma);
+		@if $i < length($colors) {
+			$gradients: append($gradients, nth(nth($colors, $i + 1), 1) $random);
+		} 
+	}
+ 
+	@return $gradients;
+}

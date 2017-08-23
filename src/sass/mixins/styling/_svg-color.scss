@@ -1,0 +1,26 @@
+/// 
+/// Styles svg elements using the given `$color`
+/// 
+/// @group Styling
+///  
+/// @param {Color} $color           - color to use for fill
+/// @param {Color} $stroke [$color] - color to use for the stroke
+///  
+/// @link http://useiconic.com
+///  
+/// @example scss
+/// // Usage
+/// .el {
+///     @include svg-color(red);
+/// }
+/// 
+/// // Output
+/// .el {
+///     fill: red;
+///     stroke: red;
+/// }
+/// 
+@mixin svg-color($color, $stroke: $color) {
+    fill: $color;
+    stroke: $stroke;
+}

@@ -1,0 +1,28 @@
+/// 
+/// Find the last simple selector in a given selector set
+/// 
+/// @access private
+/// 
+/// @group Checks
+/// 
+/// @link http://alistapart.com/article/quantity-queries-for-css
+/// @link https://github.com/danielguillan/quantity-queries
+/// 
+/// @param {List | String} $selector - A single selector
+///
+/// @return {String} - The last simple selector in $selector
+/// 
+/// @example scss
+///   $result: _last-simple-selector(ul > li); // li
+/// 
+@function _last-simple-selector($selector) {
+    $parsed: selector-parse($selector);
+
+    @if length($parsed) > 1 {
+        @error "`#{$selector}` contains #{length($parsed)} selectors and the `_last-simple-selector()`function accepts only 1.";
+    }
+
+    $last-simple-selector: nth(nth($parsed, 1), -1);
+
+    @return $last-simple-selector;
+}

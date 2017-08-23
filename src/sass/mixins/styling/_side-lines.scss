@@ -1,0 +1,104 @@
+$border-styles: ("dashed", "dotted", "double", "groove", "hidden", "inset", "none", "outset", "ridge", "solid");
+/// 
+/// Creates a solid line(s) extending across the screen around an element
+/// 
+/// @group Styling
+/// 
+/// @link http://davidtheclark.github.io/scut/
+/// 
+/// @param {Int}    $height   [1px]     - size of lines
+/// @param {Int}    $space    [.5em]    - how far away from element lines start
+/// @param {String} $color    [inherit] - color of the lines
+/// @param {String} $style    [solid]   - style of lines, accepts border-style values
+/// @param {Bool}   $v-adjust [false]   - adds space to bottom of lines
+/// @param {Bool}   $double   [false]   - double the lines by adding a value for the distance between the two lines
+/// 
+/// @example scss
+/// // SCSS
+/// .el {
+///   @include side-lines();
+/// }
+/// 
+/// // CSS
+/// .el {
+///   display: block;
+///   overflow: hidden;
+///   text-align: center;
+/// }
+/// 
+/// .el:before,
+/// .el:after {
+///   content: "";
+///   display: inline-block;
+///   vertical-align: middle;
+///   position: relative;
+///   width: 50%;
+///   border-top-style: solid
+///   border-top-width: 1px;
+/// }
+/// .el:before {
+///   right: .5em;
+///   margin-left: -50%;
+/// }
+/// .el:after {
+///   left: .5em;
+///   margin-right: -50%;
+/// }
+/// 
+@mixin side-lines (
+	$height: 1px,
+	$space: 0.5em,
+	$color: inherit,
+	$style: solid,
+	$v-adjust: false,
+	$double: false
+) {
+	display: block;
+	overflow: hidden;
+	text-align: center;
+
+	&:before,
+	&:after {
+		content: "";
+		display: inline-block;
+		vertical-align: middle;
+		position: relative;
+		width: 50%;
+		
+		@if ( contains($border-styles, $style) ) {
+			border-top-style: $style;
+		} @else {
+			@warn "#{$style} is not a valid border style, property ommitted.";
+		}
+
+		border-top-width: $height;
+
+		@if $color != inherit {
+			border-top-color: $color;
+		}
+
+		@if $v-adjust != false {
+			bottom: $v-adjust;
+		}
+
+		@if $double != false {
+			height: $double;
+			border-bottom-style: $style;
+			border-bottom-width: $height;
+
+			@if $color != inherit {
+				border-bottom-color: $color;
+			}
+		}
+	}
+
+	&:before {
+		right: $space;
+		margin-left: -50%;
+	}
+
+	&:after {
+		left: $space;
+		margin-right: -50%;
+	}
+}

@@ -1,0 +1,29 @@
+/// 
+/// Creates a modifier based on a block using human-readable code
+/// 
+/// @group BEM
+/// 
+/// @link http://codepen.io/andersschmidt/thoughts/expressive-bem-with-sass-part-ii-a-first-draft-of-mixins/
+/// 
+/// @param {String | List} $modifier - modifier to create
+/// 
+/// @example scss
+/// // SCSS
+/// .menu {
+///   @include when('fixed')
+/// } 
+/// 
+/// // CSS
+/// .menu {
+/// }
+/// 
+/// .menu--fixed{
+/// }
+/// 
+@mixin when($modifier) {
+	@at-root {
+		&--#{$modifier} {
+			@content;
+		}
+	}
+}

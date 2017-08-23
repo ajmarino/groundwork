@@ -1,0 +1,26 @@
+/// 
+/// Shortened name for Typecsset font size mixin.
+/// 
+/// @param {Int}     $font-size          - Font size in px to convert to rem
+/// @param {Boolean} $line-height (true) - Choose whether to include line-height in the output
+/// 
+/// 
+/// @group Styling
+/// 
+/// 
+/// @example scss
+/// // Usage
+/// .el {
+///     @include fs(16px);
+/// }
+/// 
+/// // Output
+/// .el {
+/// 	   font-size: 16px;
+/// 	   font-size: 1rem;
+/// 	   line-height: 1.5rem;
+/// }
+/// 
+@mixin fs($font-size, $line-height: true) {
+	@include typecsset-font-size($font-size, $line-height);
+}

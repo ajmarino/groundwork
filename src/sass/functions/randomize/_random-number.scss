@@ -1,0 +1,19 @@
+/// 
+/// Custom random function to allow minimum value
+/// 
+/// @param  {Int} $min - lower boundry
+/// @param  {Int} $max - upper boundry
+/// 
+/// 
+/// @group Randomizers
+/// 
+/// 
+/// @example scss
+///   $items : rand(5, 10);
+/// 
+/// 
+/// @return {Int}      - Random number between upper and lower boundries
+/// 
+@function rand-num($min, $max) {
+  @return random($max - $min) + $min;
+}

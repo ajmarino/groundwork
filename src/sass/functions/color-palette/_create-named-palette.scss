@@ -1,0 +1,26 @@
+/// 
+/// Create a list of colors from the base color then turn it into a map with explicit keys.
+/// <br>See `Color Palette` group, `get_` functions
+/// 
+/// @param {Color} $base-color - base color for the palette
+/// 
+/// @group Color Palette
+/// 
+/// @link http://www.sitepoint.com/using-sass-build-color-palettes/
+/// 
+/// @requires {function} create-palette
+/// 
+/// @return {Map}
+/// 
+@function create-named-palette($base-color) {
+  $palette-colors: create-palette($base-color);
+  // Keys need to be same length as colors in $base-pallet
+  $keys: 'lightest' 'lighter' 'light' 'base' 'dark' 'darker' 'darkest';
+  $palette: ();
+
+  @for $i from 1 through min(length($palette-colors), length($keys)) {
+    $palette: map-merge($palette, (nth($keys, $i): nth($palette-colors, $i)));
+  }
+
+  @return $palette;
+}

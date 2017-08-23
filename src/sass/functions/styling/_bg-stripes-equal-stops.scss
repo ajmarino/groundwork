@@ -1,0 +1,26 @@
+/// 
+/// Creates a linear-gradient using equal sized stripes.<br>
+/// See `stripes` function in `Misc`
+/// 
+/// @param {List} $colors - List of single colors
+/// 
+/// @access private
+/// 
+/// @group Styling
+/// 
+/// @return {Linear Gradient}
+/// 
+@function _stripes-equal-stops($colors) {
+	$gradients: ();
+	$stops: 100% / length($colors);
+
+	@for $i from 1 to length($colors) {
+		$gradients: append($gradients, nth($colors, $i) $i * $stops, comma);
+
+		@if $i < length($colors) {
+			$gradients: append($gradients, nth($colors, $i + 1) $i * $stops);
+		}
+	}
+
+	@return $gradients;
+}

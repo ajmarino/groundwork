@@ -1,0 +1,55 @@
+/// 
+/// Webkit (and IE) scrollbar styling. Include in `layout/_base.scss` if required.
+/// 
+/// @param {Int}    $size      - width for vertical scrollbars, height for horizontal scrollbars
+/// @param {String} $primary   - main color (scrollbar)
+/// @param {String} $secondary - secondary color (background)
+/// 
+/// 
+/// @group Styling
+/// 
+/// 
+/// @example scss
+/// // Usage
+///   @include scrollbar(5px, #333, #ccc);
+/// 
+/// 
+/// // Output
+/// ::-webkit-scrollbar: {
+///     width: 5px;
+///     height: 5px;
+/// }
+/// 
+/// ::-webkit-scrollbar-thumb {
+///     background: #333;
+/// }
+/// 
+/// ::-webkit-scrollbar-track {
+///     background: #ccc;
+/// }
+/// 
+/// body {
+///   scrollbar-face-color: #333;
+///   scrollbar-track-color: #ccc;
+/// }
+/// 
+@mixin scrollbar($size, $primary, $secondary: lighten($primary, 25%)) {
+	::-webkit-scrollbar {
+		width:  $size;
+		height: $size;
+	}
+
+	::-webkit-scrollbar-thumb {
+		background: $primary;
+	}
+
+	::-webkit-scrollbar-track {
+		background: $secondary;
+	}
+  
+  // For Internet Explorer
+  body {
+    scrollbar-face-color: $primary;
+    scrollbar-track-color: $secondary;
+  }
+}

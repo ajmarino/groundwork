@@ -1,13 +1,134 @@
 //
-// Groundwork
+//     ,-----.                                                                                                 ,-.
+//    /   /   \                                                    ,---,                                   ,--/ /|
+//   |   :     \   __  ,-.   ,---.           ,--,      ,---,     ,---.'|         .---.   ,---.    __  ,-.,--. :/ |
+//   |   |  ;. / ,' ,'/ /|  '   ,'\        ,'_ /|  ,-+-. /  |    |   | :        /. ./|  '   ,'\ ,' ,'/ /|:  : ' /
+//   |   | /__/  '  | |' | /   /   |  .--. |  | : ,--.'|'   |    |   | |     .-'-. ' | /   /   |'  | |' ||  '  /
+//   |   | ;  __ |  |   ,'.   ; ,. :,'_ /| :  . ||   |  ,"' |  ,--.__| |    /___/ \: |.   ; ,. :|  |   ,''  |  :
+//   |   | |.' .''  :  /  '   | |: :|  ' | |  . .|   | /  | | /   ,'   | .-'.. '   ' .'   | |: :'  :  /  |  |   \
+//   |   | '_.' :|  | '   '   | .; :|  | ' |  | ||   | |  | |.   '  /  |/___/ \:     ''   | .; :|  | '   '  : |. \
+//   |   |; : \  |;  : |   |   :    |:  | : ;  ; ||   | |  |/ '   ; |:  |.   \  ' .\   |   :    |;  : |   |  | ' \ \
+//   |   | '/  .'|  , ;    \   \  / '  :  `--'   \   | |--'  |   | '/  ' \   \   ' \ | \   \  / |  , ;   '  : |--'
+//   |   \    /   ---'      `----'  |  |      .-./   |/      |   :    :|  \   \  |--"   `----'   ---'    ;  |,'
+//    \   \ .'                       `--`----'   '---'        \   \  /     \   \ |                       '--'
+//     `---`                                                   `----'       '---"
+//
+//   A Functional CSS toolkit for building sites
+//   ==============================================================================================
 //
 //
-// A foundation for building sites
+//
+//   Table of Contents
+//   ----------------------------------------------------------------------------------------------
+//   01. Libraries / Plugins
+//   02. Layout
+//   03. Molecules
+//   04. Components
+//   05. Pages
+//   06. Misc
+//   ==============================================================================================
 //
 
 
 
 
+
+//  ===========================================================================================
+//  $Libraries / Plugins
+//
+//  External plugins added via yarn, .css copied to .scss so they can be included directly
+//  in the compiled css, or overwritten by a custom component file
+//  ===========================================================================================
+@import
+    "normalize.css/normalize",
+    'base/h5bp';
+
+
+
+@import
+    './variables',
+
+
+// Typography
+// - font
+//   - families
+//   - sizes
+//   - styles
+//   - weights
+// - letter-spacing
+// - line-height
+// - text
+//   - alignment
+//   - colors
+//   - decoration
+//   - indent
+//   - transform
+// - white-space
+// - word-break
+//
+//
+// Layout
+// - display
+// - float
+// - lists
+// - overflow
+// - position
+//   - 4 sides
+// - z-index
+//
+//
+// Sizing
+// - height
+//   - base
+//   - min
+//   - max
+// - width
+//   - base
+//   - min
+//   - max
+//
+//
+// Spacing
+// - margin
+// - padding
+//
+//
+// Flexbox
+// - align-items
+// - flex
+//   - basis
+//   - direction
+//   - grow
+//   - shrink
+//   - wrap
+// - justify-content
+// - order
+//
+//
+// Decoration
+// - backgrounds
+//   - colors
+//   - position
+//   - repeat
+//   - size
+// - border
+//   - side
+//   - width
+//   - colors
+// - box-shadow
+// - opacity
+// - outline
+//
+//
+// Animation
+// - animation
+// - transition
+//
+
+
+
+
+//
 //
 // Helpers
 //

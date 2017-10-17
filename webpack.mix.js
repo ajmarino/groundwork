@@ -3,11 +3,11 @@ const { mix } = require('laravel-mix');
 
 // mix.js('resources/assets/js/bootstrap.js', 'public/js/plugins.js')
    // .js('resources/assets/js/app.js', 'public/js')
-mix.sass('resources/assets/sass/groundwork.scss', 'dist/css', {
-        includePaths: ['node_modules']
-    });
+mix.sass('src/sass/groundwork.scss', 'dist/css', {
+    includePaths: ['node_modules']
+});
 
-sassdoc('./resources/assets/sass', {
+sassdoc('./src/sass', {
     verbose: true,
-    dest: './public/sassdocs'
+    dest: './dist/sassdocs'
 });

@@ -1,32 +1,32 @@
-/// 
+///
 /// Function for getting a size value.
 /// <br>See `$sizes` var under `Global Styling`
-/// 
+///
 /// @param  {String} $name         - Named item to get size for
 /// @param  {Map}    $map [$sizes] - Name of map to get size from
-/// 
-/// 
+///
+///
 /// @group Getters
-/// 
-/// 
+///
+///
 /// @return {String} - Named value to get size for from sass map
-/// 
-/// 
+///
+///
 /// @example scss
 /// // Usage
 /// .navbar {
 ///     height: s('navbar');
 /// }
-/// 
+///
 /// // Output
 /// .navbar {
 ///     height: 3em;
 /// }
-/// 
+///
 @function s($item, $map: $sizes) {
   @if not map-has-key($map, $item) {
-    @warn "No size found for `#{$item}` in $sizes map. Property omitted.";
+    @warn "No size found for `#{$item}` in #{$map} map. Property omitted.";
   }
- 
+
   @return map-get($map, $item);
 }

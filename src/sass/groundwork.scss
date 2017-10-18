@@ -40,13 +40,14 @@
 //  in the compiled css, or overwritten by a custom component file
 //  ===========================================================================================
 @import
-    "normalize.css/normalize",
+    'normalize.css/normalize',
+    'include-media/dist/include-media',
     'base/h5bp';
 
 
 
 @import
-    './variables',
+    './variables';
 
 
 // Typography
@@ -89,9 +90,11 @@
 //
 //
 // Spacing
-// - margin
-// - padding
-//
+@import
+    'spacing/margin',
+    'spacing/padding';
+
+
 //
 // Flexbox
 // - align-items

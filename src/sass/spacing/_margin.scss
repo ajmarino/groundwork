@@ -1,0 +1,87 @@
+//
+// .mx-auto - Applies auto margins to left and right sides
+//
+.mx-auto {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+@each $bp, $size in $breakpoints {
+    @include media('>=#{$size}') {
+        .#{$bp}\:mx-auto {
+            margin-left: auto;
+            margin-right: auto;
+        }
+    }
+}
+
+
+
+
+
+//
+// .mx-* - Applies left and right margins based on sizing scale
+//
+@each $scale, $value in $sizing {
+    .mx-#{$scale} {
+        margin-left: $value;
+        margin-right: $value;
+    }
+
+    @each $bp, $size in $breakpoints {
+        @include media('>=#{$size}') {
+            .#{$bp}\:mx-#{$scale} {
+                margin-left: $value;
+                margin-right: $value;
+            }
+        }
+    }
+}
+
+
+
+
+
+//
+// .my-* - Applies top and bottom margins based on sizing scale
+//
+@each $scale, $value in $sizing {
+    .my-#{$scale} {
+        margin-top: $value;
+        margin-bottom: $value;
+    }
+
+    @each $bp, $size in $breakpoints {
+        @include media('>=#{$size}') {
+            .#{$bp}\:my-#{$scale} {
+                margin-top: $value;
+                margin-bottom: $value;
+            }
+        }
+    }
+}
+
+
+
+
+
+//
+// .m[t,r,b,l]-* - Applies margins to single side based on sizing scale
+//
+@each $prefix, $side in $directions {
+
+    @each $scale, $value in $sizing {
+        .m#{$prefix}-#{$scale} {
+            margin-#{$side}: $value;
+        }
+
+        @each $bp, $size in $breakpoints {
+            @include media('>=#{$size}') {
+                .#{$bp}\:m#{$prefix}-#{$scale} {
+                    margin-#{$side}: $value;
+                }
+            }
+        }
+    }
+
+}

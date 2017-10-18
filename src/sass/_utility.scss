@@ -1,10 +1,10 @@
-// 
+//
 // Hide visually and from screen readers:
-// 
+//
 // @group Utility
-// 
+//
 // @link http://juicystudio.com/article/screen-readers-display-none.php
-// 
+//
 .u-hidden {
     display: none !important;
     visibility: hidden;
@@ -14,13 +14,13 @@
 
 
 
-// 
+//
 // Hide only visually, but have it available for screen readers:
-// 
+//
 // @group Utility
-// 
+//
 // @link http://snook.ca/archives/html_and_css/hiding-content-for-accessibility
-// 
+//
 .u-sr-only {
     border: 0;
     clip: rect(0 0 0 0);
@@ -30,14 +30,14 @@
     padding: 0;
     position: absolute;
     width: 1px;
-    
-    
-    // 
+
+
+    //
     // Extends the .visuallyhidden class to allow the element
     // to be focusable when navigated to via the keyboard:
-    // 
+    //
     // https://www.drupal.org/node/897638
-    // 
+    //
     &.focusable:active,
     &.focusable:focus {
         clip: auto;
@@ -54,11 +54,11 @@
 
 
 
-// 
+//
 // Hide visually and from screen readers, but maintain layout
-// 
+//
 // @group Utility
-// 
+//
 .u-invisible {
     visibility: hidden;
 }
@@ -69,7 +69,7 @@
 
 
 // Imports visual debugging here so it appears near the end of compiled css
-@import     
-    "functions/debug/legacy-xhtml",
-    "functions/debug/pesticide",
-    "functions/debug/namespace-debug";
+@import
+    'functions/debug/legacy-xhtml',
+    'functions/debug/pesticide',
+    'functions/debug/namespace-debug';

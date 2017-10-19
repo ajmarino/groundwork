@@ -8,6 +8,9 @@ mix.sass('src/sass/groundwork.scss', 'dist/css', {
 });
 
 sassdoc('./src/sass', {
+    display: {
+        access: ['public'],
+    },
     verbose: true,
-    dest: './dist/sassdocs'
+    dest: './dist/sassdocs',
 });

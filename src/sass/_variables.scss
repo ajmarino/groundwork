@@ -66,15 +66,15 @@ $theme: "default" !default;
 /// Breakpoints for responsive design, any name/ pair can go here.
 /// <br>See `breakpoint` mixin under `Styling`
 ///
-/// @group Site Styles
+/// @group Defaults
 ///
 $breakpoints: (
-    'sm'   : 30em,  // Mobile:
-    'm'    : 48em,  // Tablet:  768px
-    'l'    : 62em,  // Laptop:  992px
-    'xl'   : 80em,  // Desktop: 1200px
-    'huge' : 98em,  // Huge:
-);
+    'sm'   : 30em,   // Mobile:  480px
+    'm'    : 48em,   // Tablet:  768px
+    'l'    : 62em,   // Laptop:  992px
+    'xl'   : 80em,   // Desktop: 1200px
+    'huge' : 100em,  // Huge:    1600px
+) !default;
 
 
 
@@ -82,6 +82,8 @@ $breakpoints: (
 
 ///
 /// Font Families
+///
+/// @group Defaults
 ///
 $font-families : (
     'sans'  : ("source-sans-pro", "Helvetica Neue", Helvetica, Arial, sans-serif),
@@ -97,6 +99,8 @@ $font-families : (
 
 ///
 /// Type Scale
+///
+/// @group Defaults
 ///
 $font-sizes: (
     'xs'   : .75rem,    // 12px
@@ -117,6 +121,8 @@ $font-sizes: (
 ///
 /// Font Styles
 ///
+/// @group Defaults
+///
 $font-styles: ('normal', 'italic') !default;
 
 
@@ -125,6 +131,8 @@ $font-styles: ('normal', 'italic') !default;
 
 ///
 /// Font Weights
+///
+/// @group Defaults
 ///
 $font-weights: (
     'hairline' : 200,
@@ -141,6 +149,8 @@ $font-weights: (
 ///
 /// Letter Spacing
 ///
+/// @group Defaults
+///
 $letter-spacing: (
     'tight'  : -.05em,
     'normal' : 0,
@@ -153,6 +163,8 @@ $letter-spacing: (
 
 ///
 /// Line Heights
+///
+/// @group Defaults
 ///
 $line-heights: (
     'none'  : 1,
@@ -168,6 +180,8 @@ $line-heights: (
 ///
 /// Text Alignments
 ///
+/// @group Defaults
+///
 $text-alignment: ('left', 'center', 'right') !default;
 
 
@@ -176,6 +190,8 @@ $text-alignment: ('left', 'center', 'right') !default;
 
 ///
 /// Text Colors
+///
+/// @group Defaults
 ///
 $text-colors: () !default;
 
@@ -186,6 +202,8 @@ $text-colors: () !default;
 ///
 /// Text Decorations
 ///
+/// @group Defaults
+///
 $text-decorations: () !default;
 
 
@@ -194,6 +212,8 @@ $text-decorations: () !default;
 
 ///
 /// Text Transforms
+///
+/// @group Defaults
 ///
 $text-transforms: () !default;
 
@@ -204,6 +224,8 @@ $text-transforms: () !default;
 ///
 /// White Space
 ///
+/// @group Defaults
+///
 $white-space: () !default;
 
 
@@ -213,6 +235,8 @@ $white-space: () !default;
 ///
 /// Line Heights
 ///
+/// @group Defaults
+///
 $line-heights: () !default;
 
 
@@ -221,6 +245,8 @@ $line-heights: () !default;
 
 ///
 /// Directions
+///
+/// @group Defaults
 ///
 $directions: (
     't' : 'top',
@@ -233,6 +259,8 @@ $directions: (
 
 ///
 /// Spacing
+///
+/// @group Defaults
 ///
 $sizing: (
     '1'  : 0.25rem,

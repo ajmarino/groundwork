@@ -1,13 +1,14 @@
 {
   "name": "groundwork",
-  "version": "0.0.0",
+  "version": "1.0.0",
   "description": "Starting files and useful mixins/functions",
   "main": "app.js",
   "scripts": {
     "dev": "npm run development",
     "development": "NODE_ENV=development node_modules/webpack/bin/webpack.js --progress --hide-modules --config=node_modules/laravel-mix/setup/webpack.config.js",
     "prod": "npm run production",
-    "production": "NODE_ENV=production node_modules/webpack/bin/webpack.js --progress --hide-modules --config=node_modules/laravel-mix/setup/webpack.config.js"
+    "production": "NODE_ENV=production node_modules/webpack/bin/webpack.js --progress --hide-modules --config=node_modules/laravel-mix/setup/webpack.config.js",
+    "watch": "NODE_ENV=development node_modules/webpack/bin/webpack.js --watch --progress --hide-modules --config=node_modules/laravel-mix/setup/webpack.config.js"
   },
   "author": "aj@ajmarino.com",
   "license": "MIT",

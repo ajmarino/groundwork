@@ -2,5 +2,5 @@
 // Text Transforms
 //
 @each $transform in $text-transforms {
-    .text-#{$transform} { text-transform: $transform; }
+    .text-#{$transform} { text-transform: #{$transform}; }
 }

@@ -3,7 +3,7 @@
 //
 @each $decoration, $style in $text-decoration-lines {
     .text-#{$decoration} {
-        text-decoration: $style;
+        text-decoration: #{$style};
     }
 }
 

@@ -8,7 +8,7 @@
     }
 
     @each $bp, $size in $breakpoints {
-        @include media('>=#{$size}') {
+        @include media('screen', '>=#{$size}') {
             .#{$bp}\:px-#{$scale} {
                 padding-left: $value;
                 padding-right: $value;
@@ -31,7 +31,7 @@
     }
 
     @each $bp, $size in $breakpoints {
-        @include media('>=#{$size}') {
+        @include media('screen', '>=#{$size}') {
             .#{$bp}\:py-#{$scale} {
                 padding-top: $value;
                 padding-bottom: $value;
@@ -55,7 +55,7 @@
         }
 
         @each $bp, $size in $breakpoints {
-            @include media('>=#{$size}') {
+            @include media('screen', '>=#{$size}') {
                 .#{$bp}\:p#{$prefix}-#{$scale} {
                     padding-#{$side}: $value;
                 }

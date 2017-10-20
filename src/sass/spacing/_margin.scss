@@ -7,7 +7,7 @@
 }
 
 @each $bp, $size in $breakpoints {
-    @include media('>=#{$size}') {
+    @include media('screen', '>=#{$size}') {
         .#{$bp}\:mx-auto {
             margin-left: auto;
             margin-right: auto;
@@ -20,7 +20,8 @@
 
 
 //
-// .mx-* - Applies left and right margins based on sizing scale
+// .mx-*  - Applies left and right margins based on sizing scale
+// .-mx-* - Negative versions of above
 //
 @each $scale, $value in $sizing {
     .mx-#{$scale} {
@@ -28,11 +29,21 @@
         margin-right: $value;
     }
 
+    .-mx-#{$scale} {
+        margin-left: -#{$value};
+        margin-right: -#{$value};
+    }
+
     @each $bp, $size in $breakpoints {
-        @include media('>=#{$size}') {
+        @include media('screen', '>=#{$size}') {
             .#{$bp}\:mx-#{$scale} {
                 margin-left: $value;
                 margin-right: $value;
+            }
+
+            .#{$bp}\:-mx-#{$scale} {
+                margin-left: -#{$value};
+                margin-right: -#{$value};
             }
         }
     }
@@ -50,12 +61,21 @@
         margin-top: $value;
         margin-bottom: $value;
     }
+    .-my-#{$scale} {
+        margin-top: -#{$value};
+        margin-bottom: -#{$value};
+    }
 
     @each $bp, $size in $breakpoints {
-        @include media('>=#{$size}') {
+        @include media('screen', '>=#{$size}') {
             .#{$bp}\:my-#{$scale} {
                 margin-top: $value;
                 margin-bottom: $value;
+            }
+
+            .#{$bp}\:-my-#{$scale} {
+                margin-top: -#{$value};
+                margin-bottom: -#{$value};
             }
         }
     }
@@ -66,22 +86,45 @@
 
 
 //
-// .m[t,r,b,l]-* - Applies margins to single side based on sizing scale
+// .m[t,r,b,l]-a  - Applies auto margin to a side for use inside a Flex container
+// .m[t,r,b,l]-*  - Applies margins to single side based on sizing scale
+// .-m[t,r,b,l]-* - Negative version of sizing scale
 //
 @each $prefix, $side in $directions {
 
     @each $scale, $value in $sizing {
-        .m#{$prefix}-#{$scale} {
-            margin-#{$side}: $value;
-        }
+        .m#{$prefix}-a          { margin-#{$side}: auto; }
+        .m#{$prefix}-#{$scale}  { margin-#{$side}: $value; }
+        .-m#{$prefix}-#{$scale} { margin-#{$side}: -#{$value}; }
 
         @each $bp, $size in $breakpoints {
-            @include media('>=#{$size}') {
-                .#{$bp}\:m#{$prefix}-#{$scale} {
-                    margin-#{$side}: $value;
-                }
+            @include media('screen', '>=#{$size}') {
+                .#{$bp}\:m#{$prefix}-a          { margin-#{$side}: auto; }
+                .#{$bp}\:m#{$prefix}-#{$scale}  { margin-#{$side}: $value; }
+                .#{$bp}\:-m#{$prefix}-#{$scale} { margin-#{$side}: -#{$value}; }
             }
         }
     }
 
+}
+
+
+
+
+
+//
+// .m-*  - Applies margins to all sides based on sizing scale
+// .-m-* - Negative
+//
+@each $scale, $value in $sizing {
+    .m-#{$scale}  { margin: $value; }
+    .-m-#{$scale} { margin: -#{$value}; }
+
+
+    @each $bp, $size in $breakpoints {
+        @include media('screen', '>=#{$size}') {
+            .#{$bp}\:m-#{$scale}  { margin: $value; }
+            .#{$bp}\:-m-#{$scale} { margin: -#{$value}; }
+        }
+    }
 }

@@ -1,0 +1,8 @@
+//
+// Text Colors
+//
+@each $label, $color in $text-colors {
+    .color-#{$label}              { color: $color; }
+    .hover\:color-#{$label}:hover { color: $color; }
+    .focus\:color-#{$label}:focus { color: $color; }
+}

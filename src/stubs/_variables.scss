@@ -1,0 +1,173 @@
+///
+/// Enable layout debugging
+///
+/// @group Debug
+///
+/// @link http://pesticide.io/
+///
+$layout-debug-outline: false !default;
+$layout-debug-depth: false !default;
+
+
+
+
+
+///
+/// Enable Namespace visual debugging
+///
+/// @group Debug
+///
+/// @link http://csswizardry.com/2015/03/more-transparent-ui-code-with-namespaces/
+///
+$namespace-debug: false !default;
+
+
+
+
+
+///
+/// Highlight potentially broken, malformed or legacy (X)HTML
+///
+/// @group Debug
+///
+/// @link https://github.com/yahoo/debugCSS
+///
+$legacy-debug: false !default;
+
+
+
+
+
+///
+/// Sets the active theme name
+///
+/// @group Styling
+///
+/// @link https://smacss.com/book/type-theme
+///
+$theme: "default" !default;
+
+
+
+
+
+///
+/// Breakpoints for responsive design, any name/pair can go here.  These are used
+/// to create scoped versions of all classes so responsive behavior can be
+/// applied directly using classes, with the label as the prefix. All
+/// media queries are generated with `screen and min-width()`
+///
+/// @example css
+/// .sm:mt-4 - applies mt-4 spacing at the sm breakpoint
+///
+/// @group Defaults
+///
+$breakpoints: (
+    'sm'   : 30em,   // Mobile:  480px
+    'm'    : 48em,   // Tablet:  768px
+    'l'    : 62em,   // Laptop:  992px
+    'xl'   : 80em,   // Desktop: 1200px
+    'huge' : 100em,  // Huge:    1600px
+) !default;
+
+
+
+
+
+///
+/// Font Families
+///
+/// @group Defaults
+///
+$font-families : (
+    'sans'  : ("source-sans-pro", "Helvetica Neue", Helvetica, Arial, sans-serif),
+    'serif' : ("source-serif-pro", Georgia, "Times New Roman", Times, serif),
+    'mono'  : ("source-code-pro","Inconsolata", "Menlo", Consolas, "Andale Mono WT", "Andale Mono", "Lucida Console",
+                "Lucida Sans Typewriter", "DejaVu Sans Mono", "Bitstream Vera Sans Mono", "Liberation Mono", "Nimbus Mono L",
+                Monaco, "Courier New", Courier, monospace),
+) !default;
+
+
+
+
+
+///
+/// Type Scale
+///
+/// @group Defaults
+///
+$font-sizes: (
+    'xs'   : .75rem,    // 12px
+    'sm'   : .875rem,   // 14px
+    'base' : 1rem,      // 16px
+    'md'   : 1.125rem,  // 18px
+    'l'    : 1.25rem,   // 20px
+    'xl'   : 1.5rem,    // 24px
+    '2xl'  : 1.875rem,  // 30px
+    '3xl'  : 2.25rem,   // 36px
+    '4xl'  : 3rem       // 48px
+) !default;
+
+
+
+
+
+///
+/// Font Weights
+///
+/// @group Defaults
+///
+$font-weights: (
+    'hairline' : 200,
+    'thin'     : 300,
+    'regular'  : 400,
+    'medium'   : 600,
+    'bold'     : 700,
+) !default;
+
+
+
+
+
+///
+/// Letter Spacing
+///
+/// @group Defaults
+///
+$letter-spacing: (
+    'tight'  : -.05em,
+    'normal' : 0,
+    'wide'   : .2em,
+) !default;
+
+
+
+
+
+///
+/// Line Heights
+///
+/// @group Defaults
+///
+$line-heights: (
+    'none'  : 1,
+    'tight' : 1.25,
+    'normal': 1.5,
+    'loose' : 2,
+) !default;
+
+
+
+
+
+///
+/// Text Colors
+///
+/// Generates colors to change the color of text, as well as the `text-decoration-color`. Also
+/// generates hover and focus versions of the classes to apply colors in those states.
+///
+/// @group Defaults
+///
+$text-colors: (
+    'base' : #111,
+) !default;

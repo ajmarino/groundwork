@@ -1,0 +1,8 @@
+//
+// Generates Font classes based on stacks
+//
+@each $font, $stack in $font-families {
+    .#{$font} {
+        font-family: $stack;
+    }
+}

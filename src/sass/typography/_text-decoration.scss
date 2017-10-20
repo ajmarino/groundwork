@@ -1,0 +1,22 @@
+//
+// Text Decorations
+//
+@each $decoration, $style in $text-decoration-lines {
+    .text-#{$decoration} {
+        text-decoration: $style;
+    }
+}
+
+
+// @each $decoration, $style in $text-decoration-lines {
+//     .text-#{$decoration} {
+//         text-decoration-line: $style;
+//     }
+// }
+
+
+// @each $style in $text-decoration-styles {
+//     .text-#{$style} {
+//         text-decoration-style: $style;
+//     }
+// }

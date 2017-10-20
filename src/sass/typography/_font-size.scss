@@ -1,0 +1,33 @@
+//
+// Generates font sizes
+//
+@each $label, $size in $font-sizes {
+
+    $fs: strip-units($size) * 16px;
+
+    .text-#{$label} {
+        @include fs($fs, false);
+    }
+
+
+    @each $bp, $size in $breakpoints {
+        @include media('screen', '>=#{$size}') {
+            .#{$bp}\:text-#{$label} {
+                @include fs($fs, false);
+            }
+        }
+    }
+}
+
+
+
+
+
+//
+// Text style resets
+//
+.text-normal {
+    font-style: normal;
+    text-decoration: none;
+    text-transform: none;
+}

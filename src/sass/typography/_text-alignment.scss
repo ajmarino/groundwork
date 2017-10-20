@@ -1,0 +1,12 @@
+//
+// Text Alignments
+//
+@each $alignment in $text-alignment {
+    .text-#{$alignment} { text-align: $alignment; }
+
+    @each $bp, $size in $breakpoints {
+        @include media('screen', '>=#{$size}') {
+            .#{$bp}\:text-#{$alignment} { text-align: $alignment; }
+        }
+    }
+}

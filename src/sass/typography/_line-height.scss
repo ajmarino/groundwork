@@ -1,0 +1,8 @@
+//
+// Line Heights
+//
+@each $label, $size in $line-heights {
+    .leading-#{$label} {
+        line-height: $size;
+    }
+}

@@ -1,0 +1,6 @@
+//
+// Word Breaks
+//
+@each $space in $word-break {
+    .wrap-#{$space} { word-break: $space; }
+}

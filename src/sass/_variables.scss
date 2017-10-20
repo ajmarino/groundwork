@@ -39,17 +39,6 @@ $legacy-debug: false !default;
 
 
 ///
-/// Shows the active media query in a label at the top right of page
-///
-/// @group Debug
-///
-$show-mq: false !default;
-
-
-
-
-
-///
 /// Sets the active theme name
 ///
 /// @group Styling
@@ -63,8 +52,14 @@ $theme: "default" !default;
 
 
 ///
-/// Breakpoints for responsive design, any name/ pair can go here.
-/// <br>See `breakpoint` mixin under `Styling`
+/// Breakpoints for responsive design, any name/pair can go here.  These are used
+/// to create scoped versions of all classes so responsive behavior can be
+/// applied directly using classes, with the label as the prefix. All
+/// media queries are generated with `screen and min-width()`
+///
+/// @example markup
+///   // applies different spacings at each breakpoint
+///   <div class="sm:mt-4 md:mt-6 lg:mt-8"></div>
 ///
 /// @group Defaults
 ///
@@ -121,9 +116,10 @@ $font-sizes: (
 ///
 /// Font Styles
 ///
+/// @access private
 /// @group Defaults
 ///
-$font-styles: ('normal', 'italic') !default;
+$font-styles: ('italic') !default;
 
 
 
@@ -180,9 +176,10 @@ $line-heights: (
 ///
 /// Text Alignments
 ///
+/// @access private
 /// @group Defaults
 ///
-$text-alignment: ('left', 'center', 'right') !default;
+$text-alignment: ('left', 'center', 'right', 'justify') !default;
 
 
 
@@ -191,20 +188,41 @@ $text-alignment: ('left', 'center', 'right') !default;
 ///
 /// Text Colors
 ///
-/// @group Defaults
-///
-$text-colors: () !default;
-
-
-
-
-
-///
-/// Text Decorations
+/// Generates colors to change the color of text, as well as the `text-decoration-color`. Also
+/// generates hover and focus versions of the classes to apply colors in those states.
 ///
 /// @group Defaults
 ///
-$text-decorations: () !default;
+$text-colors: (
+    'base' : #111,
+) !default;
+
+
+
+
+
+///
+/// Text Decoration Lines
+///
+/// @access private
+/// @group Defaults
+///
+$text-decoration-lines: (
+    'underline'     : underline,
+    'strike'        : 'line-through',
+) !default;
+
+
+
+
+
+///
+/// Text Decoration Styles
+///
+/// @access private
+/// @group Defaults
+///
+$text-decoration-styles: ('solid', 'double', 'dotted', 'dashed', 'wavy') !default;
 
 
 
@@ -213,9 +231,10 @@ $text-decorations: () !default;
 ///
 /// Text Transforms
 ///
+/// @access private
 /// @group Defaults
 ///
-$text-transforms: () !default;
+$text-transforms: ('capitalize', 'uppercase', 'lowercase') !default;
 
 
 
@@ -224,20 +243,22 @@ $text-transforms: () !default;
 ///
 /// White Space
 ///
+/// @access private
 /// @group Defaults
 ///
-$white-space: () !default;
+$white-space: ('normal', 'pre', 'nowrap', 'pre-wrap', 'pre-line') !default;
 
 
 
 
 
 ///
-/// Line Heights
+/// Word Breaj
 ///
+/// @access private
 /// @group Defaults
 ///
-$line-heights: () !default;
+$word-break: ('normal', 'break-all') !default;
 
 
 
@@ -246,6 +267,7 @@ $line-heights: () !default;
 ///
 /// Directions
 ///
+/// @access private
 /// @group Defaults
 ///
 $directions: (
@@ -254,6 +276,8 @@ $directions: (
     'b' : 'bottom',
     'l' : 'left',
 ) !default
+
+
 
 
 

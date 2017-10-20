@@ -1,0 +1,6 @@
+//
+// Font Weights
+//
+@each $label, $weight in $font-weights {
+    .text-#{$label} { font-weight: $weight; }
+}

@@ -70,21 +70,19 @@
 //  ===============================================================================================
 //  $Typography
 //  ===============================================================================================
-// - font
-//   - families
-//   - sizes
-//   - styles
-//   - weights
-// - letter-spacing
-// - line-height
-// - text
-//   - alignment
-//   - colors
-//   - decoration
-//   - indent
-//   - transform
-// - white-space
-// - word-break
+@import
+    'typography/color',
+    'typography/font-family',
+    'typography/font-size',
+    'typography/font-style',
+    'typography/font-weight',
+    'typography/letter-spacing',
+    'typography/line-height',
+    'typography/text-alignment',
+    'typography/text-decoration',
+    'typography/text-transform',
+    'typography/white-space',
+    'typography/word-break';
 
 
 

@@ -1,7 +1,7 @@
 //
-// .px-* - Applies left and right padding based on sizing scale
+// .px-* - Applies left and right padding based on spacings scale
 //
-@each $scale, $value in $sizing {
+@each $scale, $value in $spacings {
     .px-#{$scale} {
         padding-left: $value;
         padding-right: $value;
@@ -22,9 +22,9 @@
 
 
 //
-// .py-* - Applies top and bottom padding based on sizing scale
+// .py-* - Applies top and bottom padding based on spacings scale
 //
-@each $scale, $value in $sizing {
+@each $scale, $value in $spacings {
     .py-#{$scale} {
         padding-top: $value;
         padding-bottom: $value;
@@ -45,11 +45,11 @@
 
 
 //
-// .p[t,r,b,l]-* - Applies padding to single side based on sizing scale
+// .p[t,r,b,l]-* - Applies padding to single side based on spacings scale
 //
 @each $prefix, $side in $directions {
 
-    @each $scale, $value in $sizing {
+    @each $scale, $value in $spacings {
         .p#{$prefix}-#{$scale} {
             padding-#{$side}: $value;
         }
@@ -63,4 +63,21 @@
         }
     }
 
+}
+
+
+
+
+
+//
+// .p-* - Applies padding on all sides
+//
+@each $scale, $value in $spacings {
+    .p-#{$scale} { padding: $value; }
+
+    @each $bp, $size in $breakpoints {
+        @include media('screen', '>=#{$size}') {
+            .#{$bp}\:p-#{$scale} { padding: $value; }
+        }
+    }
 }

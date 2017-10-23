@@ -1,9 +1,17 @@
+////
+//// @group Defaults
+////
+
+
 ///
-/// Enable layout debugging
+/// Enables layout debugging, where it applies a unique colored outline to each
+/// html element on the page based on its type, to help figure out where any
+/// layout issues are coming from.
 ///
 /// @group Debug
 ///
 /// @link http://pesticide.io/
+/// @link https://github.com/mrmrs/pesticide
 ///
 $layout-debug-outline: false !default;
 $layout-debug-depth: false !default;
@@ -13,7 +21,9 @@ $layout-debug-depth: false !default;
 
 
 ///
-/// Enable Namespace visual debugging
+/// Enables Namespace visual debugging, where it applies a unique color to each
+/// namespaced class based on its type, to see help see how different classes
+/// are used throughout the site.
 ///
 /// @group Debug
 ///
@@ -39,11 +49,40 @@ $legacy-debug: false !default;
 
 
 ///
-/// Sets the active theme name
+/// Sets the active theme name, useful for creating different css files where this single
+/// value is changed and the output is then based on the that.
 ///
 /// @group Styling
 ///
 /// @link https://smacss.com/book/type-theme
+///
+/// @example scss
+/// .class {
+///   color: black;
+///
+///   @include theme('red') { color: red; }
+///   @include theme('blue') { color: blue; }
+/// }
+///
+/// // app.scss
+/// $theme: 'default';
+///
+/// // red.css
+/// $theme: 'red';
+///
+/// // blue.css
+/// $theme: 'blue';
+///
+///
+/// @example css
+/// /* app.css */
+/// .class { color: black; }
+///
+/// /* red.css */
+/// .class { color: red; }
+///
+/// /* blue.css */
+/// .class { color: blue; }
 ///
 $theme: "default" !default;
 
@@ -61,8 +100,6 @@ $theme: "default" !default;
 ///   // applies different spacings at each breakpoint
 ///   <div class="sm:mt-4 md:mt-6 lg:mt-8"></div>
 ///
-/// @group Defaults
-///
 $breakpoints: (
     'sm'   : 30em,   // Mobile:  480px
     'm'    : 48em,   // Tablet:  768px
@@ -78,8 +115,6 @@ $breakpoints: (
 ///
 /// Font Families
 ///
-/// @group Defaults
-///
 $font-families : (
     'sans'  : ("source-sans-pro", "Helvetica Neue", Helvetica, Arial, sans-serif),
     'serif' : ("source-serif-pro", Georgia, "Times New Roman", Times, serif),
@@ -94,8 +129,6 @@ $font-families : (
 
 ///
 /// Type Scale
-///
-/// @group Defaults
 ///
 $font-sizes: (
     'xs'   : .75rem,    // 12px
@@ -117,7 +150,6 @@ $font-sizes: (
 /// Font Styles
 ///
 /// @access private
-/// @group Defaults
 ///
 $font-styles: ('italic') !default;
 
@@ -127,8 +159,6 @@ $font-styles: ('italic') !default;
 
 ///
 /// Font Weights
-///
-/// @group Defaults
 ///
 $font-weights: (
     'hairline' : 200,
@@ -145,8 +175,6 @@ $font-weights: (
 ///
 /// Letter Spacing
 ///
-/// @group Defaults
-///
 $letter-spacing: (
     'tight'  : -.05em,
     'normal' : 0,
@@ -159,8 +187,6 @@ $letter-spacing: (
 
 ///
 /// Line Heights
-///
-/// @group Defaults
 ///
 $line-heights: (
     'none'  : 1,
@@ -177,7 +203,6 @@ $line-heights: (
 /// Text Alignments
 ///
 /// @access private
-/// @group Defaults
 ///
 $text-alignment: ('left', 'center', 'right', 'justify') !default;
 
@@ -186,12 +211,8 @@ $text-alignment: ('left', 'center', 'right', 'justify') !default;
 
 
 ///
-/// Text Colors
-///
 /// Generates colors to change the color of text, as well as the `text-decoration-color`. Also
 /// generates hover and focus versions of the classes to apply colors in those states.
-///
-/// @group Defaults
 ///
 $text-colors: (
     'base' : #111,
@@ -205,7 +226,6 @@ $text-colors: (
 /// Text Decoration Lines
 ///
 /// @access private
-/// @group Defaults
 ///
 $text-decoration-lines: (
     'underline'     : underline,
@@ -220,7 +240,6 @@ $text-decoration-lines: (
 /// Text Decoration Styles
 ///
 /// @access private
-/// @group Defaults
 ///
 $text-decoration-styles: ('solid', 'double', 'dotted', 'dashed', 'wavy') !default;
 
@@ -232,7 +251,6 @@ $text-decoration-styles: ('solid', 'double', 'dotted', 'dashed', 'wavy') !defaul
 /// Text Transforms
 ///
 /// @access private
-/// @group Defaults
 ///
 $text-transforms: ('capitalize', 'uppercase', 'lowercase') !default;
 
@@ -244,7 +262,6 @@ $text-transforms: ('capitalize', 'uppercase', 'lowercase') !default;
 /// White Space
 ///
 /// @access private
-/// @group Defaults
 ///
 $white-space: ('normal', 'pre', 'nowrap', 'pre-wrap', 'pre-line') !default;
 
@@ -253,10 +270,9 @@ $white-space: ('normal', 'pre', 'nowrap', 'pre-wrap', 'pre-line') !default;
 
 
 ///
-/// Word Breaj
+/// Word Break
 ///
 /// @access private
-/// @group Defaults
 ///
 $word-break: ('normal', 'break-all') !default;
 
@@ -268,7 +284,6 @@ $word-break: ('normal', 'break-all') !default;
 /// Directions
 ///
 /// @access private
-/// @group Defaults
 ///
 $directions: (
     't' : 'top',
@@ -284,9 +299,8 @@ $directions: (
 ///
 /// Spacing
 ///
-/// @group Defaults
-///
 $spacings: (
+    '0'  : 0,
     '1'  : 0.25rem,
     '2'  : 0.5rem,
     '3'  : 0.75rem,
@@ -301,3 +315,67 @@ $spacings: (
     '16' : 4rem,
     '24' : 6rem,
 ) !default;
+
+
+
+
+
+///
+/// Display
+///
+/// @access private
+///
+$displays: ('block', 'inline', 'inline-block', 'flex', 'table', 'table-cell') !default;
+
+
+
+
+
+///
+/// Float
+///
+/// @access private
+///
+$floats: ('none', 'left', 'right') !default;
+
+
+
+
+
+///
+/// List
+///
+/// @access private
+///
+$list-styles: () !default;
+
+
+
+
+
+///
+/// Overflow
+///
+/// @access private
+///
+$overflow: () !default;
+
+
+
+
+
+///
+/// Position
+///
+/// @access private
+///
+$position: () !default;
+
+
+
+
+
+///
+/// Z-Index
+///
+$z-index: () !default;

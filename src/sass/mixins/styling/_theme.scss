@@ -22,9 +22,10 @@
 
     @if $theme == $name {
         @content;
-    } else {
-        @include when-inside('.#{$name}') {
-            @content;
-        }
     }
+    // } else {
+    //     @include when-inside('.#{$name}') {
+    //         @content;
+    //     }
+    // }
 }

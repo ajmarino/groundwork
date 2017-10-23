@@ -1,0 +1,13 @@
+//
+// Float
+//
+@each $type in $floats {
+    .float-#{$type} { float: #{$type} }
+
+
+     @each $bp, $size in $breakpoints {
+        @include media('screen', '>=#{$size}') {
+            .#{$bp}\:float-#{$type} { float: #{$type}; }
+        }
+    }
+}

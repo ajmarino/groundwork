@@ -1,9 +1,17 @@
+////
+//// @group Defaults
+////
+
+
 ///
-/// Enable layout debugging
+/// Enables layout debugging, where it applies a unique colored outline to each
+/// html element on the page based on its type, to help figure out where any
+/// layout issues are coming from.
 ///
 /// @group Debug
 ///
 /// @link http://pesticide.io/
+/// @link https://github.com/mrmrs/pesticide
 ///
 $layout-debug-outline: false !default;
 $layout-debug-depth: false !default;
@@ -13,7 +21,9 @@ $layout-debug-depth: false !default;
 
 
 ///
-/// Enable Namespace visual debugging
+/// Enables Namespace visual debugging, where it applies a unique color to each
+/// namespaced class based on its type, to see help see how different classes
+/// are used throughout the site.
 ///
 /// @group Debug
 ///
@@ -39,11 +49,40 @@ $legacy-debug: false !default;
 
 
 ///
-/// Sets the active theme name
+/// Sets the active theme name, useful for creating different css files where this single
+/// value is changed and the output is then based on the that.
 ///
 /// @group Styling
 ///
 /// @link https://smacss.com/book/type-theme
+///
+/// @example scss
+/// .class {
+///   color: black;
+///
+///   @include theme('red') { color: red; }
+///   @include theme('blue') { color: blue; }
+/// }
+///
+/// // app.scss
+/// $theme: 'default';
+///
+/// // red.css
+/// $theme: 'red';
+///
+/// // blue.css
+/// $theme: 'blue';
+///
+///
+/// @example css
+/// /* app.css */
+/// .class { color: black; }
+///
+/// /* red.css */
+/// .class { color: red; }
+///
+/// /* blue.css */
+/// .class { color: blue; }
 ///
 $theme: "default" !default;
 
@@ -60,8 +99,6 @@ $theme: "default" !default;
 /// @example css
 /// .sm:mt-4 - applies mt-4 spacing at the sm breakpoint
 ///
-/// @group Defaults
-///
 $breakpoints: (
     'sm'   : 30em,   // Mobile:  480px
     'm'    : 48em,   // Tablet:  768px
@@ -77,8 +114,6 @@ $breakpoints: (
 ///
 /// Font Families
 ///
-/// @group Defaults
-///
 $font-families : (
     'sans'  : ("source-sans-pro", "Helvetica Neue", Helvetica, Arial, sans-serif),
     'serif' : ("source-serif-pro", Georgia, "Times New Roman", Times, serif),
@@ -93,8 +128,6 @@ $font-families : (
 
 ///
 /// Type Scale
-///
-/// @group Defaults
 ///
 $font-sizes: (
     'xs'   : .75rem,    // 12px
@@ -115,8 +148,6 @@ $font-sizes: (
 ///
 /// Font Weights
 ///
-/// @group Defaults
-///
 $font-weights: (
     'hairline' : 200,
     'thin'     : 300,
@@ -132,8 +163,6 @@ $font-weights: (
 ///
 /// Letter Spacing
 ///
-/// @group Defaults
-///
 $letter-spacing: (
     'tight'  : -.05em,
     'normal' : 0,
@@ -146,8 +175,6 @@ $letter-spacing: (
 
 ///
 /// Line Heights
-///
-/// @group Defaults
 ///
 $line-heights: (
     'none'  : 1,
@@ -166,8 +193,59 @@ $line-heights: (
 /// Generates colors to change the color of text, as well as the `text-decoration-color`. Also
 /// generates hover and focus versions of the classes to apply colors in those states.
 ///
-/// @group Defaults
-///
 $text-colors: (
     'base' : #111,
 ) !default;
+
+
+
+
+
+///
+/// Z-Index
+///
+$z-index: () !default;
+
+
+
+
+
+///
+/// Background Colors
+///
+$backgrounds: (
+    'base' : #fff,
+) !default;
+
+
+
+
+
+///
+/// Border Colors
+///
+$border-colors: (
+    'black' : #111,
+);
+
+
+
+
+
+///
+/// Box Shadows
+///
+$box-shadows: (
+    'base' : (0 2px 4px rgba(black, .5)),
+);
+
+
+
+
+
+///
+/// Text Shadows
+///
+$text-shadows : (
+    'hero' : (0 2px 5px rgba(black, .5)),
+);

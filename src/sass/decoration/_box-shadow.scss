@@ -1,0 +1,8 @@
+//
+// Box Shadows
+//
+@each $label, $shadow in $box-shadows {
+    .b-shadow-#{$label} { box-shadow: #{$shadow}; }
+    .hover\:b-shadow-#{$label}:hover { box-shadow: #{$shadow}; }
+    .focus\:b-shadow-#{$label}:focus { box-shadow: #{$shadow}; }
+}

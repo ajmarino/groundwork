@@ -118,9 +118,9 @@ $breakpoints: (
 $font-families : (
     'sans'  : ("source-sans-pro", "Helvetica Neue", Helvetica, Arial, sans-serif),
     'serif' : ("source-serif-pro", Georgia, "Times New Roman", Times, serif),
-    'mono'  : ("source-code-pro","Inconsolata", "Menlo", Consolas, "Andale Mono WT", "Andale Mono", "Lucida Console",
-                "Lucida Sans Typewriter", "DejaVu Sans Mono", "Bitstream Vera Sans Mono", "Liberation Mono", "Nimbus Mono L",
-                Monaco, "Courier New", Courier, monospace),
+    'mono'  : ("source-code-pro", "Inconsolata", "Menlo", Consolas, "Andale Mono WT", "Andale Mono",
+                "Lucida Console", "Lucida Sans Typewriter", "DejaVu Sans Mono", "Bitstream Vera Sans Mono",
+                "Liberation Mono", "Nimbus Mono L", Monaco, "Courier New", Courier, monospace),
 ) !default;
 
 
@@ -142,16 +142,6 @@ $font-sizes: (
     '4xl'  : 3rem       // 48px
 ) !default;
 
-
-
-
-
-///
-/// Font Styles
-///
-/// @access private
-///
-$font-styles: ('italic') !default;
 
 
 
@@ -200,11 +190,30 @@ $line-heights: (
 
 
 ///
-/// Text Alignments
+/// Background Positions
 ///
-/// @access private
+$background-positions: (
+    'top-left'     : (left top),
+    'top'          : (center top),
+    'top-right'    : (right top),
+    'bottom-right' : (right bottom),
+    'bottom'       : (center bottom),
+    'bottom-left'  : (left bottom),
+    'right'        : (right center),
+    'left'         : (left center),
+    'center'       : (center center),
+) !default;
+
+
+
+
+
 ///
-$text-alignment: ('left', 'center', 'right', 'justify') !default;
+/// Background Colors
+///
+$backgrounds: (
+    'base' : #fff,
+) !default;
 
 
 
@@ -223,13 +232,10 @@ $text-colors: (
 
 
 ///
-/// Text Decoration Lines
+/// Border Colors
 ///
-/// @access private
-///
-$text-decoration-lines: (
-    'underline'     : underline,
-    'strike'        : 'line-through',
+$border-colors: (
+    'base' : #aaa,
 ) !default;
 
 
@@ -237,60 +243,49 @@ $text-decoration-lines: (
 
 
 ///
-/// Text Decoration Styles
+/// Border Widths
 ///
-/// @access private
-///
-$text-decoration-styles: ('solid', 'double', 'dotted', 'dashed', 'wavy') !default;
-
-
-
-
-
-///
-/// Text Transforms
-///
-/// @access private
-///
-$text-transforms: ('capitalize', 'uppercase', 'lowercase') !default;
+$border-widths: (
+    '0' : 0,
+    '1' : 1px,
+    '2' : 2px,
+) !default;
 
 
 
 
 
 ///
-/// White Space
+/// Border Radiuses
 ///
-/// @access private
-///
-$white-space: ('normal', 'pre', 'nowrap', 'pre-wrap', 'pre-line') !default;
-
-
-
-
-
-///
-/// Word Break
-///
-/// @access private
-///
-$word-break: ('normal', 'break-all') !default;
-
+$border-radius: (
+    '0'    : 0,
+    'sm'   : .125rem,
+    'md'   : .25rem,
+    'lg'   : .5rem,
+    'pill' : 9999px
+) !default;
 
 
 
 
 ///
-/// Directions
+/// Box Shadows
 ///
-/// @access private
+$box-shadows: (
+    'base' : (0 2px 4px rgba(black, .5)),
+) !default;
+
+
+
+
+
 ///
-$directions: (
-    't' : 'top',
-    'r' : 'right',
-    'b' : 'bottom',
-    'l' : 'left',
-) !default
+/// Text Shadows
+///
+$text-shadows : (
+    'hero' : (0 2px 5px rgba(black, .5)),
+) !default;
 
 
 
@@ -315,61 +310,6 @@ $spacings: (
     '16' : 4rem,
     '24' : 6rem,
 ) !default;
-
-
-
-
-
-///
-/// Display
-///
-/// @access private
-///
-$displays: ('block', 'inline', 'inline-block', 'flex', 'inline-flex', 'table', 'table-cell') !default;
-
-
-
-
-
-///
-/// Float
-///
-/// @access private
-///
-$floats: ('none', 'left', 'right') !default;
-
-
-
-
-
-///
-/// List
-///
-/// @access private
-///
-$list-styles: () !default;
-
-
-
-
-
-///
-/// Overflow
-///
-/// @access private
-///
-$overflow: () !default;
-
-
-
-
-
-///
-/// Position
-///
-/// @access private
-///
-$position: () !default;
 
 
 
@@ -461,6 +401,37 @@ $max-widths: (
 
 
 
+$default-time: .3s;
+///
+/// Transitions
+///
+$transitions: (
+    'all'    : all $default-time linear,
+    'button' : (background-color $default-time linear,
+                color $default-time linear),
+) !default;
+
+
+
+
+
+///
+/// Opacity
+///
+$opacities: (0, 1) !default;
+
+
+
+
+
+
+
+
+
+
+
+
+
 ///
 /// Align Items
 ///
@@ -473,9 +444,6 @@ $align-items: (
     'baseline' : 'baseline',
     'stretch'  : 'stretch',
 ) !default;
-
-
-
 
 
 ///
@@ -491,18 +459,12 @@ $flex-directions: (
 ) !default;
 
 
-
-
-
 ///
 /// Flex Wrap
 ///
 /// @access private
 ///
 $flex-wrap: ('wrap', 'wrap-reverse', 'nowrap') !default;
-
-
-
 
 
 ///
@@ -512,11 +474,7 @@ $flex-wrap: ('wrap', 'wrap-reverse', 'nowrap') !default;
 ///
 $flex-grow: ('1', 'auto', 'initial', 'none') !default;
 
-
-
 $flex-types: ('grow', 'shrink') !default;
-
-
 
 
 ///
@@ -531,3 +489,139 @@ $justify-contents: (
     'around'   : 'space-around',
     'between'  : 'space-between',
 ) !default;
+
+
+///
+/// Display
+///
+/// @access private
+///
+$displays: ('block', 'inline', 'inline-block', 'flex', 'inline-flex', 'table', 'table-cell') !default;
+
+
+///
+/// Float
+///
+/// @access private
+///
+$floats: ('none', 'left', 'right') !default;
+
+
+///
+/// Font Styles
+///
+/// @access private
+///
+$font-styles: ('italic') !default;
+
+
+///
+/// Text Alignments
+///
+/// @access private
+///
+$text-alignment: ('left', 'center', 'right', 'justify') !default;
+
+
+///
+/// List
+///
+/// @access private
+///
+$list-styles: () !default;
+
+
+///
+/// Overflow
+///
+/// @access private
+///
+$overflow: () !default;
+
+
+///
+/// Position
+///
+/// @access private
+///
+$position: () !default;
+
+
+///
+/// Text Decoration Lines
+///
+/// @access private
+///
+$text-decoration-lines: (
+    'underline'     : underline,
+    'strike'        : 'line-through',
+) !default;
+
+
+///
+/// Text Decoration Styles
+///
+/// @access private
+///
+$text-decoration-styles: ('solid', 'double', 'dotted', 'dashed', 'wavy') !default;
+
+
+///
+/// Text Transforms
+///
+/// @access private
+///
+$text-transforms: ('capitalize', 'uppercase', 'lowercase') !default;
+
+
+///
+/// White Space
+///
+/// @access private
+///
+$white-space: ('normal', 'pre', 'nowrap', 'pre-wrap', 'pre-line') !default;
+
+
+///
+/// Word Break
+///
+/// @access private
+///
+$word-break: ('normal', 'break-all') !default;
+
+
+///
+/// Directions
+///
+/// @access private
+///
+$directions: (
+    't' : 'top',
+    'r' : 'right',
+    'b' : 'bottom',
+    'l' : 'left',
+) !default
+
+
+///
+/// Background Sizing
+///
+/// @access private
+///
+$background-sizing: ('cover', 'contain') !default;
+
+
+///
+/// Background Repeat
+///
+/// @access private
+///
+$background-repeat: ('no-repeat', 'repeat', 'repeat-x', 'repeat-y') !default;
+
+
+///
+/// Border Styles
+///
+/// @access private
+///
+$border-styles: ('none', 'dotted', 'dashed', 'solid', 'double', 'groove', 'ridge', 'inset', 'outset') !default;

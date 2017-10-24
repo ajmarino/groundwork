@@ -1,0 +1,8 @@
+//
+// Text Shadows
+//
+@each $label, $shadow in $text-shadows {
+    .t-shadow-#{$label} { text-shadow: #{$shadow}; }
+    .hover\:t-shadow-#{$label}:hover { text-shadow: #{$shadow}; }
+    .focus\:t-shadow-#{$label}:focus { text-shadow: #{$shadow}; }
+}

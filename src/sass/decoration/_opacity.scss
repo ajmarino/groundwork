@@ -1,0 +1,8 @@
+//
+// Opacity
+//
+@each $opacity in $opacities {
+    .opacity-#{$opacity} { opacity: $opacity; }
+    .hover\:opacity-#{$opacity}:hover { opacity: $opacity; }
+    .focus\:opacity-#{$opacity}:focus { opacity: $opacity; }
+}

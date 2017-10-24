@@ -1,0 +1,35 @@
+//
+// Background Colors
+//
+@each $label, $color in $backgrounds {
+    .bgc-#{$label}              { background-color: $color; }
+    .hover\:bgc-#{$label}:hover { background-color: $color; }
+}
+
+
+
+
+
+//
+// Background Positions
+//
+@each $label, $position in $background-positions {
+    .bg-#{$label} { background-position: #{$position}; }
+}
+
+
+//
+// Background Sizes
+//
+@each $label in $background-sizing {
+    .bg-#{$label} { background-size: $label; }
+}
+
+
+
+//
+// Background Repeat
+//
+@each $label in $background-repeat {
+    .bg-#{$label} { background-repeat: $label; }
+}

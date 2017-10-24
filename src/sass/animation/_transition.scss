@@ -1,0 +1,6 @@
+//
+// Transitions
+//
+@each $label, $transition in $transitions {
+    .transition-#{$label} { transition: #{$transition} }
+}

@@ -1,0 +1,39 @@
+//
+// Widths
+//
+@each $label, $size in $sizing-common {
+    .w-#{$label} { width: #{$size}; }
+
+
+    @each $bp, $size in $breakpoints {
+        @include media('screen', '>=#{$size}') {
+            .#{$bp}\:w-#{$label} { width: #{$size}; }
+        }
+    }
+}
+
+
+
+@each $label, $size in $sizing-widths {
+    .w-#{$label} { width: #{$size}; }
+
+
+    @each $bp, $size in $breakpoints {
+        @include media('screen', '>=#{$size}') {
+            .#{$bp}\:w-#{$label} { width: #{$size}; }
+        }
+    }
+}
+
+
+
+@each $label, $size in $max-widths {
+    .constrain-#{$label} { max-width: #{$size}; }
+
+
+    // @each $bp, $size in $breakpoints {
+    //     @include media('screen', '>=#{$size}') {
+    //         .#{$bp}\:constrain-#{$label} { max-width: #{$size}; }
+    //     }
+    // }
+}

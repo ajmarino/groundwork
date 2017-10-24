@@ -1,0 +1,15 @@
+//
+// Align Items
+//
+@each $label, $align in $align-items {
+    .items-#{$label} { align-items: #{$align}; }
+
+
+
+    @each $bp, $size in $breakpoints {
+        @include media('screen', '>=#{$size}') {
+            .#{$bp}\:items-#{$label} { align-items: #{$align}; }
+        }
+    }
+
+}

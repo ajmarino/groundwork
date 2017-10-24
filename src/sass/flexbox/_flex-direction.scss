@@ -1,0 +1,15 @@
+//
+// Flex Directions
+//
+@each $label, $dir in $flex-directions {
+    .flex-#{$label} { flex-direction: #{$dir}; }
+
+
+
+    @each $bp, $size in $breakpoints {
+        @include media('screen', '>=#{$size}') {
+            .#{$bp}\:flex-#{$label} { flex-direction: #{$dir}; }
+        }
+    }
+
+}

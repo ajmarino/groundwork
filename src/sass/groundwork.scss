@@ -128,15 +128,13 @@
 //  ===============================================================================================
 //  $Flexbox
 //  ===============================================================================================
-// - align-items
-// - flex
-//   - basis
-//   - direction
-//   - grow
-//   - shrink
-//   - wrap
-// - justify-content
-// - order
+@import
+    'flexbox/align-items',
+    'flexbox/flex-direction',
+    'flexbox/flex-grow',
+    'flexbox/flex-wrap',
+    'flexbox/justify-content',
+    'flexbox/order';
 
 
 

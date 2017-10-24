@@ -1,0 +1,29 @@
+//
+// Flex Grow
+//
+@each $label, $flex in $flex-grow {
+    .flex-#{$label} { flex: #{$flex}; }
+
+
+
+    @each $bp, $size in $breakpoints {
+        @include media('screen', '>=#{$size}') {
+            .#{$bp}\:flex-#{$label} { flex: #{$flex}; }
+        }
+    }
+
+}
+
+
+@each $type in $flex-types {
+    .flex-#{$type} { flex-#{$type}: 1; }
+    .flex-no-#{$type} { flex-#{$type}: 0; }
+
+
+    @each $bp, $size in $breakpoints {
+        @include media('screen', '>=#{$size}') {
+            .#{$bp}\:.flex-#{$type} { flex-#{$type}: 1; }
+            .#{$bp}\:.flex-no-#{$type} { flex-#{$type}: 0; }
+        }
+    }
+}

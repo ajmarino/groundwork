@@ -1,39 +1,39 @@
 //
 // Widths
 //
-@each $label, $size in $sizing-common {
-    .w-#{$label} { width: #{$size}; }
+@each $label, $width in $sizing-common {
+    .w-#{$label} { width: #{$width}; }
 
 
     @each $bp, $size in $breakpoints {
         @include media('screen', '>=#{$size}') {
-            .#{$bp}\:w-#{$label} { width: #{$size}; }
+            .#{$bp}\:w-#{$label} { width: #{$width}; }
         }
     }
 }
 
 
 
-@each $label, $size in $sizing-widths {
-    .w-#{$label} { width: #{$size}; }
+@each $label, $width in $sizing-widths {
+    .w-#{$label} { width: #{$width}; }
 
 
     @each $bp, $size in $breakpoints {
         @include media('screen', '>=#{$size}') {
-            .#{$bp}\:w-#{$label} { width: #{$size}; }
+            .#{$bp}\:w-#{$label} { width: #{$width}; }
         }
     }
 }
 
 
 
-@each $label, $size in $max-widths {
-    .constrain-#{$label} { max-width: #{$size}; }
+@each $label, $width in $max-widths {
+    .constrain-#{$label} { max-width: #{$width}; }
 
 
     // @each $bp, $size in $breakpoints {
     //     @include media('screen', '>=#{$size}') {
-    //         .#{$bp}\:constrain-#{$label} { max-width: #{$size}; }
+    //         .#{$bp}\:constrain-#{$label} { max-width: #{$width}; }
     //     }
     // }
 }

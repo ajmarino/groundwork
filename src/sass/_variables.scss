@@ -499,6 +499,12 @@ $border-styles: ('none', 'dotted', 'dashed', 'solid', 'double', 'groove', 'ridge
 
 
 ///
+/// Clears
+///
+$clears: ('none', 'both', 'left', 'right') !default;
+
+
+///
 /// Display
 ///
 /// @access private

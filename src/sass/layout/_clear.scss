@@ -1,0 +1,12 @@
+//
+// Clears
+//
+@each $clear in $clears {
+    .clear-#{$clear} { clear: #{$clear}; }
+
+     @each $bp, $size in $breakpoints {
+        @include media('screen', '>=#{$size}') {
+            .#{$bp}\:clear-#{$clear} { clear: #{$clear} }
+        }
+    }
+}

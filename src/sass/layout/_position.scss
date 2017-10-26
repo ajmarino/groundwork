@@ -11,3 +11,59 @@
         }
     }
 }
+
+
+//
+// Pins an element to a side
+//
+@each $d, $dir in $directions {
+    .pin-#{$d} { #{$dir}: 0;  }
+
+
+    @each $bp, $size in $breakpoints {
+        @include media('screen', '>=#{$size}') {
+            .#{$bp}\:pin-#{$d} {  #{$dir}: 0; }
+        }
+    }
+}
+
+
+
+///
+/// Centers an element absolutely in the middle both vertically and horizontally of a container
+///
+.centered {
+    left: 50%;
+    top: 50%
+    transform: translate(-50%, -50%);
+}
+
+@each $bp, $size in $breakpoints {
+    @include media('screen', '>=#{$size}') {
+        .#{$bp}\:centered {
+            left: 50%;
+            top: 50%
+            transform: translate(-50%, -50%);
+        }
+    }
+}
+
+
+///
+/// Resets a centered element
+///
+.centered-reset {
+    left: auto;
+    top: auto;
+    transform: none;
+}
+
+@each $bp, $size in $breakpoints {
+    @include media('screen', '>=#{$size}') {
+        .#{$bp}\:centered-reset {
+            left: auto;
+            top: auto;
+            transform: none;
+        }
+    }
+}

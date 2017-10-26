@@ -1,0 +1,22 @@
+//
+// Aspect Ratios
+//
+// used to create responsive containers for embedding content
+//
+@each $label, $ratio in $aspect-ratios {
+    .ratio-#{$label} { padding-bottom: #{$ratio}; }
+
+
+    @each $bp, $size in $breakpoints {
+        @include media('screen', '>=#{$size}') {
+            .#{$bp}\:ratio-#{$label} { padding-bottom: #{$ratio}; }
+        }
+    }
+}
+
+
+.ratio-object {
+    @include absolute(top 0 right 0 bottom 0 left 0);
+    height: 100%;
+    width: 100%;
+}

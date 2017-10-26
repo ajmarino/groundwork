@@ -1,0 +1,13 @@
+//
+// Positions
+//
+@each $position in $positions {
+    .#{$position} { position: #{$position} }
+
+
+    @each $bp, $size in $breakpoints {
+        @include media('screen', '>=#{$size}') {
+            .#{$bp}\:#{$position} { position: #{$position} }
+        }
+    }
+}

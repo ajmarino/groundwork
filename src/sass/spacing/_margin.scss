@@ -93,13 +93,13 @@
 @each $prefix, $side in $directions {
 
     @each $scale, $value in $spacings {
-        .m#{$prefix}-a          { margin-#{$side}: auto; }
+        .m#{$prefix}-auto       { margin-#{$side}: auto; }
         .m#{$prefix}-#{$scale}  { margin-#{$side}: $value; }
         .-m#{$prefix}-#{$scale} { margin-#{$side}: -#{$value}; }
 
         @each $bp, $size in $breakpoints {
             @include media('screen', '>=#{$size}') {
-                .#{$bp}\:m#{$prefix}-a          { margin-#{$side}: auto; }
+                .#{$bp}\:m#{$prefix}-auto       { margin-#{$side}: auto; }
                 .#{$bp}\:m#{$prefix}-#{$scale}  { margin-#{$side}: $value; }
                 .#{$bp}\:-m#{$prefix}-#{$scale} { margin-#{$side}: -#{$value}; }
             }

@@ -2,12 +2,12 @@
 // Display
 //
 @each $type in $displays {
-    .dis-#{$type} { display: #{$type} }
+    .#{$type} { display: #{$type} }
 
 
      @each $bp, $size in $breakpoints {
         @include media('screen', '>=#{$size}') {
-            .#{$bp}\:dis-#{$type} { display: #{$type}; }
+            .#{$bp}\:#{$type} { display: #{$type}; }
         }
     }
 }

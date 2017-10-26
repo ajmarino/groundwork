@@ -1,14 +1,14 @@
 //
 // Flex Wraps
 //
-@each $label, $wrap in $flex-wrap {
-    .flex-#{$label} { flex-wrap: #{$wrap}; }
+@each $label in $flex-wrap {
+    .flex-#{$label} { flex-wrap: #{$label}; }
 
 
 
     @each $bp, $size in $breakpoints {
         @include media('screen', '>=#{$size}') {
-            .#{$bp}\:flex-#{$label} { flex-wrap: #{$wrap}; }
+            .#{$bp}\:flex-#{$label} { flex-wrap: #{$label}; }
         }
     }
 

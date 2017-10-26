@@ -1,4 +1,16 @@
 //
+// Border Styles
+//
+@each $label in $border-styles {
+    .bd-#{$label} { border: 0px #{$label}; }
+
+    // @each $d, $dir in $directions {
+    //     .bd-#{$d}-#{$label} { border-#{$dir}: #{$label}; }
+    // }
+}
+
+
+//
 // Border Colors
 //
 @each $label, $color in $border-colors {
@@ -16,19 +28,6 @@
 
     @each $d, $dir in $directions {
         .bd-#{$d}-#{$label} { border-#{$dir}-width: $width; }
-    }
-}
-
-
-
-//
-// Border Styles
-//
-@each $label in $border-styles {
-    .bd-#{$label} { border-style: $label; }
-
-    @each $d, $dir in $directions {
-        .bd-#{$d}-#{$label} { border-#{$dir}-style: #{$label}; }
     }
 }
 

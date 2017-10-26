@@ -4,12 +4,17 @@ const { mix } = require('laravel-mix');
 // mix.js('resources/assets/js/bootstrap.js', 'public/js/plugins.js')
    // .js('resources/assets/js/app.js', 'public/js')
 mix.sass('src/sass/groundwork.scss', 'dist/css', {
-    outputStyle: 'compressed',
-    includePaths: [
-        'node_modules/include-media/dist/',
-        'node_modules/normalize.css/'
-    ]
-});
+        outputStyle: 'compressed',
+        includePaths: [
+            'node_modules/include-media/dist/',
+            'node_modules/normalize.css/'
+        ]
+    })
+    .options({
+        postCss: [
+            require('css-mqpacker')()
+        ]
+    });
 
 sassdoc('./src/sass', {
     display: {

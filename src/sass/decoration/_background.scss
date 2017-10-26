@@ -22,7 +22,7 @@
 // Background Sizes
 //
 @each $label in $background-sizing {
-    .bg-#{$label} { background-size: $label; }
+    .bg-#{$label} { background-size: #{$label}; }
 }
 
 
@@ -31,5 +31,5 @@
 // Background Repeat
 //
 @each $label in $background-repeat {
-    .bg-#{$label} { background-repeat: $label; }
+    .bg-#{$label} { background-repeat: #{$label}; }
 }

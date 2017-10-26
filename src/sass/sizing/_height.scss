@@ -1,26 +1,26 @@
 //
 // Heights
 //
-@each $label, $size in $sizing-common {
-    .h-#{$label} { height: #{$size}; }
+@each $label, $height in $sizing-common {
+    .h-#{$label} { height: #{$height}; }
 
 
     @each $bp, $size in $breakpoints {
         @include media('screen', '>=#{$size}') {
-            .#{$bp}\:h-#{$label} { height: #{$size}; }
+            .#{$bp}\:h-#{$label} { height: #{$height}; }
         }
     }
 }
 
 
 
-@each $label, $size in $sizing-heights {
-    .h-#{$label} { height: #{$size}; }
+@each $label, $height in $sizing-heights {
+    .h-#{$label} { height: #{$height}; }
 
 
     @each $bp, $size in $breakpoints {
         @include media('screen', '>=#{$size}') {
-            .#{$bp}\:h-#{$label} { height: #{$size}; }
+            .#{$bp}\:h-#{$label} { height: #{$height}; }
         }
     }
 }

@@ -21,5 +21,5 @@ sassdoc('./src/sass', {
         access: ['public'],
     },
     verbose: true,
-    dest: './dist/sassdocs',
+    dest: './public',
 });

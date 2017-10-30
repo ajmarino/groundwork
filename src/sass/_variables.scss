@@ -36,7 +36,7 @@ $namespace-debug: false !default;
 
 
 ///
-/// Highlight potentially broken, malformed or legacy (X)HTML
+/// Highlight potentially broken, malformed or legacy (X)HTML.
 ///
 /// @group Debug
 ///
@@ -94,18 +94,28 @@ $theme: "default" !default;
 /// Breakpoints for responsive design, any name/pair can go here.  These are used
 /// to create scoped versions of all classes so responsive behavior can be
 /// applied directly using classes, with the label as the prefix. All
-/// media queries are generated with `screen and min-width()`
+/// media queries are generated with `screen and min-width()`.
+///
+/// @example css
+///   .mt-4 { margin-top: 1rem; }
+///
+///   @include media screen and (min-width >= 48em) {
+///     .md:mt-4 { margin-top: 1rem; }
+///   }
+///
+///   @include media screen and (min-width >= 62em) {
+///     .lg:mt-4 { margin-top: 1rem; }
+///   }
 ///
 /// @example markup
-///   // applies different spacings at each breakpoint
 ///   <div class="sm:mt-4 md:mt-6 lg:mt-8"></div>
 ///
 $breakpoints: (
-    'sm'   : 30em,   // Mobile:  480px
-    'md'   : 48em,   // Tablet:  768px
-    'lg'   : 62em,   // Laptop:  992px
-    'xl'   : 80em,   // Desktop: 1200px
-    'huge' : 100em,  // Huge:    1600px
+    'sm'   : 30em,   // 480px  - Mobile Landscape
+    'md'   : 48em,   // 768px  - Tablet
+    'lg'   : 62em,   // 992px  - Laptop
+    'xl'   : 80em,   // 1200px - Desktop
+    'huge' : 100em,  // 1600px - Huge
 ) !default;
 
 
@@ -113,7 +123,14 @@ $breakpoints: (
 
 
 ///
-/// Font Families
+/// Generates classes to set the font family based on the keys of the map, while the stack is
+/// the value of that array.
+///
+/// @example css
+/// .sans { font-family: "source-sans-pro", "Helvetica Neue", Helvetica, Arial, sans-serif; }
+///
+/// @example markup
+/// <p class="sans"></p>
 ///
 $font-families : (
     'sans'  : ("source-sans-pro", "Helvetica Neue", Helvetica, Arial, sans-serif),
@@ -128,14 +145,22 @@ $font-families : (
 
 
 ///
-/// Type Scale
+/// Generates font size classes in `rem` units with `px` fallbacks, as well as
+/// prefixed versions for each breakpoint.
+///
+/// @example css
+/// .text-xs { font-size: 12px; font-size: .75rem; }
+/// .text-lg { font-size: 20px; font-size: 1.25rem; }
+///
+/// @example markup
+/// <h1 class="text-3xl md:text-4xl"></h1>
 ///
 $font-sizes: (
     'xs'   : .75rem,    // 12px
     'sm'   : .875rem,   // 14px
     'base' : 1rem,      // 16px
     'md'   : 1.125rem,  // 18px
-    'l'    : 1.25rem,   // 20px
+    'lg'   : 1.25rem,   // 20px
     'xl'   : 1.5rem,    // 24px
     '2xl'  : 1.875rem,  // 30px
     '3xl'  : 2.25rem,   // 36px
@@ -148,7 +173,14 @@ $font-sizes: (
 
 
 ///
-/// Font Weights
+/// Generates classes for font-weight with names that should match the font.
+///
+/// @example css
+/// .text-hairline { font-weight: 200 }
+/// .text-regular  { font-weight: 400 }
+///
+/// @example markup
+/// <h1 class="text-regular"></h1>
 ///
 $font-weights: (
     'hairline' : 200,
@@ -163,7 +195,14 @@ $font-weights: (
 
 
 ///
-/// Letter Spacing
+/// Generates classes to the control the tracking of text.
+///
+/// @example css
+/// .tracking-tight { letter-spacing: -.05em; }
+/// .tracking-wide  { letter-spacing: .2em; }
+///
+/// @example markup
+/// <h3 class="tracking-wide"></h3>
 ///
 $letter-spacing: (
     'tight'  : -.05em,
@@ -176,7 +215,14 @@ $letter-spacing: (
 
 
 ///
-/// Line Heights
+/// Generates classes to control the leading of text.
+///
+/// @example css
+/// .leading-none   { line-height: 1; }
+/// .leading-normal { line-height: 1.5; }
+///
+/// @example markup
+/// <p class="leading-normal"></p>
 ///
 $line-heights: (
     'none'  : 1,
@@ -190,7 +236,16 @@ $line-heights: (
 
 
 ///
-/// Background Positions
+/// Generates classes to position the background in one of the 9 basic
+/// directions by default, with prefixes for each breakpoint.
+///
+/// @example css
+/// .bg-top-left { background-position: left top; }
+/// .bg-center   { background-position: center center; }
+/// .bg-right    { background-position: right center; }
+///
+/// @example markup
+/// <div class="bg-center"></div>
 ///
 $background-positions: (
     'top-left'     : (left top),
@@ -209,7 +264,15 @@ $background-positions: (
 
 
 ///
-/// Background Colors
+/// Generates classes to set the background color, including both hover and focus states.
+///
+/// @example css
+/// .bg-base             { background-color: #fff }
+/// .hover:bg-base:hover { background-color: #fff; }
+/// .focus:bg-base:focus { background-color: #fff; }
+///
+/// @example markup
+/// <button class="bg-base hover:bg-base"></button>
 ///
 $backgrounds: (
     'base' : #fff,
@@ -222,6 +285,14 @@ $backgrounds: (
 ///
 /// Generates colors to change the color of text, as well as the `text-decoration-color`. Also
 /// generates hover and focus versions of the classes to apply colors in those states.
+///
+/// @example css
+/// .color-base             { color: #111; }
+/// .hover:color-base:hover { color: #111; }
+/// .focus:color-base:focus { color: #111; }
+///
+/// @example markup
+/// <p class="color-base focus:color-base"></p>
 ///
 $text-colors: (
     'base' : #111,

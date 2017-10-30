@@ -2,8 +2,15 @@
 // Background Colors
 //
 @each $label, $color in $backgrounds {
-    .bgc-#{$label}              { background-color: $color; }
-    .hover\:bgc-#{$label}:hover { background-color: $color; }
+    .bgc-#{$label}              { background-color: #{$color}; }
+    .hover\:bgc-#{$label}:hover { background-color: #{$color}; }
+
+
+    @each $bp, $size in $breakpoints {
+        @include media('screen', '>=#{$size}') {
+            .#{$bp}\:bgc-#{$label} { background-color: #{$color}; }
+        }
+    }
 }
 
 
@@ -15,6 +22,12 @@
 //
 @each $label, $position in $background-positions {
     .bg-#{$label} { background-position: #{$position}; }
+
+    @each $bp, $size in $breakpoints {
+        @include media('screen', '>=#{$size}') {
+            .#{$bp}\:bg-#{$label} { background-position: #{$position}; }
+        }
+    }
 }
 
 
@@ -23,6 +36,12 @@
 //
 @each $label in $background-sizing {
     .bg-#{$label} { background-size: #{$label}; }
+
+    @each $bp, $size in $breakpoints {
+        @include media('screen', '>=#{$size}') {
+            .#{$bp}\:bg-#{$label} { background-size: #{$label}; }
+        }
+    }
 }
 
 
@@ -32,4 +51,11 @@
 //
 @each $label in $background-repeat {
     .bg-#{$label} { background-repeat: #{$label}; }
+
+
+    @each $bp, $size in $breakpoints {
+        @include media('screen', '>=#{$size}') {
+            .#{$bp}\:bg-#{$label} { background-repeat: #{$label}; }
+        }
+    }
 }

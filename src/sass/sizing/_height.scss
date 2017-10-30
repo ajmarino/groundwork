@@ -3,11 +3,13 @@
 //
 @each $label, $height in $sizing-common {
     .h-#{$label} { height: #{$height}; }
+    .minh-#{$label} { min-height: #{$height}; }
 
 
     @each $bp, $size in $breakpoints {
         @include media('screen', '>=#{$size}') {
             .#{$bp}\:h-#{$label} { height: #{$height}; }
+            .#{$bp}\:minh-#{$label} { min-height: #{$height}; }
         }
     }
 }
@@ -16,11 +18,13 @@
 
 @each $label, $height in $sizing-heights {
     .h-#{$label} { height: #{$height}; }
+    .minh-#{$label} { min-height: #{$height}; }
 
 
     @each $bp, $size in $breakpoints {
         @include media('screen', '>=#{$size}') {
             .#{$bp}\:h-#{$label} { height: #{$height}; }
+            .#{$bp}\:minh-#{$label} { min-height: #{$height}; }
         }
     }
 }

@@ -1,0 +1,19 @@
+//
+// Applies border box to all elements
+//
+*,
+*:before,
+*:after {
+    box-sizing: border-box;
+}
+
+
+
+
+
+//
+// Hides Vue elements until they render
+//
+[v-cloak] {
+  display: none;
+}

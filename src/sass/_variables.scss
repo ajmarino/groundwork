@@ -601,12 +601,7 @@ $directions: (
 ///
 /// @access private
 ///
-$flex-directions: (
-    'row'         : 'row',
-    'row-reverse' : 'row-reverse',
-    'col'         : 'column',
-    'col-reverse' : 'column-reverse',
-) !default;
+$flex-directions: ('row', 'row-reverse', 'column', 'column-reverse' ) !default;
 
 
 ///

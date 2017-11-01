@@ -1,0 +1,29 @@
+///
+/// Grabs a value from the pre-defined settings
+///
+/// @param  {String} $name - Named item to get size for
+/// @param  {Map}    $map  - Name of map to get size from
+///
+/// @group Getters
+///
+/// @return {String} - Named value to get size for from sass map
+///
+///
+/// @example scss
+/// .navbar { height: config('navbar', $sizing-heights); }
+/// .site-red { background-color: config('base', $backgrounds); }
+///
+/// @example css
+/// .navbar { height: 3em; }
+/// .site-red { background-color: # }
+///
+///
+@function config($item, $map) {
+
+    @if not map-has-key($map, $item) {
+        @warn "No item found for `#{$item}` in #{$map} map. Property omitted.";
+    }
+
+
+    @return map-get($map, $item);
+}

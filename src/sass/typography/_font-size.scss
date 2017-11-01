@@ -1,9 +1,9 @@
 //
 // Generates font sizes
 //
-@each $label, $size in $font-sizes {
+@each $label, $text in $font-sizes {
 
-    $fs: strip-units($size) * 16px;
+    $fs: strip-units($text) * 16px;
 
     .text-#{$label} {
         @include fs($fs, false);

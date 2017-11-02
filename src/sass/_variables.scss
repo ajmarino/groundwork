@@ -532,7 +532,7 @@ $aspect-ratios: (
 //  Can be changed but not needed as they don't vary
 //  ===============================================================================================
 ///
-/// Align Items
+/// Align Items / Align Self
 ///
 /// @access private
 ///
@@ -542,6 +542,23 @@ $align-items: (
     'center'   : 'center',
     'baseline' : 'baseline',
     'stretch'  : 'stretch',
+) !default;
+
+
+///
+/// Align Content
+///
+/// @access private
+///
+$align-content: (
+    'start'    : 'flex-start',
+    'end'      : 'flex-end',
+    'center'   : 'center',
+    'baseline' : 'baseline',
+    'stretch'  : 'stretch',
+    'between'  : 'space-between',
+    'around'   : 'space-around',
+    'evenly'   : 'space-evenly',
 ) !default;
 
 

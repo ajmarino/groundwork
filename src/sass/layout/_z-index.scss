@@ -1,0 +1,6 @@
+//
+// Z-index
+//
+@each $layer in $z-index {
+    .z-#{$layer} { z-index: #{$layer}; }
+}

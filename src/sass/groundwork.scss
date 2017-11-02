@@ -22,14 +22,8 @@
 //   ----------------------------------------------------------------------------------------------
 //   01. Libraries / Plugins / Defaults
 //   02. Helpers
-//   03. Typography
-//   04. Layout
-//   05. Sizing
-//   06. Spacing
-//   07. Flexbox
-//   08. Decoration
-//   09. Animation
-//   10. Base
+//   03. Properties
+//   04. Print
 //   ==============================================================================================
 
 
@@ -68,99 +62,47 @@
 
 
 //  ===============================================================================================
-//  $Typography
+//  $Properties
 //  ===============================================================================================
 @import
-    'typography/color',
-    'typography/font-family',
-    'typography/font-size',
-    'typography/font-style',
-    'typography/font-weight',
-    'typography/letter-spacing',
-    'typography/line-height',
-    'typography/text-alignment',
-    'typography/text-decoration',
-    'typography/text-transform',
-    'typography/white-space',
-    'typography/word-break';
-
-
-
-
-
-//  ===============================================================================================
-//  $Layout
-//  ===============================================================================================
-@import
-    'layout/display',
-    'layout/float',
-    'layout/lists',
-    'layout/overflow',
-    'layout/position',
-    'layout/z-index';
-
-
-
-
-
-//  ===============================================================================================
-//  $Sizing
-//  ===============================================================================================
-@import
-    'sizing/height',
-    'sizing/width';
-
-
-
-
-
-//  ===============================================================================================
-//  $Spacing
-//  ===============================================================================================
-@import
-    'spacing/aspect-ratios',
-    'spacing/margin',
-    'spacing/padding';
-
-
-
-
-
-//  ===============================================================================================
-//  $Flexbox
-//  ===============================================================================================
-@import
-    'flexbox/align-items',
-    'flexbox/flex-direction',
-    'flexbox/flex-grow',
-    'flexbox/flex-wrap',
-    'flexbox/justify-content',
-    'flexbox/order';
-
-
-
-
-
-//  ===============================================================================================
-//  $Decoration
-//  ===============================================================================================
-@import
-    'decoration/background',
-    'decoration/border',
-    'decoration/box-shadow',
-    'decoration/opacity',
-    'decoration/text-shadow';
-
-
-
-
-
-//  ===============================================================================================
-//  $Animation
-//  ===============================================================================================
-@import
-    'animation/animation',
-    'animation/transition';
+    'properties/align-content',
+    'properties/align-items',
+    'properties/align-self',
+    'properties/animation',
+    'properties/aspect-ratios',
+    'properties/background',
+    'properties/border',
+    'properties/box-shadow',
+    'properties/color',
+    'properties/display',
+    'properties/flex-direction',
+    'properties/flex-grow',
+    'properties/flex-wrap',
+    'properties/float',
+    'properties/font-family',
+    'properties/font-size',
+    'properties/font-style',
+    'properties/font-weight',
+    'properties/height',
+    'properties/justify-content',
+    'properties/letter-spacing',
+    'properties/line-height',
+    'properties/lists',
+    'properties/margin',
+    'properties/opacity',
+    'properties/order',
+    'properties/overflow',
+    'properties/padding',
+    'properties/position',
+    'properties/text-alignment',
+    'properties/text-decoration',
+    'properties/text-shadow',
+    'properties/text-transform',
+    'properties/transition',
+    'properties/white-space',
+    'properties/width',
+    'properties/word-break',
+    'properties/z-index';
 
 
 

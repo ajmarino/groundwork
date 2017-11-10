@@ -11,3 +11,12 @@
         }
     }
 }
+
+
+.display-none { display: none; }
+
+@each $bp, $size in $breakpoints {
+    @include media('screen', '>=#{$size}') {
+        .#{$bp}\:display-none { display: none; }
+    }
+}

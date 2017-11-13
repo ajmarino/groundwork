@@ -108,7 +108,7 @@ $theme: "default" !default;
 ///   }
 ///
 /// @example markup
-///   <div class="sm:mt-4 md:mt-6 lg:mt-8"></div>
+///   <div class="mt-4 md:mt-6 lg:mt-8"></div>
 ///
 $breakpoints: (
     'sm'   : 30em,   // 480px  - Mobile Landscape
@@ -267,9 +267,9 @@ $background-positions: (
 /// Generates classes to set the background color, including both hover and focus states.
 ///
 /// @example css
-/// .bg-base             { background-color: #fff }
-/// .hover:bg-base:hover { background-color: #fff; }
-/// .focus:bg-base:focus { background-color: #fff; }
+/// .bgc-base             { background-color: #fff }
+/// .hover:bgc-base:hover { background-color: #fff; }
+/// .focus:bgc-base:focus { background-color: #fff; }
 ///
 /// @example markup
 /// <button class="bg-base hover:bg-base"></button>
@@ -498,9 +498,9 @@ $opacities: (
 
 
 
-//
-// Aspect Ratios
-//
+///
+/// Aspect Ratios
+///
 $aspect-ratios: (
     '16x9' : 56.25%,
     '9x16' : 177.77%,
@@ -588,6 +588,8 @@ $border-styles: ('none', 'dotted', 'dashed', 'solid', 'double', 'groove', 'ridge
 
 ///
 /// Clears
+///
+/// @access private
 ///
 $clears: ('none', 'both', 'left', 'right') !default;
 

@@ -1,21 +1,20 @@
 /// Function for getting a color value from a sass map.
-/// 
+///
 /// @param  {String} $color              - Named color to get
 /// @param  {Map}    $map [$site-colors] - Name of map to get color from
-/// 
-/// 
+///
 /// @group Getters
-/// 
-/// 
+///
+/// @access private
+///
 /// @return {String} Color value from sass map
-/// 
-/// 
+///
 /// @example scss
 /// // Usage
 /// .el {
 ///     color: c('main-bg');
 /// }
-/// 
+///
 /// // Output
 /// .el {
 ///     color: #fff;
@@ -24,6 +23,6 @@
   @if not map-has-key($map, $color) {
     @warn "No color found for `#{$color}` in $site-colors map. Property omitted.";
   }
- 
+
   @return map-get($map, $color);
 }

@@ -1,21 +1,21 @@
 /// Function for getting a z-index value.
 /// <br>See `$z-layers` var under `Global Styling`
-/// 
+///
+/// @access private
+///
 /// @param  {Sting} $layer           - Named item to get z index of
 /// @param  {Map}   $map [$z-layers] - Name of z-layers map
-/// 
+///
 /// @group Getters
-/// 
-/// 
+///
 /// @return {Int}  - Z-index
-/// 
-/// 
+///
 /// @example scss
 /// // Usage
 /// .el {
 ///     z-index: z('modal');
 /// }
-/// 
+///
 /// // Output
 /// .el {
 ///     z-index: 10;

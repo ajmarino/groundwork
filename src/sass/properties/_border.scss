@@ -4,9 +4,9 @@
 @each $label in $border-styles {
     .bd-#{$label} { border: 0px #{$label}; }
 
-    // @each $d, $dir in $directions {
-    //     .bd-#{$d}-#{$label} { border-#{$dir}: #{$label}; }
-    // }
+    @each $d, $dir in $directions {
+        .bd-#{$d}-#{$label} { border-#{$dir}: 0px #{$label}; }
+    }
 }
 
 
@@ -14,9 +14,16 @@
 // Border Colors
 //
 @each $label, $color in $border-colors {
-    .bd-#{$label}              { border-color: $color; }
-    .hover\:bd-#{$label}:hover { border-color: $color; }
-    .focus\:bd-#{$label}:focus { border-color: $color; }
+    .bdc-#{$label}              { border-color: $color; }
+    .hover\:bdc-#{$label}:hover { border-color: $color; }
+    .focus\:bdc-#{$label}:focus { border-color: $color; }
+
+
+    @each $d, $dir in $directions {
+        .bdc-#{$d}-#{$label}              { border-#{$dir}-color: $color; }
+        .hover\:bdc-#{$d}-#{$label}:hover { border-#{$dir}-color: $color; }
+        .focus\:bdc-#{$d}-#{$label}:focus { border-#{$dir}-color: $color; }
+    }
 }
 
 
@@ -24,10 +31,15 @@
 // Border Widths
 //
 @each $label, $width in $border-widths {
-    .bd-#{$label} { border-width: #{$width}; }
+    .bd-#{$label}              { border-width: #{$width}; }
+    .hover\:bd-#{$label}:hover { border-width: #{$width}; }
+    .focus\:bd-#{$label}:focus { border-width: #{$width}; }
+
 
     @each $d, $dir in $directions {
-        .bd-#{$d}-#{$label} { border-#{$dir}-width: $width; }
+        .bd-#{$d}-#{$label}              { border-#{$dir}-width: $width; }
+        .hover\:bd-#{$d}-#{$label}:hover { border-#{$dir}-width: $width; }
+        .focus\:bd-#{$d}-#{$label}:focus { border-#{$dir}-width: $width; }
     }
 }
 

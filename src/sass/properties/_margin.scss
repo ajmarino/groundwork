@@ -86,6 +86,27 @@
 
 
 //
+// .m-*  - Applies margins to all sides based on spacings scale
+// .-m-* - Negative
+//
+@each $scale, $value in $spacings {
+    .m-#{$scale}  { margin: $value; }
+    .-m-#{$scale} { margin: -#{$value}; }
+
+
+    @each $bp, $size in $breakpoints {
+        @include media('screen', '>=#{$size}') {
+            .#{$bp}\:m-#{$scale}  { margin: $value; }
+            .#{$bp}\:-m-#{$scale} { margin: -#{$value}; }
+        }
+    }
+}
+
+
+
+
+
+//
 // .m[t,r,b,l]-a  - Applies auto margin to a side for use inside a Flex container
 // .m[t,r,b,l]-*  - Applies margins to single side based on spacings scale
 // .-m[t,r,b,l]-* - Negative version of spacings scale
@@ -108,23 +129,3 @@
 
 }
 
-
-
-
-
-//
-// .m-*  - Applies margins to all sides based on spacings scale
-// .-m-* - Negative
-//
-@each $scale, $value in $spacings {
-    .m-#{$scale}  { margin: $value; }
-    .-m-#{$scale} { margin: -#{$value}; }
-
-
-    @each $bp, $size in $breakpoints {
-        @include media('screen', '>=#{$size}') {
-            .#{$bp}\:m-#{$scale}  { margin: $value; }
-            .#{$bp}\:-m-#{$scale} { margin: -#{$value}; }
-        }
-    }
-}

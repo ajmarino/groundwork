@@ -45,6 +45,23 @@
 
 
 //
+// .p-* - Applies padding on all sides
+//
+@each $scale, $value in $spacings {
+    .p-#{$scale} { padding: $value; }
+
+    @each $bp, $size in $breakpoints {
+        @include media('screen', '>=#{$size}') {
+            .#{$bp}\:p-#{$scale} { padding: $value; }
+        }
+    }
+}
+
+
+
+
+
+//
 // .p[t,r,b,l]-* - Applies padding to single side based on spacings scale
 //
 @each $prefix, $side in $directions {
@@ -65,19 +82,3 @@
 
 }
 
-
-
-
-
-//
-// .p-* - Applies padding on all sides
-//
-@each $scale, $value in $spacings {
-    .p-#{$scale} { padding: $value; }
-
-    @each $bp, $size in $breakpoints {
-        @include media('screen', '>=#{$size}') {
-            .#{$bp}\:p-#{$scale} { padding: $value; }
-        }
-    }
-}

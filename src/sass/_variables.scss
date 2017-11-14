@@ -366,6 +366,7 @@ $border-radius: (
 ///
 /// Generates classes to set the box-shadow of an element, including hover and focus variants
 ///
+/// @example css
 /// .b-shadow-base             { box-shadow: 0 2px 4px rgba(0,0,0,.5); }
 /// .hover:b-shadow-base:hover { box-shadow: 0 2px 4px rgba(0,0,0,.5); }
 /// .focus:b-shadow-base:focus { box-shadow: 0 2px 4px rgba(0,0,0,.5); }
@@ -384,6 +385,7 @@ $box-shadows: (
 ///
 /// Generates classes to set the text-shadow of an element, including hover and focus variants
 ///
+/// @example css
 /// .t-shadow-base             { text-shadow: 0 2px 5px rgba(0,0,0,.5); }
 /// .hover:t-shadow-base:hover { text-shadow: 0 2px 5px rgba(0,0,0,.5); }
 /// .focus:t-shadow-base:focus { text-shadow: 0 2px 5px rgba(0,0,0,.5); }

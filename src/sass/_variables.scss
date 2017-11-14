@@ -171,7 +171,6 @@ $font-sizes: (
 
 
 
-
 ///
 /// Generates classes for font-weight with names that should match the font.
 ///
@@ -264,7 +263,7 @@ $background-positions: (
 
 
 ///
-/// Generates classes to set the background color, including both hover and focus states.
+/// Generates classes to set the background color, including both hover and focus versions.
 ///
 /// @example css
 /// .bgc-base             { background-color: #fff }
@@ -303,7 +302,15 @@ $text-colors: (
 
 
 ///
-/// Border Colors
+/// Generates classes used to color the borders of an element, including both hover and focus versions.
+///
+/// @example css
+/// .bd-base             { border-color: #aaa; }
+/// .hover:bd-base:hover { border-color: #aaa; }
+/// .focus:bd-base:focus { border-color: #aaa; }
+///
+/// @example markup
+/// <p class="bd-base focus:bd-base"></p>
 ///
 $border-colors: (
     'base' : #aaa,
@@ -314,7 +321,15 @@ $border-colors: (
 
 
 ///
-/// Border Widths
+/// Generates classes to set the width of borders.  Also generates direction specific versions so
+/// that individual sides can be set.
+///
+/// @example css
+/// .bd-0 { border-width: 0; }
+/// .bd-t-1 { border-top-width: 1px; }
+///
+/// @example markup
+/// <p class="bd-t-1"></p>
 ///
 $border-widths: (
     '0' : 0,
@@ -327,7 +342,14 @@ $border-widths: (
 
 
 ///
-/// Border Radiuses
+/// Generates classes to round the corners of an element, currently only does all sides.
+///
+/// @example css
+/// .rounded-0    { border-radius: 0; }
+/// .rounded-pill { border-radius: 9999px; }
+///
+/// @example markup
+/// <div class="rounded-pill"></div>
 ///
 $border-radius: (
     '0'    : 0,
@@ -340,8 +362,16 @@ $border-radius: (
 
 
 
+
 ///
-/// Box Shadows
+/// Generates classes to set the box-shadow of an element, including hover and focus variants
+///
+/// .b-shadow-base             { box-shadow: 0 2px 4px rgba(0,0,0,.5); }
+/// .hover:b-shadow-base:hover { box-shadow: 0 2px 4px rgba(0,0,0,.5); }
+/// .focus:b-shadow-base:focus { box-shadow: 0 2px 4px rgba(0,0,0,.5); }
+///
+/// @example markup
+/// <div class="b-shadow-base focus:b-shadow-base"></div>
 ///
 $box-shadows: (
     'base' : (0 2px 4px rgba(black, .5)),
@@ -352,7 +382,14 @@ $box-shadows: (
 
 
 ///
-/// Text Shadows
+/// Generates classes to set the text-shadow of an element, including hover and focus variants
+///
+/// .t-shadow-base             { text-shadow: 0 2px 5px rgba(0,0,0,.5); }
+/// .hover:t-shadow-base:hover { text-shadow: 0 2px 5px rgba(0,0,0,.5); }
+/// .focus:t-shadow-base:focus { text-shadow: 0 2px 5px rgba(0,0,0,.5); }
+///
+/// @example markup
+/// <div class="t-shadow-base focus:t-shadow-base"></div>
 ///
 $text-shadows : (
     'hero' : (0 2px 5px rgba(black, .5)),

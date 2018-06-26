@@ -22,11 +22,11 @@
   },
   "homepage": "https://github.com/ajmarino/groundwork",
   "dependencies": {
-    "css-mqpacker": "^6.0.1",
+    "css-mqpacker": "^6.0.2",
     "include-media": "^1.4.9",
-    "laravel-mix": "^1.4.2",
+    "laravel-mix": "^2.0",
     "normalize-opentype.css": "^0.2.4",
-    "normalize.css": "^7.0.0",
-    "sassdoc": "^2.3.0"
+    "normalize.css": "^8.0.0",
+    "sassdoc": "^2.5.0"
   }
 }

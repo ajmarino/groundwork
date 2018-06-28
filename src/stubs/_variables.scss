@@ -13,8 +13,8 @@
 /// @link http://pesticide.io/
 /// @link https://github.com/mrmrs/pesticide
 ///
-$layout-debug-outline: false;
-$layout-debug-depth: false;
+$layout-debug-outline: false !default;
+$layout-debug-depth: false !default;
 
 
 
@@ -29,20 +29,20 @@ $layout-debug-depth: false;
 ///
 /// @link http://csswizardry.com/2015/03/more-transparent-ui-code-with-namespaces/
 ///
-$namespace-debug: false;
+$namespace-debug: false !default;
 
 
 
 
 
 ///
-/// Highlight potentially broken, malformed or legacy (X)HTML
+/// Highlight potentially broken, malformed or legacy (X)HTML.
 ///
 /// @group Debug
 ///
 /// @link https://github.com/yahoo/debugCSS
 ///
-$legacy-debug: false;
+$legacy-debug: false !default;
 
 
 
@@ -67,10 +67,10 @@ $legacy-debug: false;
 /// // app.scss
 /// $theme: 'default';
 ///
-/// // red.css
+/// // red.scss
 /// $theme: 'red';
 ///
-/// // blue.css
+/// // blue.scss
 /// $theme: 'blue';
 ///
 ///
@@ -84,7 +84,7 @@ $legacy-debug: false;
 /// /* blue.css */
 /// .class { color: blue; }
 ///
-$theme: "default";
+$theme: 'default' !default;
 
 
 
@@ -94,61 +94,92 @@ $theme: "default";
 /// Breakpoints for responsive design, any name/pair can go here.  These are used
 /// to create scoped versions of all classes so responsive behavior can be
 /// applied directly using classes, with the label as the prefix. All
-/// media queries are generated with `screen and min-width()`
+/// media queries are generated with `screen and min-width()`.
+///
+/// @example css
+///   .mt-4 { margin-top: 1rem; }
+///
+///   @include media screen and (min-width >= 48em) {
+///     .md:mt-4 { margin-top: 1rem; }
+///   }
+///
+///   @include media screen and (min-width >= 62em) {
+///     .lg:mt-4 { margin-top: 1rem; }
+///   }
 ///
 /// @example markup
-///   // applies different spacings at each breakpoint
-///   <div class="sm:mt-4 md:mt-6 lg:mt-8"></div>
+///   <div class="mt-4 md:mt-6 lg:mt-8"></div>
 ///
 $breakpoints: (
-    'sm'   : 30em,   // Mobile:  480px
-    'm'    : 48em,   // Tablet:  768px
-    'lg'   : 62em,   // Laptop:  992px
-    'xl'   : 80em,   // Desktop: 1200px
-    'huge' : 100em,  // Huge:    1600px
-);
+    'sm'   : 30em,   // 480px  - Mobile Landscape
+    'md'   : 48em,   // 768px  - Tablet
+    'lg'   : 62em,   // 992px  - Laptop
+    'xl'   : 80em,   // 1200px - Desktop
+    'huge' : 100em,  // 1600px - Huge
+) !default;
 
 
 
 
 
 ///
-/// Font Families
+/// Generates classes to set the font family based on the keys of the map, while the stack is
+/// the value of that array.
+///
+/// @example css
+/// .sans { font-family: 'source-sans-pro', 'Helvetica Neue', Helvetica, Arial, sans-serif; }
+///
+/// @example markup
+/// <p class="sans"></p>
 ///
 $font-families : (
-    'sans'  : ("source-sans-pro", "Helvetica Neue", Helvetica, Arial, sans-serif),
-    'serif' : ("source-serif-pro", Georgia, "Times New Roman", Times, serif),
-    'mono'  : ("source-code-pro", "Inconsolata", "Menlo", Consolas, "Andale Mono WT", "Andale Mono",
-                "Lucida Console", "Lucida Sans Typewriter", "DejaVu Sans Mono", "Bitstream Vera Sans Mono",
-                "Liberation Mono", "Nimbus Mono L", Monaco, "Courier New", Courier, monospace),
-);
+    'sans'  : ('source-sans-pro', 'Helvetica Neue', Helvetica, Arial, sans-serif),
+    'serif' : ('source-serif-pro', Georgia, 'Times New Roman', Times, serif),
+    'mono'  : ('source-code-pro', 'Inconsolata', 'Menlo', Consolas, 'Andale Mono WT', 'Andale Mono',
+                'Lucida Console', 'Lucida Sans Typewriter', 'DejaVu Sans Mono', 'Bitstream Vera Sans Mono',
+                'Liberation Mono', 'Nimbus Mono L', Monaco, 'Courier New', Courier, monospace),
+) !default;
 
 
 
 
 
 ///
-/// Type Scale
+/// Generates font size classes in `rem` units with `px` fallbacks, as well as
+/// prefixed versions for each breakpoint.
+///
+/// @example css
+/// .text-xs { font-size: 12px; font-size: .75rem; }
+/// .text-lg { font-size: 20px; font-size: 1.25rem; }
+///
+/// @example markup
+/// <h1 class="text-3xl md:text-4xl"></h1>
 ///
 $font-sizes: (
     'xs'   : .75rem,    // 12px
     'sm'   : .875rem,   // 14px
     'base' : 1rem,      // 16px
     'md'   : 1.125rem,  // 18px
-    'l'    : 1.25rem,   // 20px
+    'lg'   : 1.25rem,   // 20px
     'xl'   : 1.5rem,    // 24px
     '2xl'  : 1.875rem,  // 30px
     '3xl'  : 2.25rem,   // 36px
     '4xl'  : 3rem       // 48px
-);
-
+) !default;
 
 
 
 
 
 ///
-/// Font Weights
+/// Generates classes for font-weight with names that should match the font.
+///
+/// @example css
+/// .text-hairline { font-weight: 200 }
+/// .text-regular  { font-weight: 400 }
+///
+/// @example markup
+/// <h1 class="text-regular"></h1>
 ///
 $font-weights: (
     'hairline' : 200,
@@ -156,41 +187,64 @@ $font-weights: (
     'regular'  : 400,
     'medium'   : 600,
     'bold'     : 700,
-);
+) !default;
 
 
 
 
 
 ///
-/// Letter Spacing
+/// Generates classes to the control the tracking of text.
+///
+/// @example css
+/// .tracking-tight { letter-spacing: -.05em; }
+/// .tracking-wide  { letter-spacing: .2em; }
+///
+/// @example markup
+/// <h3 class="tracking-wide"></h3>
 ///
 $letter-spacing: (
     'tight'  : -.05em,
     'normal' : 0,
     'wide'   : .2em,
-);
+) !default;
 
 
 
 
 
 ///
-/// Line Heights
+/// Generates classes to control the leading of text.
+///
+/// @example css
+/// .leading-none   { line-height: 1; }
+/// .leading-normal { line-height: 1.5; }
+///
+/// @example markup
+/// <p class="leading-normal"></p>
 ///
 $line-heights: (
     'none'  : 1,
     'tight' : 1.25,
     'normal': 1.5,
     'loose' : 2,
-);
+) !default;
 
 
 
 
 
 ///
-/// Background Positions
+/// Generates classes to position the background in one of the 9 basic
+/// directions by default, with prefixes for each breakpoint.
+///
+/// @example css
+/// .bg-top-left { background-position: left top; }
+/// .bg-center   { background-position: center center; }
+/// .bg-right    { background-position: right center; }
+///
+/// @example markup
+/// <div class="bg-center"></div>
 ///
 $background-positions: (
     'top-left'     : (left top),
@@ -202,18 +256,26 @@ $background-positions: (
     'right'        : (right center),
     'left'         : (left center),
     'center'       : (center center),
-);
+) !default;
 
 
 
 
 
 ///
-/// Background Colors
+/// Generates classes to set the background color, including both hover and focus versions.
+///
+/// @example css
+/// .bg-base             { background-color: #fff; }
+/// .hover:bg-base:hover { background-color: #fff; }
+/// .focus:bg-base:focus { background-color: #fff; }
+///
+/// @example markup
+/// <button class="bg-base hover:bg-base"></button>
 ///
 $backgrounds: (
     'base' : #fff,
-);
+) !default;
 
 
 
@@ -223,40 +285,71 @@ $backgrounds: (
 /// Generates colors to change the color of text, as well as the `text-decoration-color`. Also
 /// generates hover and focus versions of the classes to apply colors in those states.
 ///
+/// @example css
+/// .color-base             { color: #111; }
+/// .hover:color-base:hover { color: #111; }
+/// .focus:color-base:focus { color: #111; }
+///
+/// @example markup
+/// <p class="color-base focus:color-base"></p>
+///
 $text-colors: (
     'base' : #111,
-);
+) !default;
 
 
 
 
 
 ///
-/// Border Colors
+/// Generates classes used to color the borders of an element, including both hover and focus versions.
+///
+/// @example css
+/// .bd-base             { border-color: #aaa; }
+/// .hover:bd-base:hover { border-color: #aaa; }
+/// .focus:bd-base:focus { border-color: #aaa; }
+///
+/// @example markup
+/// <p class="bd-base focus:bd-base"></p>
 ///
 $border-colors: (
     'base' : #aaa,
-);
+) !default;
 
 
 
 
 
 ///
-/// Border Widths
+/// Generates classes to set the width of borders.  Also generates direction specific versions so
+/// that individual sides can be set.
+///
+/// @example css
+/// .bd-0 { border-width: 0; }
+/// .bd-t-1 { border-top-width: 1px; }
+///
+/// @example markup
+/// <p class="bd-t-1"></p>
 ///
 $border-widths: (
     '0' : 0,
     '1' : 1px,
     '2' : 2px,
-);
+) !default;
 
 
 
 
 
 ///
-/// Border Radiuses
+/// Generates classes to round the corners of an element, currently only does all sides.
+///
+/// @example css
+/// .rounded-0    { border-radius: 0; }
+/// .rounded-pill { border-radius: 9999px; }
+///
+/// @example markup
+/// <div class="rounded-pill"></div>
 ///
 $border-radius: (
     '0'    : 0,
@@ -264,35 +357,34 @@ $border-radius: (
     'md'   : .25rem,
     'lg'   : .5rem,
     'pill' : 9999px
-);
+) !default;
+
 
 
 
 
 ///
-/// Box Shadows
+/// Generates classes to set the box-shadow of an element, including hover and focus variants
+///
+/// @example css
+/// .b-shadow-base             { box-shadow: 0 2px 4px rgba(0,0,0,.5); }
+/// .hover:b-shadow-base:hover { box-shadow: 0 2px 4px rgba(0,0,0,.5); }
+/// .focus:b-shadow-base:focus { box-shadow: 0 2px 4px rgba(0,0,0,.5); }
+///
+/// @example markup
+/// <div class="b-shadow-base focus:b-shadow-base"></div>
 ///
 $box-shadows: (
     'base' : (0 2px 4px rgba(black, .5)),
-);
+) !default;
 
 
 
 
 
 ///
-/// Text Shadows
-///
-$text-shadows : (
-    'hero' : (0 2px 5px rgba(black, .5)),
-);
-
-
-
-
-
-///
-/// Spacing
+/// Generates classes for both margins and paddings.  Classes are created for each side as well
+/// as all sides, and negative versions of each.
 ///
 $spacings: (
     '0'  : 0,         // 0px
@@ -309,16 +401,7 @@ $spacings: (
     '15' : 3.75rem,   // 60px
     '16' : 4rem,      // 64px
     '24' : 6rem,      // 96px
-);
-
-
-
-
-
-///
-/// Z-Index
-///
-$z-index: (100, 200, 300, 400, 500);
+) !default;
 
 
 
@@ -346,7 +429,7 @@ $sizing-common: (
     '24'   : 6rem,
     'auto' : auto,
     'full' : 100%,
-);
+) !default;
 
 
 
@@ -357,7 +440,7 @@ $sizing-common: (
 ///
 $sizing-heights: (
     'screen' : 100vh,
-);
+) !default;
 
 
 
@@ -368,18 +451,18 @@ $sizing-heights: (
 ///
 $sizing-widths: (
     '1#{\/}2'  : 50%,
-    '1#{\/}3'  : (calc(1 / 3 * 100%) ),
-    '2#{\/}3'  : (calc(2 / 3 * 100%) ),
+    '1#{\/}3'  : ( calc(1 / 3 * 100%) ),
+    '2#{\/}3'  : ( calc(2 / 3 * 100%) ),
     '1#{\/}4'  : 25%,
     '3#{\/}4'  : 75%,
     '1#{\/}5'  : 20%,
     '2#{\/}5'  : 40%,
     '3#{\/}5'  : 60%,
     '4#{\/}5'  : 80%,
-    '1#{\/}6'  : (calc(1 / 6 * 100%) ),
-    '5#{\/}6'  : (calc(5 / 6 * 100%) ),
-    '1#{\/}12' : (calc(1 / 12 * 100%) ),
-);
+    '1#{\/}6'  : ( calc(1 / 6 * 100%) ),
+    '5#{\/}6'  : ( calc(5 / 6 * 100%) ),
+    '1#{\/}12' : ( calc(1 / 12 * 100%) ),
+) !default;
 
 
 
@@ -389,13 +472,32 @@ $sizing-widths: (
 /// Max Widths
 ///
 $max-widths: (
-    'xs'   : 18rem,
-    'sm'   : 32rem,
-    'md'   : 38rem,
-    'lg'   : 42rem,
-    'xl'   : 60rem,
+    'xs'   : 18rem,  // 288px
+    'sm'   : 32rem,  // 512px
+    'md'   : 38rem,  // 608px
+    'lg'   : 42rem,  // 672px
+    'xl'   : 60rem,  // 960px
     'none' : 100%,
-);
+) !default;
+
+
+
+
+
+///
+/// Generates classes to set the text-shadow of an element, including hover and focus variants
+///
+/// @example css
+/// .t-shadow-base             { text-shadow: 0 2px 5px rgba(0,0,0,.5); }
+/// .hover:t-shadow-base:hover { text-shadow: 0 2px 5px rgba(0,0,0,.5); }
+/// .focus:t-shadow-base:focus { text-shadow: 0 2px 5px rgba(0,0,0,.5); }
+///
+/// @example markup
+/// <div class="t-shadow-base focus:t-shadow-base"></div>
+///
+$text-shadows : (
+    'hero' : (0 2px 5px rgba(black, .5)),
+) !default;
 
 
 
@@ -409,7 +511,7 @@ $transitions: (
     'all'    : all $default-time linear,
     'button' : (background-color $default-time linear,
                 color $default-time linear),
-);
+) !default;
 
 
 
@@ -418,4 +520,266 @@ $transitions: (
 ///
 /// Opacity
 ///
-$opacities: (0, 1);
+$opacities: (
+    '0' : 0,
+    '1' : 1,
+) !default;
+
+
+
+
+
+///
+/// Aspect Ratios
+///
+$aspect-ratios: (
+    '16x9' : 56.25%,
+    '9x16' : 177.77%,
+    '4x3'  : 75%,
+    '3x4'  : 133.33%,
+    '6x4'  : 66.6%,
+    '4x6'  : 150%,
+    '8x5'  : 62.5%,
+    '5x8'  : 160%,
+    '7x5'  : 71.42%,
+    '5x7'  : 140%,
+    '1x1'  : 100%,
+) !default;
+
+
+
+
+
+///
+/// Z-Index
+///
+$z-index: (100, 200, 300, 400, 500) !default;
+
+
+
+
+
+
+
+
+
+
+//  ===============================================================================================
+//  $Standard Properties
+//
+//  Can be changed but not needed as they don't vary
+//  ===============================================================================================
+///
+/// Align Items / Align Self
+///
+/// @access private
+///
+$align-items: (
+    'start'    : 'flex-start',
+    'end'      : 'flex-end',
+    'center'   : 'center',
+    'baseline' : 'baseline',
+    'stretch'  : 'stretch',
+) !default;
+
+
+///
+/// Align Content
+///
+/// @access private
+///
+$align-content: (
+    'start'    : 'flex-start',
+    'end'      : 'flex-end',
+    'center'   : 'center',
+    'baseline' : 'baseline',
+    'stretch'  : 'stretch',
+    'between'  : 'space-between',
+    'around'   : 'space-around',
+    'evenly'   : 'space-evenly',
+) !default;
+
+
+///
+/// Background Repeat
+///
+/// @access private
+///
+$background-repeat: ('no-repeat', 'repeat', 'repeat-x', 'repeat-y') !default;
+
+
+///
+/// Background Sizing
+///
+/// @access private
+///
+$background-sizing: ('cover', 'contain') !default;
+
+
+///
+/// Border Styles
+///
+/// @access private
+///
+$border-styles: ('none', 'dotted', 'dashed', 'solid', 'double', 'groove', 'ridge', 'inset', 'outset') !default;
+
+
+///
+/// Clears
+///
+/// @access private
+///
+$clears: ('none', 'both', 'left', 'right') !default;
+
+
+///
+/// Display
+///
+/// @access private
+///
+$displays: ('block', 'inline', 'inline-block', 'flex', 'inline-flex', 'table', 'table-cell') !default;
+
+
+///
+/// Directions
+///
+/// @access private
+///
+$directions: (
+    't' : 'top',
+    'r' : 'right',
+    'b' : 'bottom',
+    'l' : 'left',
+) !default
+
+
+///
+/// Flex Directions
+///
+/// @access private
+///
+$flex-directions: ('row', 'row-reverse', 'column', 'column-reverse' ) !default;
+
+
+///
+/// Flex Grow
+///
+/// @access private
+///
+$flex-grow: ('1', 'auto', 'initial', 'none') !default;
+
+$flex-types: ('grow', 'shrink') !default;
+
+
+///
+/// Flex Wrap
+///
+/// @access private
+///
+$flex-wrap: ('wrap', 'wrap-reverse', 'nowrap') !default;
+
+
+///
+/// Float
+///
+/// @access private
+///
+$floats: ('none', 'left', 'right') !default;
+
+
+///
+/// Font Styles
+///
+/// @access private
+///
+$font-styles: ('italic') !default;
+
+
+///
+/// Justify Content
+///
+/// @access private
+///
+$justify-contents: (
+    'start'    : 'flex-start',
+    'end'      : 'flex-end',
+    'center'   : 'center',
+    'around'   : 'space-around',
+    'between'  : 'space-between',
+) !default;
+
+
+///
+/// List
+///
+/// @access private
+///
+$list-styles: () !default;
+
+
+///
+/// Overflow
+///
+/// @access private
+///
+$overflow: () !default;
+
+
+///
+/// Position
+///
+/// @access private
+///
+$positions: ('absolute', 'fixed', 'relative', 'static', 'sticky') !default;
+
+
+///
+/// Text Alignments
+///
+/// @access private
+///
+$text-alignment: ('left', 'center', 'right', 'justify') !default;
+
+
+///
+/// Text Decoration Lines
+///
+/// @access private
+///
+$text-decoration-lines: (
+    'underline'     : underline,
+    'strike'        : 'line-through',
+) !default;
+
+
+
+///
+/// Text Decoration Styles
+///
+/// @access private
+///
+$text-decoration-styles: ('solid', 'double', 'dotted', 'dashed', 'wavy') !default;
+
+
+///
+/// Text Transforms
+///
+/// @access private
+///
+$text-transforms: ('capitalize', 'uppercase', 'lowercase') !default;
+
+
+///
+/// White Space
+///
+/// @access private
+///
+$white-space: ('normal', 'pre', 'nowrap', 'pre-wrap', 'pre-line') !default;
+
+
+///
+/// Word Break
+///
+/// @access private
+///
+$word-break: ('normal', 'break-all') !default;

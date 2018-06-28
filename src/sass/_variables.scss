@@ -67,10 +67,10 @@ $legacy-debug: false !default;
 /// // app.scss
 /// $theme: 'default';
 ///
-/// // red.css
+/// // red.scss
 /// $theme: 'red';
 ///
-/// // blue.css
+/// // blue.scss
 /// $theme: 'blue';
 ///
 ///
@@ -84,7 +84,7 @@ $legacy-debug: false !default;
 /// /* blue.css */
 /// .class { color: blue; }
 ///
-$theme: "default" !default;
+$theme: 'default' !default;
 
 
 
@@ -127,17 +127,17 @@ $breakpoints: (
 /// the value of that array.
 ///
 /// @example css
-/// .sans { font-family: "source-sans-pro", "Helvetica Neue", Helvetica, Arial, sans-serif; }
+/// .sans { font-family: 'source-sans-pro', 'Helvetica Neue', Helvetica, Arial, sans-serif; }
 ///
 /// @example markup
 /// <p class="sans"></p>
 ///
 $font-families : (
-    'sans'  : ("source-sans-pro", "Helvetica Neue", Helvetica, Arial, sans-serif),
-    'serif' : ("source-serif-pro", Georgia, "Times New Roman", Times, serif),
-    'mono'  : ("source-code-pro", "Inconsolata", "Menlo", Consolas, "Andale Mono WT", "Andale Mono",
-                "Lucida Console", "Lucida Sans Typewriter", "DejaVu Sans Mono", "Bitstream Vera Sans Mono",
-                "Liberation Mono", "Nimbus Mono L", Monaco, "Courier New", Courier, monospace),
+    'sans'  : ('source-sans-pro', 'Helvetica Neue', Helvetica, Arial, sans-serif),
+    'serif' : ('source-serif-pro', Georgia, 'Times New Roman', Times, serif),
+    'mono'  : ('source-code-pro', 'Inconsolata', 'Menlo', Consolas, 'Andale Mono WT', 'Andale Mono',
+                'Lucida Console', 'Lucida Sans Typewriter', 'DejaVu Sans Mono', 'Bitstream Vera Sans Mono',
+                'Liberation Mono', 'Nimbus Mono L', Monaco, 'Courier New', Courier, monospace),
 ) !default;
 
 
@@ -266,9 +266,9 @@ $background-positions: (
 /// Generates classes to set the background color, including both hover and focus versions.
 ///
 /// @example css
-/// .bgc-base             { background-color: #fff }
-/// .hover:bgc-base:hover { background-color: #fff; }
-/// .focus:bgc-base:focus { background-color: #fff; }
+/// .bg-base             { background-color: #fff; }
+/// .hover:bg-base:hover { background-color: #fff; }
+/// .focus:bg-base:focus { background-color: #fff; }
 ///
 /// @example markup
 /// <button class="bg-base hover:bg-base"></button>
@@ -383,26 +383,8 @@ $box-shadows: (
 
 
 ///
-/// Generates classes to set the text-shadow of an element, including hover and focus variants
-///
-/// @example css
-/// .t-shadow-base             { text-shadow: 0 2px 5px rgba(0,0,0,.5); }
-/// .hover:t-shadow-base:hover { text-shadow: 0 2px 5px rgba(0,0,0,.5); }
-/// .focus:t-shadow-base:focus { text-shadow: 0 2px 5px rgba(0,0,0,.5); }
-///
-/// @example markup
-/// <div class="t-shadow-base focus:t-shadow-base"></div>
-///
-$text-shadows : (
-    'hero' : (0 2px 5px rgba(black, .5)),
-) !default;
-
-
-
-
-
-///
-/// Spacing
+/// Generates classes for both margins and paddings.  Classes are created for each side as well
+/// as all sides, and negative versions of each.
 ///
 $spacings: (
     '0'  : 0,         // 0px
@@ -420,15 +402,6 @@ $spacings: (
     '16' : 4rem,      // 64px
     '24' : 6rem,      // 96px
 ) !default;
-
-
-
-
-
-///
-/// Z-Index
-///
-$z-index: (100, 200, 300, 400, 500) !default;
 
 
 
@@ -511,6 +484,25 @@ $max-widths: (
 
 
 
+///
+/// Generates classes to set the text-shadow of an element, including hover and focus variants
+///
+/// @example css
+/// .t-shadow-base             { text-shadow: 0 2px 5px rgba(0,0,0,.5); }
+/// .hover:t-shadow-base:hover { text-shadow: 0 2px 5px rgba(0,0,0,.5); }
+/// .focus:t-shadow-base:focus { text-shadow: 0 2px 5px rgba(0,0,0,.5); }
+///
+/// @example markup
+/// <div class="t-shadow-base focus:t-shadow-base"></div>
+///
+$text-shadows : (
+    'hero' : (0 2px 5px rgba(black, .5)),
+) !default;
+
+
+
+
+
 $default-time: .3s;
 ///
 /// Transitions
@@ -555,6 +547,13 @@ $aspect-ratios: (
 ) !default;
 
 
+
+
+
+///
+/// Z-Index
+///
+$z-index: (100, 200, 300, 400, 500) !default;
 
 
 

@@ -1,12 +1,12 @@
-// 
+//
 // Open Colors
-// 
+//
 // @link https://yeun.github.io/open-color/
-// 
+//
 
 @function open-color($color) {
 	@if not map-has-key($open-colors, $color) {
-		@warn "`#{$color}` is not a valid Crayola color name. Property omitted.";
+		@warn "`#{$color}` is not a valid Open Color color name. Property omitted.";
 	}
 
 	@return map-get($open-colors, $color);

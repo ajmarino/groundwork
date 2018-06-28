@@ -68,13 +68,14 @@ It's also recommanded to use _Full URL to Issues_, instead of just Issue ID Numb
 | :tada: | `:tada:` | **Initial** Commit |
 | :gem: | `:gem:` | New **Release** |
 | :bookmark: | `:bookmark:` | Version **Tags** |
-| :package: | `:package:` | when **Adding new packages** |
+| :package: | `:package:` | when adding **new packages** |
 | :page_facing_up: | `:page_facing_up:` | when creating a **new file** |
 | :books: | `:books:` | when writing **docs** |
 | :label: | `:label:` | when writing **comments** |
 | :art: | `:art:` | when improving the **format**/structure of the code |
 | :tractor: | `:tractor:` | when **change file structure**. Usually together with :art: |
 | :hammer: | `:hammer:` | when **refactoring** code |
+| :wastebasket: | `:wastebasket:` | when **removing code** or files, _maybe_ with `@CHANGED` Comment Tag |
 | :computer: | `:computer:` | when improving **UI**/Cosmetic |
 | :memo: | `:memo:` | when **performing minor changes/fixing** the code or language |
 | :racehorse: | `:racehorse:` | when improving **performance** |
@@ -82,7 +83,15 @@ It's also recommanded to use _Full URL to Issues_, instead of just Issue ID Numb
 | :penguin: | `:penguin:` | when fixing something on **Linux** |
 | :apple: | `:apple:` | when fixing something on **Mac OS** |
 | :checkered_flag: | `:checkered_flag:` | when fixing something on **Windows** |
-| :fire: | `:fire:` | when **removing code** or files, _maybe_ with `@CHANGED` Comment Tag |
+| :gear: | `:gear:` | changing **Configuration**, Usually together with :penguin: or :ribbon: or :rocket: |
+| :ribbon: | `:ribbon:` | Customer requested application **Customization**, with `@HACK` Comment Tag |
+| :whale: | `:whale:` | **Docker** Configuration |
+| :rocket: | `:rocket:` | Anything related to Deployments/**DevOps** |
+| :elephant: | `:elephant:` | **PostgreSQL** Database specific (Migrations, Scripts, Extensions, ...)  |
+| :dolphin: | `:dolphin:` | **MySQL** Database specific (Migrations, Scripts, Extensions, ...) |
+| :leaves: | `:leaves:` | **MongoDB** Database specific (Migrations, Scripts, Extensions, ...) |
+| :bank: | `:bank:` | **Generic Database** specific (Migrations, Scripts, Extensions, ...) |
+| :handshake: | `:handshake:` | when **Merging files** |
 | :umbrella: | `:umbrella:` | when adding **tests** |
 | :microscope: | `:microscope:` | when adding **code coverage** |
 | :green_heart: | `:green_heart:` | when fixing the **CI** build |
@@ -100,15 +109,7 @@ It's also recommanded to use _Full URL to Issues_, instead of just Issue ID Numb
 | :sparkles: | `:sparkles:` | when introducing **New** Features |
 | :zap: | `:zap:` | when introducing **Backward-InCompatible** Features, _maybe_ with `@CHANGED` Comment Tag |
 | :bulb: | `:bulb:` | New **Idea**, with `@IDEA` Comment Tag |
-| :gear: | `:gear:` | changing **Configuration**, Usually together with :penguin: or :ribbon: or :rocket: |
-| :ribbon: | `:ribbon:` | Customer requested application **Customization**, with `@HACK` Comment Tag |
-| :whale: | `:whale:` | **Docker** Configuration |
-| :rocket: | `:rocket:` | Anything related to Deployments/**DevOps** |
-| :elephant: | `:elephant:` | **PostgreSQL** Database specific (Migrations, Scripts, Extensions, ...)  |
-| :dolphin: | `:dolphin:` | **MySQL** Database specific (Migrations, Scripts, Extensions, ...) |
-| :leaves: | `:leaves:` | **MongoDB** Database specific (Migrations, Scripts, Extensions, ...) |
-| :bank: | `:bank:` | **Generic Database** specific (Migrations, Scripts, Extensions, ...) |
-| :handshake: | `:handshake:` | when **Merging files** |
+
 
 
 

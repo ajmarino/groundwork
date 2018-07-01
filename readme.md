@@ -1,4 +1,6 @@
-<h2 align="center">Groundwork</h2>
+<p align="center">
+<img alt="Groundwork" src="https://github.com/ajmarino/groundwork/blob/c89fca7c1bfb146d649df35870f7d75902b945cd/src/assets/groundwork-badge.png" />
+</p>
 <p align="center">
 <em>Packages to get your next project up and running.</em>
 </p>

@@ -16,6 +16,7 @@
 <img src="https://img.shields.io/badge/tailwind-v0.6.1-44a8b3.svg" alt="TailwindCSS Version">
 </p>
 
+Based on the commit styleguide by SlashBin, with some additions / refinements [SlashsBin Styleguide](https://slashsbin.com/styleguide-git-commit-message/)
 
 
 ## Styleguide

@@ -72,7 +72,7 @@ It's also recommanded to use _Full URL to Issues_, instead of just Issue ID Numb
 | :gem: | `:gem:` | New **Release** |
 | :bookmark: | `:bookmark:` | Version **Tags** |
 | :package: | `:package:` | when adding **new packages** |
-| :confetti_ball: | `:confetti_ball:` | when dealing with **Yarn** / **NPM** pkgs |
+| :ribbon: | `:ribbon:` | when dealing with **Yarn** / **NPM** pkgs |
 | :musical_score: | `:musical_score:` | when dealing with **Composer** pkgs |
 | :arrow_up: | `:arrow_up:` | when upgrading **dependencies** / **packages** |
 | :arrow_down: | `:arrow_down:` | when downgrading **dependencies** / **packages** |
@@ -91,7 +91,7 @@ It's also recommanded to use _Full URL to Issues_, instead of just Issue ID Numb
 | :apple: | `:apple:` | when fixing something on **Mac OS** |
 | :checkered_flag: | `:checkered_flag:` | when fixing something on **Windows** |
 | :gear: | `:gear:` | changing **Configuration**, Usually together with :penguin: or :ribbon: or :rocket: |
-| :ribbon: | `:ribbon:` | Customer requested application **Customization**, with `@HACK` Comment Tag |
+| :wrench: | `:wrench:` | Customer requested application **Customization**, with `@HACK` Comment Tag |
 | :whale: | `:whale:` | **Docker** Configuration |
 | :rocket: | `:rocket:` | Anything related to Deployments/**DevOps** |
 | :elephant: | `:elephant:` | **PostgreSQL** Database specific (Migrations, Scripts, Extensions, ...)  |

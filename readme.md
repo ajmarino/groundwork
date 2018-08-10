@@ -77,7 +77,7 @@ It's also recommanded to use _Full URL to Issues_, instead of just Issue ID Numb
 | :arrow_up: | `:arrow_up:` | when upgrading **dependencies** / **packages** |
 | :arrow_down: | `:arrow_down:` | when downgrading **dependencies** / **packages** |
 | :page_facing_up: | `:page_facing_up:` | when creating a **new file** |
-| :books: | `:books:` | when writing **docs** |
+| :book: | `:book:` | when writing **docs** |
 | :label: | `:label:` | when writing **comments** |
 | :art: | `:art:` | when improving the **format**/structure of the code |
 | :tractor: | `:tractor:` | when **change file structure**. Usually together with :art: |
@@ -99,8 +99,8 @@ It's also recommanded to use _Full URL to Issues_, instead of just Issue ID Numb
 | :leaves: | `:leaves:` | **MongoDB** Database specific (Migrations, Scripts, Extensions, ...) |
 | :bank: | `:bank:` | **Generic Database** specific (Migrations, Scripts, Extensions, ...) |
 | :handshake: | `:handshake:` | when **Merging files** |
-| :umbrella: | `:umbrella:` | when adding **tests** |
-| :microscope: | `:microscope:` | when adding **code coverage** |
+| :microscope: | `:microscope:` | when adding **tests** |
+| :umbrella: | `:umbrella:` | when adding **code coverage** |
 | :green_heart: | `:green_heart:` | when fixing the **CI** build |
 | :lock: | `:lock:` | when dealing with **security** |
 | :fast_forward: | `:fast_forward:` | when **forward-porting features** from an older version/branch |

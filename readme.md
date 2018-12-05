@@ -106,8 +106,8 @@ It's also recommanded to use _Full URL to Issues_, instead of just Issue ID Numb
 | :fast_forward: | `:fast_forward:` | when **forward-porting features** from an older version/branch |
 | :rewind: | `:rewind:` | when **backporting features** from a newer version/branch |
 | :shirt: | `:shirt:` | when removing **linter**/strict/deprecation warnings |
-| :wheelchair: | `:wheelchair:` | when improving **accessibility** |
-| :globe_with_meridians: | `:globe_with_meridians:` | when dealing with **globalization**/internationalization/i18n/g11n |
+| :wheelchair: | `:wheelchair:` | when improving **accessibility** (a11y) |
+| :globe_with_meridians: | `:globe_with_meridians:` | when dealing with **globalization**/internationalization (i18n/g11n) |
 | :construction: | `:construction:` | **WIP**(Work In Progress) Commits, _maybe_ with `@REVIEW` Comment Tag |
 | :speaker: | `:speaker:` | when Adding **Logging** |
 | :mute: | `:mute:` | when Reducing **Logging** |

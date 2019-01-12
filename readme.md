@@ -2,25 +2,26 @@
 <img alt="Groundwork" src="https://github.com/ajmarino/groundwork/blob/c89fca7c1bfb146d649df35870f7d75902b945cd/src/assets/groundwork-badge.png" />
 </p>
 <p align="center">
+<img src="https://img.shields.io/badge/version-v1.0.1-606F7B.svg?style=for-the-badge" alt="Version"><br>
 <em>Packages to get your next project up and running.</em>
 </p>
 
 <p align="center">
-<img src="https://img.shields.io/badge/css_mqpacker-v7.0.0-38c172.svg" alt="Sassdoc Version">
-<img src="https://img.shields.io/badge/include_media-v1.4.9-e6AA68.svg" alt="Sassdoc Version">
-<img src="https://img.shields.io/badge/laravel_mix-v2.1.11-f55247.svg" alt="Laravel Mix Version">
-<img src="https://img.shields.io/badge/laravel_mix_purgecss-v2.2.0-22a4c9.svg" alt="Laravel Mix Version">
+<img src="https://img.shields.io/badge/tailwind-v0.7.3-44a8b3.svg?style=flat-square" alt="TailwindCSS Version">
+<img src="https://img.shields.io/badge/laravel_mix-v2.1.11-f55247.svg?style=flat-square" alt="Laravel Mix Version">
+<img src="https://img.shields.io/badge/laravel_mix_purgecss-v2.2.0-22a4c9.svg?style=flat-square" alt="Laravel Mix PurgeCSS Version">
 <br />
-<img src="https://img.shields.io/badge/normalize-v8.0.1-e3695f.svg" alt="Sassdoc Version">
-<img src="https://img.shields.io/badge/sassdocs-v2.5.0-dd5a6f.svg" alt="Sassdoc Version">
-<img src="https://img.shields.io/badge/tailwind-v0.7.3-44a8b3.svg" alt="TailwindCSS Version">
+<img src="https://img.shields.io/badge/include_media-v1.4.9-e6AA68.svg?style=flat-square" alt="Include Media Version">
+<img src="https://img.shields.io/badge/sassdocs-v2.5.0-dd5a6f.svg?style=flat-square" alt="Sassdoc Version">
+<img src="https://img.shields.io/badge/css_mqpacker-v7.0.0-38c172.svg?style=flat-square" alt="Sassdoc Version">
 </p>
 
 Based on the commit styleguide by SlashBin, with some additions / refinements [SlashsBin Styleguide](https://slashsbin.com/styleguide-git-commit-message/)
 
 ## Planned Features
+- (P) Add other stubs - webpack,
 - (P) Extract family.scss mixins to indv files
-- (M) Add script to copy over stubs for starting projects
+- (M) Add script for starting projects
 - (M) Upgrade to Laravel Mix 4.0
 
 

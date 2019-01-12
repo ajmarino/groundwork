@@ -72,17 +72,17 @@
 
 
 
-///
-/// Select all children between `$first` and `$last`.
-///
-/// @param {Number} $first - starting id
-/// @param {Number} $last  - ending id
-///
-@mixin between($first, $last) {
-  &:nth-child(n + #{$first}):nth-child(-n + #{$last}) {
-    @content;
-  }
-}
+//
+// Select all children between `$first` and `$last`.
+//
+// @param {Number} $first - starting id
+// @param {Number} $last  - ending id
+//
+// @mixin between($first, $last) {
+//   &:nth-child(n + #{$first}):nth-child(-n + #{$last}) {
+//     @content;
+//   }
+// }
 
 
 

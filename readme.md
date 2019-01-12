@@ -19,10 +19,10 @@
 Based on the commit styleguide by SlashBin, with some additions / refinements [SlashsBin Styleguide](https://slashsbin.com/styleguide-git-commit-message/)
 
 ## Planned Features
-- (P) Add other stubs - webpack,
-- (P) Extract family.scss mixins to indv files
-- (M) Add script for starting projects
-- (M) Upgrade to Laravel Mix 4.0
+- [x] (P) Add other stubs - webpack,
+- [ ] (P) Extract family.scss mixins to indv files
+- [ ] (M) Add script for starting projects
+- [ ] (M) Upgrade to Laravel Mix 4.0
 
 
 

@@ -6,17 +6,23 @@
 </p>
 
 <p align="center">
-<img src="https://img.shields.io/badge/css_mqpacker-v6.0.2-38c172.svg" alt="Sassdoc Version">
+<img src="https://img.shields.io/badge/css_mqpacker-v7.0.0-38c172.svg" alt="Sassdoc Version">
 <img src="https://img.shields.io/badge/include_media-v1.4.9-e6AA68.svg" alt="Sassdoc Version">
 <img src="https://img.shields.io/badge/laravel_mix-v2.1.11-f55247.svg" alt="Laravel Mix Version">
 <img src="https://img.shields.io/badge/laravel_mix_purgecss-v2.2.0-22a4c9.svg" alt="Laravel Mix Version">
 <br />
-<img src="https://img.shields.io/badge/normalize-v8.0.0-e3695f.svg" alt="Sassdoc Version">
+<img src="https://img.shields.io/badge/normalize-v8.0.1-e3695f.svg" alt="Sassdoc Version">
 <img src="https://img.shields.io/badge/sassdocs-v2.5.0-dd5a6f.svg" alt="Sassdoc Version">
-<img src="https://img.shields.io/badge/tailwind-v0.6.1-44a8b3.svg" alt="TailwindCSS Version">
+<img src="https://img.shields.io/badge/tailwind-v0.7.3-44a8b3.svg" alt="TailwindCSS Version">
 </p>
 
 Based on the commit styleguide by SlashBin, with some additions / refinements [SlashsBin Styleguide](https://slashsbin.com/styleguide-git-commit-message/)
+
+## Planned Features
+- (P) Extract family.scss mixins to indv files
+- (M) Add script to copy over stubs for starting projects
+- (M) Upgrade to Laravel Mix 4.0
+
 
 
 ## Styleguide

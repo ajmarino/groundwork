@@ -9,7 +9,6 @@ mix.sass('src/sass/groundwork.scss', 'dist/css', {
         outputStyle: 'compressed',
         includePaths: [
             'node_modules/include-media/dist/',
-            'node_modules/normalize.css/'
         ]
     })
     .options({

@@ -15,7 +15,7 @@ mix.sass('src/sass/groundwork.scss', 'dist/css', {
     .options({
         processCssUrls: false,
         postCss: [
-            // require('css-mqpacker')(),
+            require('css-mqpacker')(),
             tailwindcss('./tailwind.js')
         ]
     });

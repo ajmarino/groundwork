@@ -2,7 +2,7 @@
 <img alt="Groundwork" src="https://github.com/ajmarino/groundwork/blob/c89fca7c1bfb146d649df35870f7d75902b945cd/src/assets/groundwork-badge.png" />
 </p>
 <p align="center">
-<img src="https://img.shields.io/badge/version-v1.0.1-606F7B.svg?style=for-the-badge" alt="Version"><br>
+<img src="https://img.shields.io/badge/version-v1.0.2-606F7B.svg?style=for-the-badge" alt="Version"><br>
 <em>Packages to get your next project up and running.</em>
 </p>
 
@@ -20,7 +20,7 @@ Based on the commit styleguide by SlashBin, with some additions / refinements [S
 
 ## Planned Features
 - [x] (P) Add other stubs - webpack,
-- [ ] (P) Extract family.scss mixins to indv files
+- [x] (P) Extract family.scss mixins to indv files
 - [ ] (M) Add script for starting projects
 - [ ] (M) Upgrade to Laravel Mix 4.0
 

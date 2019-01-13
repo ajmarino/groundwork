@@ -1,0 +1,20 @@
+///
+/// Select the first and last children
+///
+/// @content
+///
+/// @group Checks
+///
+/// @link http://lukyvj.github.io/family.scss/
+///
+/// @example scss - Make the first/last children red colored
+/// ul li {
+///     @include first-last() { color: red; }
+/// }
+///
+@mixin first-last() {
+    &:first-child,
+    &:last-child {
+        @content;
+    }
+}

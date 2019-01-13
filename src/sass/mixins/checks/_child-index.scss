@@ -1,0 +1,34 @@
+///
+/// This mixin is used to automatically sort z-index in numerical order. But it
+/// can also sort them in anti-numerical order, depending the parameters you use.
+///
+/// @content
+///
+/// @group Checks
+///
+/// @link http://lukyvj.github.io/family.scss/
+///
+/// @param {Number} $num - Number of children
+/// @param {String} $direction [forward] - Direction of the sort
+/// @param {Number} $index [0] - Index of the sorting
+///
+/// @example scss - Make the non-unique child red colored
+/// ul li {
+///     @include not-unique() { color: red; }
+/// }
+///
+@mixin child-index($num, $direction: 'forward', $index: 0) {
+    @for $i from 1 through $num {
+        @if ($direction == 'forward') {
+            &:nth-child(#{$i}) {
+                z-index: order-index($i, $index);
+                @content;
+            }
+        } @else if ($direction == 'backward') {
+            &:nth-last-child(#{$i}) {
+                z-index: order-index($i, $index);
+                @content;
+            }
+        }
+    }
+}

@@ -1,0 +1,26 @@
+///
+/// This quantity-query mixin will only select the last of `$limit` items. It will not
+/// work if there is not as much as item as you set in `$limit`.
+///
+/// @content
+///
+/// @group Checks
+///
+/// @link http://lukyvj.github.io/family.scss/
+///
+/// @param {Number} $limit   - items to select
+///
+/// @example scss - Make the last 3 items red colored
+/// ul li {
+///     @include last-of(3) { color: red; }
+/// }
+///
+@mixin last-of($limit) {
+    @if type-of($limit) != 'number' or not unitless($limit) or $limit < 1 {
+        @error "`$limit` is not a valid number for `last-of`", 10;
+    }
+
+    &:nth-of-type(#{$limit}):nth-last-of-type(1) {
+        @content;
+    }
+}

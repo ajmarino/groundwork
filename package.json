@@ -1,6 +1,6 @@
 {
   "name": "groundwork",
-  "version": "1.0.0",
+  "version": "1.0.2",
   "description": "Starting files and useful mixins/functions",
   "main": "app.js",
   "scripts": {

@@ -1,0 +1,29 @@
+///
+/// Select the item in the middle of `$num` child. Only works with odd number chain.
+///
+/// @content
+///
+/// @group Checks
+///
+/// @link http://lukyvj.github.io/family.scss/
+///
+/// @param {Number} $num   - id of child
+///
+/// @example scss - Make the middle item red colored
+/// ul li {
+///     @include middle(3, 9) { color: red; }
+/// }
+///
+@mixin middle($num) {
+    @if type-of($num) != 'number' or not unitless($num) or $num < 1 {
+        @error "`$num` is not a valid number for `middle`", 10;
+    }
+
+    @if $num % 2 != 0 {
+        @error "`$num` needs to be an odd number for `middle`", 10;
+    }
+
+    &:nth-child(#{round($num / 2)}) {
+        @content;
+    }
+}

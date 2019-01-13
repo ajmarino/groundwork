@@ -1,0 +1,25 @@
+///
+/// Select all children before `$num` from the last.
+///
+/// @content
+///
+/// @group Checks
+///
+/// @link http://lukyvj.github.io/family.scss/
+///
+/// @param {Number} $num - id of the child
+///
+/// @example scss - Make the items after the first 4 items red colored
+/// ul li {
+///     @include from-end(4) { color: red; }
+/// }
+///
+@mixin from-end($num) {
+    @if type-of($num) != 'number' or not unitless($num) or $num < 1 {
+        @error "`$num` is not a valid number for `from-end`";
+    }
+
+    &:nth-last-child(#{$num}) {
+        @content;
+    }
+}

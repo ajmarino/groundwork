@@ -1,0 +1,19 @@
+///
+/// Select the last exact child
+///
+/// @content
+///
+/// @group Checks
+///
+/// @link http://lukyvj.github.io/family.scss/
+///
+/// @example scss - Make the last child red colored
+/// ul li {
+///     @include last-child() { color: red; }
+/// }
+///
+@mixin last-child() {
+    &:last-of-type {
+        @content
+    }
+}

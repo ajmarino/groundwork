@@ -1,0 +1,20 @@
+///
+/// Will only select children if they are not unique. Meaning if there is at
+/// least 2 children, the style is applied.
+///
+/// @content
+///
+/// @group Checks
+///
+/// @link http://lukyvj.github.io/family.scss/
+///
+/// @example scss - Make the non-unique child red colored
+/// ul li {
+///     @include not-unique() { color: red; }
+/// }
+///
+@mixin not-unique() {
+    &:not(:only-child) {
+        @content;
+    }
+}

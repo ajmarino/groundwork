@@ -1,0 +1,25 @@
+///
+/// Select all children but `$num`.
+///
+/// @content
+///
+/// @group Checks
+///
+/// @link http://lukyvj.github.io/family.scss/
+///
+/// @param {Number} $num   - id of child
+///
+/// @example scss - Make all but the 4th item red colored
+/// ul li {
+///     @include all-but(3, 9) { color: red; }
+/// }
+///
+@mixin all-but($num) {
+    @if type-of($num) != 'number' or not unitless($num) or $num < 1 {
+        @error "`$num` is not a valid number for `all-but`", 10;
+    }
+
+    &:not(:nth-child(#{$num})) {
+        @content;
+    }
+}

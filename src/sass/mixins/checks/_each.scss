@@ -1,0 +1,27 @@
+///
+/// Select children each `$num`.
+///
+/// @alias every
+///
+/// @content
+///
+/// @group Checks
+///
+/// @link http://lukyvj.github.io/family.scss/
+///
+/// @param {Number} $num   - id of child
+///
+/// @example scss - Make all but the 4th item red colored
+/// ul li {
+///     @include each(3, 9) { color: red; }
+/// }
+///
+@mixin each($num) {
+    @if type-of($num) != 'number' or not unitless($num) or $num < 1 {
+        @error "`$num` is not a valid number for `each`", 10;
+    }
+
+    &:nth-child(#{$num}n) {
+        @content;
+    }
+}

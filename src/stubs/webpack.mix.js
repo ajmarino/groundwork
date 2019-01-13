@@ -9,6 +9,7 @@ mix.sass('resources/sass/app.scss', 'public/css', {
         outputStyle: 'compressed',
         includePaths: [
             'node_modules/include-media/dist/',
+            'node_modules/groundwork/src/sass/',
         ]
     })
     .options({
@@ -21,4 +22,6 @@ mix.sass('resources/sass/app.scss', 'public/css', {
 
 if (!mix.inProduction()) {
     mix.sourceMaps();
+} else {
+    mix.version();
 }

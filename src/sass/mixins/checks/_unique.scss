@@ -1,0 +1,21 @@
+///
+/// Will only select the child if it’s unique.
+///
+/// @alias only
+///
+/// @content
+///
+/// @group Checks
+///
+/// @link http://lukyvj.github.io/family.scss/
+///
+/// @example scss - Make the unique child red colored
+/// ul li {
+///     @include unique() { color: red; }
+/// }
+///
+@mixin unique() {
+    &:only-child {
+        @content;
+    }
+}

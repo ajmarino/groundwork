@@ -1,0 +1,30 @@
+///
+/// Select all odd children between `$first` and `$last`.
+///
+/// @content
+///
+/// @group Checks
+///
+/// @link http://lukyvj.github.io/family.scss/
+///
+/// @param {Number} $first - starting id
+/// @param {Number} $last  - ending id
+///
+/// @example scss - Make the odd items betwen the 3rd and 9th red colored
+/// ul li {
+///     @include odd-between(3, 9) { color: red; }
+/// }
+///
+@mixin odd-between($first, $last) {
+    @if type-of($first) != 'number' or not unitless($first) or $first < 1 {
+        @error "`$first` is not a valid number for `odd-between`", 10;
+    }
+
+    @if type-of($last) != 'number' or not unitless($last) or $last < 1 {
+        @error "`$last` is not a valid number for `odd-between`", 10;
+    }
+
+    &:nth-child(odd):nth-child(n + #{$first}):nth-child(-n + #{$last}) {
+        @content;
+    }
+}

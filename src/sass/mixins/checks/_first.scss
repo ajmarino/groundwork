@@ -1,0 +1,31 @@
+///
+/// Select all children from the first to `$num`.
+///
+/// @content
+///
+/// @group Checks
+///
+/// @link http://lukyvj.github.io/family.scss/
+///
+/// @param {Number} $num - id of the child
+///
+/// @example scss - Make the first 4 items red colored
+/// ul li {
+///     @include first(4) { color: red; }
+/// }
+///
+@mixin first($num) {
+    @if type-of($num) != 'number' or not unitless($num) or $num < 1 {
+        @error "`$num` is not a valid number for `first`";
+    }
+
+    @if $num == 1 {
+        &:first-child {
+            @content;
+        }
+    } @else {
+        &:nth-child(-n + #{$num}) {
+            @content;
+        }
+    }
+}

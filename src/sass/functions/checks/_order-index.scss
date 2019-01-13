@@ -1,0 +1,20 @@
+///
+/// Used by the child-index mixin. It will returned the proper sorted numbers
+/// depending on the `$index` value.
+///
+/// @access private
+///
+/// @content
+///
+/// @group Checks
+///
+/// @link http://lukyvj.github.io/family.scss/
+///
+/// @param {Number} $num - Number of children
+/// @param {Number} $index - Index of the sorting
+///
+///
+@function order-index($i, $index) {
+    @return ($index + $i);
+}
+

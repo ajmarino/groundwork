@@ -1,0 +1,19 @@
+///
+/// Select the first exact child
+///
+/// @content
+///
+/// @group Checks
+///
+/// @link http://lukyvj.github.io/family.scss/
+///
+/// @example scss - Make the first child red colored
+/// ul li {
+///     @include first-child() { color: red; }
+/// }
+///
+@mixin first-child() {
+    &:first-of-type {
+        @content
+    }
+}

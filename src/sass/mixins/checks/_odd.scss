@@ -1,0 +1,19 @@
+///
+/// Select all odd children
+///
+/// @content
+///
+/// @group Checks
+///
+/// @link http://lukyvj.github.io/family.scss/
+///
+/// @example scss - Make the odd children red colored
+/// ul li {
+///     @include odd() { color: red; }
+/// }
+///
+@mixin odd() {
+    &:nth-child(odd) {
+        @content
+    }
+}

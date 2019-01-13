@@ -1,0 +1,25 @@
+///
+/// Select all children from the last to `$num`.
+///
+/// @content
+///
+/// @group Checks
+///
+/// @link http://lukyvj.github.io/family.scss/
+///
+/// @param {Number} $num - id of the child
+///
+/// @example scss - Make the last 4 items red colored
+/// ul li {
+///     @include last(4) { color: red; }
+/// }
+///
+@mixin last($num) {
+    @if type-of($num) != 'number' or not unitless($num) or $num < 1 {
+        @error "`$num` is not a valid number for `last`";
+    }
+
+    &:nth-last-child(-n + #{$num}) {
+        @content;
+    }
+}

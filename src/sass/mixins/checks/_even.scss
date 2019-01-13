@@ -1,0 +1,19 @@
+///
+/// Select all even children
+///
+/// @content
+///
+/// @group Checks
+///
+/// @link http://lukyvj.github.io/family.scss/
+///
+/// @example scss - Make the even children red colored
+/// ul li {
+///     @include even() { color: red; }
+/// }
+///
+@mixin even() {
+    &:nth-child(even) {
+        @content
+    }
+}

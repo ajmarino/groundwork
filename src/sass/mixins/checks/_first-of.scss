@@ -1,0 +1,26 @@
+///
+/// This quantity-query mixin will only select the first of `$limit` items. It will not
+/// work if there is not as much as item as you set in `$limit`.
+///
+/// @content
+///
+/// @group Checks
+///
+/// @link http://lukyvj.github.io/family.scss/
+///
+/// @param {Number} $limit   - items to select
+///
+/// @example scss - Make the first 3 items red colored
+/// ul li {
+///     @include first-of(3) { color: red; }
+/// }
+///
+@mixin first-of($limit) {
+    @if type-of($limit) != 'number' or not unitless($limit) or $limit < 1 {
+        @error "`$limit` is not a valid number for `first-of`", 10;
+    }
+
+    &:nth-last-child(#{$limit}):first-child {
+        @content;
+    }
+}

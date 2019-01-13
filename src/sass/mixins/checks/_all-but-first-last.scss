@@ -1,0 +1,25 @@
+///
+/// Select all children between the `$num` first and the `$num` last.
+///
+/// @content
+///
+/// @group Checks
+///
+/// @link http://lukyvj.github.io/family.scss/
+///
+/// @param {Number} $num   - id of child
+///
+/// @example scss - Make all but the first/last items red colored
+/// ul li {
+///     @include all-but-first-last(3, 9) { color: red; }
+/// }
+///
+@mixin all-but-first-last($num) {
+    @if type-of($num) != 'number' or not unitless($num) or $num < 1 {
+        @error "`$num` is not a valid number for `all-but-first-last`", 10;
+    }
+
+    &:nth-child(n + #{$num}):nth-last-child(n + #{$num}) {
+        @content;
+    }
+}

@@ -21,14 +21,17 @@
     "url": "https://github.com/ajmarino/groundwork/issues"
   },
   "homepage": "https://github.com/ajmarino/groundwork",
-  "dependencies": {
+  "devDependencies": {
     "css-mqpacker": "^7.0.0",
     "include-media": "^1.4.9",
-    "laravel-mix": "^2.0",
-    "laravel-mix-purgecss": "^2.2.0",
-    "tailwindcss": "^0.7.3"
-  },
-  "devDependencies": {
-    "sassdoc": "^2.5.0"
+    "laravel-mix": "^4.0.14",
+    "laravel-mix-purgecss": "^4.0.0",
+    "laravel-mix-tailwind": "^0.1.0",
+    "sass-loader": "^7.1.0",
+    "sass": "^1.15.2",
+    "sassdoc": "^2.5.0",
+    "tailwindcss": "^0.7.3",
+    "vue": "^2.5.22",
+    "vue-template-compiler": "^2.5.22"
   }
 }

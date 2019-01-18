@@ -1,6 +1,6 @@
-var tailwindcss = require('tailwindcss');
 const { mix } = require('laravel-mix');
 require('laravel-mix-purgecss');
+require('laravel-mix-tailwind');
 
 mix.js('resources/js/bootstrap.js', 'public/js/plugins.js')
     .js('resources/js/app.js', 'public/js');
@@ -16,12 +16,22 @@ mix.sass('resources/sass/app.scss', 'public/css', {
         processCssUrls: false,
         postCss: [
             require('css-mqpacker')(),
-            tailwindcss('./tailwind.js')
         ]
-    });
+    })
+    .tailwind();
 
 if (!mix.inProduction()) {
     mix.sourceMaps();
 } else {
-    mix.version();
+    mix.purgeCss({
+            enabled: true,
+
+            globs: [
+                path.join(__dirname, "resources/views/**/*.blade.php"),
+                path.join(__dirname, "resources/assets/js/**/*.vue"),
+            ],
+
+            extensions: ['html', 'js', 'php', 'vue']
+        })
+        .version();
 }

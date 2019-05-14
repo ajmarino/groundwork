@@ -4,9 +4,9 @@
 ////
 
 
-/// 
+///
 /// Pi value used for trig functions
-/// 
+///
 $pi: 3.14159265359 !global;
 
 
@@ -15,23 +15,23 @@ $pi: 3.14159265359 !global;
 
 ///
 /// Raise a number to a specific power
-/// 
+///
 /// @param {Number} $number - base number to raise
 /// @param {Number} $exp    - number of times to multiply base
-/// 
+///
 /// @example scss
 /// // Usage
 /// .foo {
 ///     margin-bottom: pow(2, 2) + 0px;
 /// }
-/// 
+///
 /// .foo {
 ///     margin-bottom: 4px;
 /// }
 ///
 @function pow($number, $exp) {
     $value: 1;
-    
+
     @if $exp > 0 {
         @for $i from 1 through $exp {
             $value: $value * $number;
@@ -50,17 +50,17 @@ $pi: 3.14159265359 !global;
 
 
 
-/// 
+///
 /// Find the factorial of a number, by multipling each number from 1 to the given
-/// 
+///
 /// @param {Number} $number - number to start with
-/// 
+///
 /// @example scss
 /// // Usage
 /// .foo {
 ///     $num: fact(3);
 /// }
-/// 
+///
 /// .foo {
 ///     $num: 6;
 /// }
@@ -82,11 +82,11 @@ $pi: 3.14159265359 !global;
 
 
 
-/// 
+///
 /// Convert an angle to radians
-/// 
+///
 /// @param {Number} $angle - angle to convert
-/// 
+///
 @function rad($angle) {
     $unit: unit($angle);
     $unitless: $angle / ($angle * 0 + 1);
@@ -105,7 +105,7 @@ $pi: 3.14159265359 !global;
 
 ///
 /// Find the sin value of an angle
-/// 
+///
 /// @param {Number} $angle - angle to convert
 ///
 @function sin($angle) {
@@ -126,7 +126,7 @@ $pi: 3.14159265359 !global;
 
 ///
 /// Find the cos value of an angle
-/// 
+///
 /// @param {Number} $angle - angle to convert
 ///
 @function cos($angle) {
@@ -145,10 +145,9 @@ $pi: 3.14159265359 !global;
 
 
 
-
 ///
 /// Find the tan value of an angle
-/// 
+///
 /// @param {Number} $angle - angle to convert
 ///
 @function tan($angle) {
@@ -157,3 +156,21 @@ $pi: 3.14159265359 !global;
 
 
 
+
+
+///
+/// Get the square root of a number
+///
+/// @param {Number} $r - number to get root of
+///
+@function sqrt($r) {
+    $x0: 1;
+    $x1: $x0;
+
+    @for $i from 1 through 10 {
+        $x1: $x0 - ($x0 * $x0 - abs($r)) / (2 * $x0);
+        $x0: $x1;
+    }
+
+    @return $x1;
+}

@@ -87,7 +87,8 @@ It's also recommanded to use _Full URL to Issues_, instead of just Issue ID Numb
 | :book: | `:book:` | when writing **docs** |
 | :label: | `:label:` | when writing **comments** |
 | :art: | `:art:` | when improving the **format**/structure of the code |
-| :tractor: | `:tractor:` | when **change file structure**. Usually together with :art: |
+| :tractor: :truck: | `:tractor: :truck:` | when **change file structure**. Usually together with :art: |
+| :bullettrain_side: | `:bullettrain_side:` | when adding / modifying **the api** |
 | :hammer: | `:hammer:` | when **refactoring** code |
 | :wastebasket: | `:wastebasket:` | when **removing code** or files, _maybe_ with `@CHANGED` Comment Tag |
 | :computer: | `:computer:` | when improving **UI**/Cosmetic |

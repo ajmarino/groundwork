@@ -85,6 +85,7 @@ It's also recommanded to use _Full URL to Issues_, instead of just Issue ID Numb
 | :arrow_down: | `:arrow_down:` | when downgrading **dependencies** / **packages** |
 | :page_facing_up: | `:page_facing_up:` | when creating a **new file** |
 | :book: | `:book:` | when writing **docs** |
+| :books: | `:books:` | when writing **Storybook stories** |
 | :label: | `:label:` | when writing **comments** |
 | :art: | `:art:` | when improving the **format**/structure of the code |
 | :tractor: :truck: | `:tractor: :truck:` | when **change file structure**. Usually together with :art: |
